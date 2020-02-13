@@ -76,12 +76,13 @@ a {
 input {
   font-size: 1.2rem;
 }
-/* 
+
 .container {
   width: 900px;
   margin: auto;
-  margin-top: 50px
-} */
+  margin-top: 50px;
+  margin-left: 20px;
+}
 
 ul {
   padding-left: 20px;
@@ -99,5 +100,5 @@ ul {
 #character-content{
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-gap: 10px
+  grid-gap: 10px;
 }
