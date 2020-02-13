@@ -8,7 +8,7 @@ class Api::V1::CharactersController < ApplicationController
 
   def show
     @character = Character.find(params[:id])
-    render json: @character, status: 200 
+    render json: @character
   end
   
   def create 
