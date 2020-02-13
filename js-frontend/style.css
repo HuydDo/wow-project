@@ -67,3 +67,37 @@ button.release {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+
+/* For wow project */
+a {
+  color: turquoise;
+}
+
+input {
+  font-size: 1.2rem;
+}
+/* 
+.container {
+  width: 900px;
+  margin: auto;
+  margin-top: 50px
+} */
+
+ul {
+  padding-left: 20px;
+}
+
+.delete-character-link {
+  color: red;
+}
+
+#editable {
+  border: 1px solid black;
+  padding: 20 px;
+}
+
+#character-content{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 10px
+}
