@@ -1,5 +1,6 @@
 
 function getSelectVal(){
+  
   let selectElem = document.getElementById("myGender");
   console.log(selectElem)
   document.getElementById("gender").value = selectElem.options[selectElem.selectedIndex].text;
