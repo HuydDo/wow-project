@@ -10,4 +10,4 @@ function getSelectVal(){
   // })
 }
 
-const app = new ApplicationCache()
+const app = new App()
