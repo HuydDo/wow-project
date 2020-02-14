@@ -4,13 +4,16 @@ class Characters{
     this.adapter = new Adapter()
     // this.bindEvenListeners()
     this.fetchAndLoadCharacters()
-    this.fetchAndLoadPlayers()
+    // this.fetchAndLoadPlayers()
   }
 
   fetchAndLoadCharacters(){
     this.adapter.getCharacters()
+    
     .then(characters => {
-      characters.forEach(character => this.characters.push(character))
+      characters.forEach(character => this.characters.push(new Character(character)))
+      console.log(this.characters)
+      
     })
     .then(() => {
       this.render()
@@ -24,7 +27,9 @@ class Characters{
   // }
 
   render(){
+    const charactersArray = this.characters.map(character => `<li>${character.gender}</li>`)
+    console.log(charactersArray)
     const charactersContainer = document.getElementById('characters-container')
-    charactersContainer.innerHTML = 'my char here'
+    // charactersContainer.innerHTML =  
   }
 }
