@@ -9,3 +9,5 @@ function getSelectVal(){
   //   pElem.innerHTML = index
   // })
 }
+
+const app = new ApplicationCache()

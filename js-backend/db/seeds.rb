@@ -48,18 +48,18 @@ require 'rest-client'
 
 # access_token = curl -u {5812eedc42df48bcb7321ec72444b30a}:{NoQZtTr7zX30Qvb0Uf39dyqn6eVt2FOX} -d grant_type=client_credentials https://us.battle.net/oauth/token
 # curl -H "Authorization: Bearer {access_token}" https://us.api.blizzard.com/data/wow/token/?namespace=dynamic-us
-rm = RestClient.get 'https://us.api.blizzard.com/data/wow/playable-class/index?namespace=static-us&locale=en_US&access_token=USzm68qNrGH32j4YDtZn7bnsiaSXhj2YZJ'
-byebug
-rm_array = JSON.parse(rm)["class"]
-rm_array.each do |character|
-  name = Faker::Name.first_name
-  Character.create(
-  name: name,
-  gender: 'Male',
-  race: 'Night Elf',
-  character_class: character[“name”],
-  )
- end
+# rm = RestClient.get 'https://us.api.blizzard.com/data/wow/playable-class/index?namespace=static-us&locale=en_US&access_token=USzm68qNrGH32j4YDtZn7bnsiaSXhj2YZJ'
+# byebug
+# rm_array = JSON.parse(rm)["class"]
+# rm_array.each do |character|
+#   name = Faker::Name.first_name
+#   Character.create(
+#   name: name,
+#   gender: 'Male',
+#   race: 'Night Elf',
+#   character_class: character[“name”],
+#   )
+#  end
 
 
 Player.delete_all
