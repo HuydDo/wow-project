@@ -6,17 +6,8 @@
     <link rel="stylesheet" href="styles.css">
   </head>
 
-  <script>
-    function gender(){
-      let selectElem = document.getElementById("myGender");
-      // document.getElementById("gender").value = selectElem.options[mygender.selectedIndex].text;
-      let pElem = document.getElementById('gender')
-      selectElm.addEventListener('change', function() {
-        let index = selectElem.selectedIndex;
-        pElem.innerHTML = index
-      })
-    }
-  </script>
+
+
 
   <body>
     <header>
@@ -27,7 +18,7 @@
       <div class="container">
         <form id="new-character-form">
           Gender:
-          <select id="myGender" onchange = "gender()">
+          <select id="myGender" onchange="getSelectVal()">
             <option>Male</option>
             <option>Female</option>
           </select>
