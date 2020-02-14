@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="styles.css">
   </head>
 
-
-
-
   <body>
     <header>
       <h2>World Of Warcraft</h2>
@@ -16,43 +13,45 @@
 
     <main>
       <div class="container">
-        <form id="new-character-form">
-          Gender:
-          <select id="myGender" onchange="getSelectVal()">
-            <option>Male</option>
-            <option>Female</option>
-          </select>
-          <p>Your character gender is: <input type="text" id="gender" size="8"></p>
-          Name:
-          <input type="text" />
-          Race:
-          <select id="myRace" onchange = "race()">
-            <option>Night Elf</option>
-            <option>Human</option>
-          </select>
-          Class:
-          <select id="myClass" onchange = "myClass()">
-            <option>Demon Hunter</option>
-            <option>Warrior</option>
-          </select>
-          <br></br>
-          Login:
+        <div id="new-character-container">
+          <form id="new-character-form">
+            Gender:
+            <select id="myGender" onchange="getSelectVal()">
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+            <p>Your character gender is: <input type="text" id="gender" size="8"></p>
+            Name:
             <input type="text" />
-            <input type="submit" />
-          <br><br>
-          Register:
-            <input type="text" />
-            <input type="submit" />
-          </form>
-        <div id="characters-container">
+            Race:
+            <select id="myRace" onchange = "race()">
+              <option>Night Elf</option>
+              <option>Human</option>
+            </select>
+            Class:
+            <select id="myClass" onchange = "myClass()">
+              <option>Demon Hunter</option>
+              <option>Warrior</option>
+            </select>
+            <br></br>
+            Login:
+              <input type="text" />
+              <input type="submit" />
+            <br><br>
+            Register:
+              <input type="text" />
+              <input type="submit" />
+            </form>
+          </div>
+          <div id="characters-container">
 
+          </div>
         </div>
-      </div>
     </main>
 
-    <script src="./src/index.js"></script>
-    <script src="./src/adapters/CharactersAdapter.js"></script>
+    <script src="./src/adapters/adapter.js"></script>
     <script src="./src/components/app.js"></script>
     <script src="./src/components/characters.js"></script>
+    <script src="./src/index.js"></script>
   </body>
 </html>
