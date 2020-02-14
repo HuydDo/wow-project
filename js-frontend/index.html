@@ -5,6 +5,19 @@
     <title>World Of Warcraft</title>
     <link rel="stylesheet" href="styles.css">
   </head>
+
+  <script>
+    function gender(){
+      let selectElem = document.getElementById("myGender");
+      // document.getElementById("gender").value = selectElem.options[mygender.selectedIndex].text;
+      let pElem = document.getElementById('gender')
+      selectElm.addEventListener('change', function() {
+        let index = selectElem.selectedIndex;
+        pElem.innerHTML = index
+      })
+    }
+  </script>
+
   <body>
     <header>
       <h2>World Of Warcraft App</h2>
@@ -13,21 +26,39 @@
     <main>
       <div class="container">
         <form id="new-character-form">
-          <h3>Login:
+          Gender:
+          <select id="myGender" onchange = "gender()">
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+          <p>Your character gender is: <input type="text" id="gender" size="8"></p>
+          Name:
+          <input type="text" />
+          Race:
+          <select id="myRace" onchange = "race()">
+            <option>Night Elf</option>
+            <option>Human</option>
+          </select>
+          Class:
+          <select id="myClass" onchange = "myClass()">
+            <option>Demon Hunter</option>
+            <option>Warrior</option>
+          </select>
+          <br></br>
+          Login:
             <input type="text" />
             <input type="submit" />
-          </h3>
-          <h3>Register:
+          <br><br>
+          Register:
             <input type="text" />
             <input type="submit" />
-          </h3>
-        </form>
+          </form>
         <div id="characters-container">
 
         </div>
       </div>
     </main>
 
-    <!-- <script src="./src/index.js"></script> -->
+    <script src="./src/index.js"></script>
   </body>
 </html>
