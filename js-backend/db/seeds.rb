@@ -64,7 +64,7 @@ Player.create([{name: 'Aladea'},{name: 'Niterider'},{name: 'Moon'}])
 
 
 Character.create([
-  {gender: 'Female', name: 'Aladea', race: 'Night Elf', character_class: 'Demon Hunter', player_id: 19},
-  {gender: 'Male', name: 'Niterider', race: 'Night Elf', character_class: 'Warrior', player_id: 19},
-  {gender: 'Female', name: 'Moon', race: 'Void Elf', character_class: 'Warlock', player_id: 19}
+  {gender: 'Female', name: 'Aladea', race: 'Night Elf', character_class: 'Demon Hunter', player_id: Player.all[0].id},
+  {gender: 'Male', name: 'Niterider', race: 'Night Elf', character_class: 'Warrior', player_id: Player.all[1].id},
+  {gender: 'Female', name: 'Moon', race: 'Void Elf', character_class: 'Warlock', player_id: Player.all[2].id}
 ])
