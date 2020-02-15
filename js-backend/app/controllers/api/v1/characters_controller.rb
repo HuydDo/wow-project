@@ -2,13 +2,18 @@ require 'faker'
 
 class Api::V1::CharactersController < ApplicationController
   def index
-    @characters = Character.all
-    render json: @characters
+    characters = Character.all
+    render json: characters
   end
 
   def show
-    @character = Character.find(params[:id])
-    render json: @character
+    character = Character.find(params[:id])
+    # render json: {id: character.id, player: character.player}
+    if character
+      render json: character, include: [:player]
+    else
+      render json: {message: 'No character found with that id'}
+    end
   end
   
   def create 
