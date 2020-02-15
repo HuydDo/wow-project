@@ -32,6 +32,6 @@ class Characters{
 
   render(){
     this.charactersContainer.innerHTML =  this.characters.map(character => 
-      `<li>${character.gender} ${character.name} ${character.race} ${character.character_class}</li>`).join('')
+      character.renderLi()).join('')
   }
 }
