@@ -4,7 +4,6 @@ class Characters{
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
     this.fetchAndLoadCharacters()
-    // this.fetchAndLoadPlayers()
   }
 
   initBindingAndEvenListeners(){
@@ -23,12 +22,7 @@ class Characters{
     })
   }
 
-  // fetchAndLoadPlayers(){
-  //   this.adapter.getPlayers().then(players => {
-  //    
-  //  console.log(players)
-  //   })
-  // }
+ 
 
   render(){
     this.charactersContainer.innerHTML =  this.characters.map(character => 

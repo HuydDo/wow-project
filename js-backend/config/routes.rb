@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :characters
-      resources :players
+      # resources :players
+      resources :players, only: [:index, :show]
+      # get '/players' => 'players#index'
     end
   end
 end

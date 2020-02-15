@@ -10,7 +10,12 @@ class Api::V1::CharactersController < ApplicationController
     character = Character.find(params[:id])
     # render json: {id: character.id, player: character.player}
     if character
-      render json: character, include: [:player]
+      # render json: character, include: [:player]
+
+      render json: character.to_json(:include => {
+        :player => {:only => [:name]}
+        
+      }, :except => [:updated_at])
     else
       render json: {message: 'No character found with that id'}
     end
