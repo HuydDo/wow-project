@@ -12,21 +12,22 @@ class Api::V1::CharactersController < ApplicationController
   end
   
   def create 
-    @character = Character.create(character_params)
-    render json: @character, status: 200 
+    player = Player.find(params[:player_id])
+    character = player.characters.create(character_params)
+    # @character = Character.create(character_params)
+    render json: character
   end
   
-  def update
-    @character = Character.find(params[:id])
-    @character.udpate(character_params)
-    render json: @character, status: 200 
-  end
+  # def update
+  #   @character = Character.find(params[:id])
+  #   @character.udpate(character_params)
+  #   render json: @character
   
-  def destroy
-    @character = Character.find(params[:id])
-    @character.delete
-    render json: {characterId: character.id}
-  end
+  # def destroy
+  #   @character = Character.find(params[:id])
+  #   @character.delete
+  #   render json: {characterId: character.id}
+  # end
 
 
   private

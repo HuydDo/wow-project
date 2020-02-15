@@ -2,17 +2,20 @@ class Characters{
   constructor() {
     this.characters = []
     this.adapter = new Adapter()
-    // this.bindEvenListeners()
+    this.initBindingAndEvenListeners()
     this.fetchAndLoadCharacters()
     // this.fetchAndLoadPlayers()
   }
 
+  initBindingAndEvenListeners(){
+    this.charactersContainer = document.getElementById('characters-container')
+  }
+
   fetchAndLoadCharacters(){
     this.adapter.getCharacters()
-    
     .then(characters => {
       characters.forEach(character => this.characters.push(new Character(character)))
-      console.log(this.characters)
+      // console.log(this.characters)
       
     })
     .then(() => {
@@ -22,14 +25,13 @@ class Characters{
 
   // fetchAndLoadPlayers(){
   //   this.adapter.getPlayers().then(players => {
-  //     console.log(players)
+  //    
+  //  console.log(players)
   //   })
   // }
 
   render(){
-    const charactersArray = this.characters.map(character => `<li>${character.gender}</li>`)
-    console.log(charactersArray)
-    const charactersContainer = document.getElementById('characters-container')
-    // charactersContainer.innerHTML =  
+    this.charactersContainer.innerHTML =  this.characters.map(character => 
+      `<li>${character.gender} ${character.name} ${character.race} ${character.character_class}</li>`).join('')
   }
 }

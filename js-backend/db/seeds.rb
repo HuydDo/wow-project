@@ -60,7 +60,7 @@ Character.delete_all
 
 
 
-Player.create([{name: 'Aladea'},{name: 'Niterider'},{name: 'Moon'}])
+Player.create([{name: 'Sonny'},{name: 'Vick'},{name: 'Marry'}])
 
 
 Character.create([
