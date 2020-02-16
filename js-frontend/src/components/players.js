@@ -34,19 +34,23 @@ class Players{
     this.players.forEach(e => {
       this.playerNames.push(e.name)
     })
-    console.log(this.playerNames)
+    // console.log(this.playerNames)
     renderDropdown("#myPlayer", this.playerNames)
+    // debugger
+    // let selectElem = document.getElementById("playerName")
+    // selectElem.addEventListener('change', function() {
+
+    //   let index = selectElem.selectedIndex
+    //   console.log('selectedIndex:' + index)
+    // })
+    
   }
   
-  // renderDropdown(tagId,arr) {
-  //   let div = document.querySelector(tagId),
-  //   frag = document.createDocumentFragment(),
-  //   select = document.createElement("select")
-  
-  //   arr.forEach(e => select.options.add(new Option(e)))
-  //   frag.appendChild(select)
-  //   div.appendChild(frag)
-  // }
+  searchPlayerName(e){
+    e.preventDefault()
+    document.querySelector('playerName')
+  }
+ 
   
  
 }

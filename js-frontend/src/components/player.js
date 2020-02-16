@@ -17,8 +17,12 @@ class Player{
   renderDropdown(tagId,arr) {
     let div = document.querySelector(tagId),
     frag = document.createDocumentFragment(),
-    select = document.createElement("select")
-  
+    // select = document.createElement("select")
+    select = document.createElement("select", {"id":"playerName"})
+    // select.setAttribute("id", "playerName")
+    // select.id = "playerName"
+    // debugger
+    // console.log(select.id)
     arr.forEach(e => select.options.add(new Option(e)))
     frag.appendChild(select)
     div.appendChild(frag)

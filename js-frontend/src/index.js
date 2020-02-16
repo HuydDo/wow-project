@@ -7,7 +7,7 @@ function renderDropdown(tagId,arr) {
   let div = document.querySelector(tagId),
   frag = document.createDocumentFragment(),
   select = document.createElement("select")
-
+  
   arr.forEach(e => select.options.add(new Option(e)))
   frag.appendChild(select)
   div.appendChild(frag)
