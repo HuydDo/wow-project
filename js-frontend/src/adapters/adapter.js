@@ -10,8 +10,9 @@ class Adapter {
   }
 
 
-  getCharacters() {
-    return fetch(this.charactersUrl).then(res => res.json())
+  async getCharacters() {
+    const res = await fetch(this.charactersUrl)
+    return await res.json()
   }
 
   getPlayers() {
@@ -19,7 +20,6 @@ class Adapter {
   }
 
   createCharacter(value){
-    console.log('createCharacter in adapter.js was called')
     const character = {
       gender: 'male',
       name: value,
