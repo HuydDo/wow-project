@@ -8,6 +8,16 @@ class Characters{
 
   initBindingAndEvenListeners(){
     this.charactersContainer = document.getElementById('characters-container')
+    this.newCharacterBody = document.getElementById('new-character-body')
+    this.characterForm = document.getElementById('new-character-form')
+    this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
+  }
+
+  createCharacter(e) {
+    // console.log(this)
+    e.preventDefault()
+    const value = (this.newCharacterBody.value)
+    this.adapter.createCharacter(value)
   }
 
   fetchAndLoadCharacters(){

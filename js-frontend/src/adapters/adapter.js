@@ -17,4 +17,10 @@ class Adapter {
   getPlayers() {
     return fetch(this.playersUrl).then(res => res.json())
   }
+
+  createCharacter(value){
+    return fetch(this.charactersUrl)
+
+  }
+
 }
