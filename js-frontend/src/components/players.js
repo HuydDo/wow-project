@@ -6,10 +6,15 @@ class Players{
     this.initBindingAndEvenListeners()
     this.fetchAndLoadPlayers()
   }
-
+  // <input type="text" name="player-body" id="new-player-body"></input>
   initBindingAndEvenListeners(){
     this.playersContainer = document.getElementById('players-container')
+    this.newPlayerBody = document.getElementById('new-player-body')
+    this.characterForm = document.getElementById('new-player-form')
+
     this.playersMyPlayer = document.getElementById('myPlayer')
+    this.characterForm.addEventListener('submit', this.displayPlayerCharacters.bind(this))
+
   }
 
   fetchAndLoadPlayers(){
@@ -46,11 +51,13 @@ class Players{
     
   }
   
-  searchPlayerName(e){
+  displayPlayerCharacters(e){
+    // console.log(this)
     e.preventDefault()
-    document.querySelector('playerName')
-  }
- 
+    const value = (this.newPlayerBody.value)
+    this.adapter.getPlayer(value).then(player => console.log(player)
+    )
+  } 
   
  
 }
