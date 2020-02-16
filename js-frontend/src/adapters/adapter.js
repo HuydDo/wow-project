@@ -19,7 +19,22 @@ class Adapter {
   }
 
   createCharacter(value){
-    return fetch(this.charactersUrl)
+    console.log('createCharacter in adapter.js was called')
+    const character = {
+      gender: 'male',
+      name: value,
+      race: 'Human',
+      character_class: 'Hunter',
+      player_id : 1
+    }
+    // debugger
+    return fetch(this.charactersUrl,{
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({character})
+    }).then(res => res.json())
 
   }
 

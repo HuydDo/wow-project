@@ -15,9 +15,14 @@ class Characters{
 
   createCharacter(e) {
     // console.log(this)
+    console.log('createCharacter in characters.js was called')
     e.preventDefault()
     const value = (this.newCharacterBody.value)
-    this.adapter.createCharacter(value)
+    this.adapter.createCharacter(value).then(character => {
+      this.characters.push(new Character(character))
+      this.newCharacterBody.value = ''
+      // this.render()
+    })
   }
 
   fetchAndLoadCharacters(){
@@ -32,9 +37,8 @@ class Characters{
     })
   }
 
- 
-
   render(){
+    console.log("render method was called")
     this.charactersContainer.innerHTML =  this.characters.map(character => 
       character.renderLi()).join('')
   }

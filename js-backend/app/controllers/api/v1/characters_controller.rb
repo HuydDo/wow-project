@@ -1,4 +1,5 @@
 require 'faker'
+require 'pry'
 
 class Api::V1::CharactersController < ApplicationController
   def index
@@ -22,9 +23,11 @@ class Api::V1::CharactersController < ApplicationController
   end
   
   def create 
-    player = Player.find(params[:player_id])
-    character = player.characters.create(character_params)
-    # @character = Character.create(character_params)
+    # binding.pry
+    # player = Player.find(params[:player_id])
+    # character = player.characters.create(character_params)
+    # character = Character.find(params[:player_id])
+    character = Character.create(character_params)
     render json: character
   end
   
@@ -42,6 +45,6 @@ class Api::V1::CharactersController < ApplicationController
 
   private
   def character_params
-    params.require(:character).permit(:gender, :name, :class, :race)
+    params.require(:character).permit(:gender, :name, :race, :character_class, :player_id)
   end
 end
