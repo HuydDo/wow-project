@@ -23,7 +23,7 @@ class Players{
       this.renderPlayerNames()
     })
   }
-
+//get the index from player dropdown list and render that player's character(s)
   render(){
     this.playersContainer.innerHTML =  this.players.map(player => 
       player.renderLi()).join('')
