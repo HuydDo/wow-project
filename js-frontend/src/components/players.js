@@ -20,7 +20,7 @@ class Players{
     })
     .then(() => {
       this.render()
-      this.renderPlayerName()
+      this.renderPlayerNames()
     })
   }
 
@@ -30,25 +30,23 @@ class Players{
   }
 
  
-  renderPlayerName(){
-    
+  renderPlayerNames(){
     this.players.forEach(e => {
       this.playerNames.push(e.name)
     })
     console.log(this.playerNames)
     renderDropdown("#myPlayer", this.playerNames)
-    // return `Player Name: ${playerNames}`
   }
   
-renderDropdown(tagId,arr) {
-    let div = document.querySelector(tagId),
-    frag = document.createDocumentFragment(),
-    select = document.createElement("select")
+  // renderDropdown(tagId,arr) {
+  //   let div = document.querySelector(tagId),
+  //   frag = document.createDocumentFragment(),
+  //   select = document.createElement("select")
   
-    arr.forEach(e => select.options.add(new Option(e)))
-    frag.appendChild(select)
-    div.appendChild(frag)
-  }
+  //   arr.forEach(e => select.options.add(new Option(e)))
+  //   frag.appendChild(select)
+  //   div.appendChild(frag)
+  // }
   
  
 }
