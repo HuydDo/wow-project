@@ -25,29 +25,27 @@ class Players{
       //  console.log(this.players)
     })
     .then(() => {
-      console.log(value)
-    let filteredPlayer =  this.filteredPlayer(value)
-    //  let filteredPlayer =  this.exactMatch(this.newPlayerBody.value)
+      // console.log(value)
+    let filteredPlayer =  this.filteredPlayer()
+    // let filteredPlayer =  this.exactMatch()
     
-    console.log('this.player after:' + filteredPlayer)
-      // this.exactMatch()
+    // console.log('this.player after:' + filteredPlayer)
+     // this.exactMatch()
     this.newPlayerBody.value =''  
     this.render(filteredPlayer)
       //   this.renderPlayerNames()
-     })
+    })
   }
 
-  filteredPlayer(value) {
-    return this.players.filter(player =>{
-      console.log('this.players before:' +this.players)
-      // console.log(`Input: ${value} Player Name: ${player.name.toLowerCase()}`)
-      return player.name.toLowerCase().includes(value.toLowerCase())
-    }
+  filteredPlayer() {
+    return this.players.filter(player =>     
+      player.name.toLowerCase().includes(this.newPlayerBody.value.toLowerCase())
     );
   }
-  exactMatch(value) {
-    return this.filteredPlayer(value).find(
-      player => player.name.toLowerCase() === value.toLowerCase()
+
+  exactMatch() {
+    return this.filteredPlayer().find(
+      player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
     );
   }
 
