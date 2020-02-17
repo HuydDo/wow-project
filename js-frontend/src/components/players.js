@@ -4,31 +4,41 @@ class Players{
     this.playerNames= []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
-    this.fetchAndLoadPlayers()
+    // this.fetchAndLoadPlayers()
   }
   // <input type="text" name="player-body" id="new-player-body"></input>
   initBindingAndEvenListeners(){
     this.playersContainer = document.getElementById('players-container')
     this.newPlayerBody = document.getElementById('new-player-body')
     this.characterForm = document.getElementById('new-player-form')
-
-    this.playersMyPlayer = document.getElementById('myPlayer')
-    this.characterForm.addEventListener('submit', this.displayPlayerCharacters.bind(this))
-
+    this.characterForm.addEventListener('submit', this.fetchAndLoadPlayers.bind(this))
   }
 
-  fetchAndLoadPlayers(){
+  fetchAndLoadPlayers(e){
+    e.preventDefault()
+    const value = (this.newPlayerBody.value)
+    console.log(value)
     this.adapter.getPlayers()
-    .then(players => {
-      players.forEach(player => this.players.push(new Player(player)))
-      console.log(this.players)
-    })
+    .then(players => 
+      players.forEach(player =>  {
+        // console.log(player.name)
+        if (player.name == value){
+          this.players.push(new Player(player))
+          this.newPlayerBody = ''
+        }
+        // else 
+          // console.log('player is not found')
+          // return
+        // end
+      })
+      // console.log(this.players)
+    )
     .then(() => {
       this.render()
-      this.renderPlayerNames()
+      // this.renderPlayerNames()
     })
   }
-//get the index from player dropdown list and render that player's character(s)
+
   render(){
     this.playersContainer.innerHTML =  this.players.map(player => 
       player.renderLi()).join('')
@@ -51,13 +61,4 @@ class Players{
     
   }
   
-  displayPlayerCharacters(e){
-    // console.log(this)
-    e.preventDefault()
-    const value = (this.newPlayerBody.value)
-    this.adapter.getPlayer(value).then(player => console.log(player)
-    )
-  } 
-  
- 
 }

@@ -15,8 +15,8 @@ class Api::V1::PlayersController < ApplicationController
     if player
       # render json: sighting.to_json(include: [:bird, :location])
       render json: player.to_json(:include => {
-    :characters => {:only => [:gender, :name, :race, :character_class, :player_id]}
-  }, :except => [:created_at, :updated_at])
+      :characters => {:only => [:gender, :name, :race, :character_class, :player_id]}
+      }, :except => [:created_at, :updated_at])
     else
       render json: { message: 'No player found with that id' }
     end

@@ -38,19 +38,19 @@ class Adapter {
 
   }
 
-  getPlayer(value){
-    const player = {
-      name: value,
-    }
-    // debugger
-    return fetch(this.playersUrl,{
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({player})
-    }).then(res => res.json())
+  // getPlayer(value){
+  //   const player = {
+  //     name: value
+  //   }
+  //   // debugger
+  //   return fetch(this.playersUrl,{
+  //     method: 'POST',
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     },
+  //     body: JSON.stringify({player})
+  //   }).then(res => res.json())
 
-  }
+  // }
 
 }

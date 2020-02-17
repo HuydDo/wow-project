@@ -5,7 +5,7 @@ class Player{
     this.characters = playerJSON.characters
   }
 
-  renderLi(i=0){
+  renderLi(){
     let playerCharacters = []
     this.characters.forEach(c => {
       playerCharacters.push(`<li>Character: ${c.gender}, ${c.name}, ${c.race}, ${c.character_class} </li>`)
