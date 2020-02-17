@@ -1,6 +1,6 @@
 class Players{
   constructor() {
-    this.players = []
+    // this.players = []
     this.playerNames= []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
@@ -15,48 +15,39 @@ class Players{
   }
 
   fetchAndLoadPlayers(e){
+    this.players = []
     e.preventDefault()
-    const value = (this.newPlayerBody.value)
-    console.log(value)
+    const value = this.newPlayerBody.value
+    // console.log(value)
     this.adapter.getPlayers()
     .then(players => {
-      // console.log(players)
-      //  let filteredData = players.find(player => player.name.toLowerCase()===value.toLowerCase())
-      //  console.log(filteredData)
-       players.forEach(player =>  {
-        // console.log(player.name)
-        // if (player.name == value){
-          this.players.push(new Player(player))
-          this.newPlayerBody = ''
-          // this.exactMatch()
-          // this.render()
-        // }
-        // else 
-          // console.log('player is not found')
-          // return
-        // end
-       })
+        players.forEach(player => this.players.push(new Player(player)))
       //  console.log(this.players)
     })
-     .then(() => {
-     let filteredPlayer =  this.filteredPlayer(value)
-     console.log(filteredPlayer)
+    .then(() => {
+      console.log(value)
+    let filteredPlayer =  this.filteredPlayer(value)
+    //  let filteredPlayer =  this.exactMatch(this.newPlayerBody.value)
+    
+    console.log('this.player after:' + filteredPlayer)
       // this.exactMatch()
-      this.render(filteredPlayer)
+    this.newPlayerBody.value =''  
+    this.render(filteredPlayer)
       //   this.renderPlayerNames()
      })
   }
 
   filteredPlayer(value) {
-    const val = value
-    return this.players.filter(player =>
-      // console.log(`Input: ${val} Player Name: ${player.name.toLowerCase()}`)
-      player.name.toLowerCase().includes(value.toLowerCase())
+    return this.players.filter(player =>{
+      console.log('this.players before:' +this.players)
+      // console.log(`Input: ${value} Player Name: ${player.name.toLowerCase()}`)
+      return player.name.toLowerCase().includes(value.toLowerCase())
+    }
     );
   }
-  exactMatch() {
-    return this.filteredPlayer.find(
-      player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
+  exactMatch(value) {
+    return this.filteredPlayer(value).find(
+      player => player.name.toLowerCase() === value.toLowerCase()
     );
   }
 
@@ -66,11 +57,6 @@ class Players{
   }
 
 
-
-
-
-
-
  
   renderPlayerNames(){
     this.players.forEach(e => {
@@ -78,14 +64,6 @@ class Players{
     })
     // console.log(this.playerNames)
     renderDropdown("#myPlayer", this.playerNames)
-    // debugger
-    // let selectElem = document.getElementById("playerName")
-    // selectElem.addEventListener('change', function() {
-
-    //   let index = selectElem.selectedIndex
-    //   console.log('selectedIndex:' + index)
-    // })
-    
   }
   
 }

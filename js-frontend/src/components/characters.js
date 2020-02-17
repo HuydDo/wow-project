@@ -16,7 +16,7 @@ class Characters{
   createCharacter(e) {
     // console.log(this)
     e.preventDefault()
-    const value = (this.newCharacterBody.value)
+    const value = this.newCharacterBody.value
     this.adapter.createCharacter(value).then(character => {
       this.characters.push(new Character(character))
       this.newCharacterBody.value = ''
@@ -29,7 +29,6 @@ class Characters{
     .then(characters => {
       characters.forEach(character => this.characters.push(new Character(character)))
       // console.log(this.characters)
-      
     })
     .then(() => {
       this.render()
