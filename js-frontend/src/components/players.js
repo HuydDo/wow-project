@@ -45,8 +45,9 @@ class Players{
   }
 
   render(player){
+    console.log(player)
     this.playersContainer.innerHTML =  player.map(player => 
-      player.renderLi()).join('')
+      player.renderLi())
   }
  
   renderPlayerNames(){

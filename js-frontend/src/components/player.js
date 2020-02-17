@@ -7,11 +7,13 @@ class Player{
 
   renderLi(){
     let playerCharacters = []
+    
     this.characters.forEach(c => {
-      playerCharacters.push(`<li>Character: ${c.gender}, ${c.name}, ${c.race}, ${c.character_class} </li>`)
+      playerCharacters.push(`<li>Character: ${c.gender} ${c.name} ${c.race} ${c.character_class} </li>`)
     })
-    // console.log(this.player_characters)
-    return `Player: ${this.name} ${playerCharacters}`
+    
+    playerCharacters.unshift(`<li>Player: ${this.name}</li>`)
+    return playerCharacters.join('')
   }
 
   renderDropdown(tagId,arr) {
