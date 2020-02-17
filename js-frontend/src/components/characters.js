@@ -25,9 +25,11 @@ class Characters{
     const gender = this.selectGender.value
     const name = this.newCharacterBody.value
     const race = this.selectRace.value
-    const charClass = this.selectClass.value
-
-    this.adapter.createCharacter(gender,name,race,charClass,1).then(character => {
+    const character_class = this.selectClass.value
+    // console.log(`class: ${character_class}`)
+    this.adapter.createCharacter(gender, name, race, character_class, 1).then(character => {
+      console.log(character)
+      // debugger
       this.characters.push(new Character(character))
       this.newCharacterBody.value = ''
       // this.render()
@@ -42,8 +44,8 @@ class Characters{
     })
     .then(() => {
       this.render()
-      console.log(`name: ${this.newCharacterBody.value}, gender: ${this.selectGender.value}
-      race: ${this.selectRace.value}, class: ${this.selectClass.value}`)
+      // console.log(`name: ${this.newCharacterBody.value}, gender: ${this.selectGender.value}
+      // race: ${this.selectRace.value}, class: ${this.selectClass.value}`)
 
     })
   }

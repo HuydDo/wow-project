@@ -19,15 +19,16 @@ class Adapter {
   }
 
   
-  createCharacter(gender, name, race, charClass, player_id=1){
+  createCharacter(gender, name, race, character_class, player_id=1){
     const character = {
       gender: gender,
       name: name,
       race: race,
-      charClass: charClass,
+      character_class: character_class,
       player_id : player_id
     }
-    // debugger
+    // console.log(`class: ${character_class}`)
+
     return fetch(this.charactersUrl,{
       method: 'POST',
       headers: {
