@@ -65,6 +65,7 @@ Player.create([{name: 'James'},{name: 'Jack'},{name: 'Marry'}])
 
 Character.create([
   {gender: 'Female', name: 'Aladea', race: 'Night Elf', character_class: 'Demon Hunter', player_id: Player.all[0].id},
+  {gender: 'Female', name: 'Ocean', race: 'Night Elf', character_class: 'Priest', player_id: Player.all[0].id},
   {gender: 'Male', name: 'Niterider', race: 'Night Elf', character_class: 'Warrior', player_id: Player.all[1].id},
   {gender: 'Female', name: 'Moon', race: 'Void Elf', character_class: 'Warlock', player_id: Player.all[2].id}
 ])

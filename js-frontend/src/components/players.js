@@ -20,30 +20,56 @@ class Players{
     console.log(value)
     this.adapter.getPlayers()
     .then(players => {
+      // console.log(players)
+      //  let filteredData = players.find(player => player.name.toLowerCase()===value.toLowerCase())
+      //  console.log(filteredData)
        players.forEach(player =>  {
         // console.log(player.name)
-        if (player.name == value){
+        // if (player.name == value){
           this.players.push(new Player(player))
           this.newPlayerBody = ''
-          this.render()
-        }
+          // this.exactMatch()
+          // this.render()
+        // }
         // else 
           // console.log('player is not found')
           // return
         // end
        })
-       console.log(this.players)
+      //  console.log(this.players)
     })
-    // .then(() => {
-    //   this.render()
-    //   // this.renderPlayerNames()
-    // })
+     .then(() => {
+     let filteredPlayer =  this.filteredPlayer(value)
+     console.log(filteredPlayer)
+      // this.exactMatch()
+      this.render(filteredPlayer)
+      //   this.renderPlayerNames()
+     })
   }
 
-  render(){
-    this.playersContainer.innerHTML =  this.players.map(player => 
+  filteredPlayer(value) {
+    const val = value
+    return this.players.filter(player =>
+      // console.log(`Input: ${val} Player Name: ${player.name.toLowerCase()}`)
+      player.name.toLowerCase().includes(value.toLowerCase())
+    );
+  }
+  exactMatch() {
+    return this.filteredPlayer.find(
+      player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
+    );
+  }
+
+  render(player){
+    this.playersContainer.innerHTML =  player.map(player => 
       player.renderLi()).join('')
   }
+
+
+
+
+
+
 
  
   renderPlayerNames(){
