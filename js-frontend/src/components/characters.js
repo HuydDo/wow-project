@@ -28,7 +28,7 @@ class Characters{
     this.adapter.getCharacters()
     .then(characters => {
       characters.forEach(character => this.characters.push(new Character(character)))
-      // console.log(this.characters)
+      console.log(this.characters)
     })
     .then(() => {
       this.render()
