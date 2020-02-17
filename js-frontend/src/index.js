@@ -16,6 +16,6 @@ function renderDropdown(tagId, arr, dropdownId) {
 
 renderDropdown("#myGender", genders, "gender")
 renderDropdown("#myRace", races, "race")
-renderDropdown("#myClass", classes, "class")
+renderDropdown("#myClass", classes, "charClass")
 
 const app = new App()

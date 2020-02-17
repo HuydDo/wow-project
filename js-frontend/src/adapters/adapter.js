@@ -18,13 +18,14 @@ class Adapter {
     return fetch(this.playersUrl).then(res => res.json())
   }
 
-  createCharacter(value){
+  
+  createCharacter(gender, name, race, charClass, player_id=1){
     const character = {
-      gender: 'male',
-      name: value,
-      race: 'Human',
-      character_class: 'Hunter',
-      player_id : 1
+      gender: gender,
+      name: name,
+      race: race,
+      charClass: charClass,
+      player_id : player_id
     }
     // debugger
     return fetch(this.charactersUrl,{
