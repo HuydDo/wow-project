@@ -18,22 +18,17 @@ class Players{
     this.players = []
     e.preventDefault()
     const value = this.newPlayerBody.value
-    // console.log(value)
     this.adapter.getPlayers()
     .then(players => {
         players.forEach(player => this.players.push(new Player(player)))
-      //  console.log(this.players)
     })
     .then(() => {
-      // console.log(value)
     let filteredPlayer =  this.filteredPlayer()
     // let filteredPlayer =  this.exactMatch()
     
-    // console.log('this.player after:' + filteredPlayer)
-     // this.exactMatch()
     this.newPlayerBody.value =''  
     this.render(filteredPlayer)
-      //   this.renderPlayerNames()
+    //   this.renderPlayerNames()
     })
   }
 
@@ -53,8 +48,6 @@ class Players{
     this.playersContainer.innerHTML =  player.map(player => 
       player.renderLi()).join('')
   }
-
-
  
   renderPlayerNames(){
     this.players.forEach(e => {
