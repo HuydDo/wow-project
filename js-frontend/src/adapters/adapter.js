@@ -10,9 +10,8 @@ class Adapter {
   }
 
 
-  async getCharacters() {
-    const res = await fetch(this.charactersUrl)
-    return await res.json()
+  getCharacters() {
+    return fetch(this.charactersUrl).then(res => res.json())
   }
 
   getPlayers() {
@@ -38,19 +37,5 @@ class Adapter {
 
   }
 
-  // getPlayer(value){
-  //   const player = {
-  //     name: value
-  //   }
-  //   // debugger
-  //   return fetch(this.playersUrl,{
-  //     method: 'POST',
-  //     headers: {
-  //       'content-type': 'application/json'
-  //     },
-  //     body: JSON.stringify({player})
-  //   }).then(res => res.json())
-
-  // }
-
+  
 }

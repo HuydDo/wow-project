@@ -19,24 +19,25 @@ class Players{
     const value = (this.newPlayerBody.value)
     console.log(value)
     this.adapter.getPlayers()
-    .then(players => 
-      players.forEach(player =>  {
+    .then(players => {
+       players.forEach(player =>  {
         // console.log(player.name)
         if (player.name == value){
           this.players.push(new Player(player))
           this.newPlayerBody = ''
+          this.render()
         }
         // else 
           // console.log('player is not found')
           // return
         // end
-      })
-      // console.log(this.players)
-    )
-    .then(() => {
-      this.render()
-      // this.renderPlayerNames()
+       })
+       console.log(this.players)
     })
+    // .then(() => {
+    //   this.render()
+    //   // this.renderPlayerNames()
+    // })
   }
 
   render(){
