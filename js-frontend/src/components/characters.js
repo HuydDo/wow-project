@@ -33,7 +33,7 @@ class Characters{
     const race = this.selectRace.value
     const character_class = this.selectClass.value
     // const id 
-   this.getPlayerId.then((player_id) => {
+   this.getPlayerId.then(player_id => {
     console.log(`playerId: ${player_id}`)
    })
     // console.log(`playerId: ${id}`)
@@ -67,7 +67,7 @@ class Characters{
 
 
   getPlayerId(){
-    // let player_id = 0
+    let player_id = 0
     this.players = []
     this.adapter.getPlayers()
     .then(players => {
@@ -76,7 +76,7 @@ class Characters{
     .then(() => {
     let playerObj =  this.filteredPlayer()
     // console.log(playerId[0].id)
-    const player_id =  playerObj[0].id
+    player_id =  playerObj[0].id
     console.log(player_id)
     return player_id
     })
