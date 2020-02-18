@@ -32,9 +32,11 @@ class Characters{
     const name = this.newCharacterBody.value
     const race = this.selectRace.value
     const character_class = this.selectClass.value
-
-    const id = this.getPlayerId
-    console.log(`playerId: ${id}`)
+    // const id 
+   this.getPlayerId.then((player_id) => {
+    console.log(`playerId: ${player_id}`)
+   })
+    // console.log(`playerId: ${id}`)
     debugger
     
     this.adapter.createCharacter(gender, name, race, character_class).then(character => {
@@ -65,7 +67,7 @@ class Characters{
 
 
   getPlayerId(){
-    let player_id = 0
+    // let player_id = 0
     this.players = []
     this.adapter.getPlayers()
     .then(players => {
@@ -73,14 +75,14 @@ class Characters{
     })
     .then(() => {
     let playerObj =  this.filteredPlayer()
-    console.log(playerId[0].id)
-    player_id =  playerObj[0].id
-    console.log(playerObj[0].id)
+    // console.log(playerId[0].id)
+    const player_id =  playerObj[0].id
+    console.log(player_id)
+    return player_id
     })
     .catch(error => {
       return error;
     })
-    return player_id
   }
 
   filteredPlayer() {
