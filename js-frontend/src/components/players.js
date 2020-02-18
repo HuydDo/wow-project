@@ -17,7 +17,7 @@ class Players{
   fetchAndLoadPlayers(e){
     this.players = []
     e.preventDefault()
-    const value = this.newPlayerBody.value
+    // const value = this.newPlayerBody.value
     this.adapter.getPlayers()
     .then(players => {
         players.forEach(player => this.players.push(new Player(player)))
@@ -26,16 +26,17 @@ class Players{
     let filteredPlayer =  this.filteredPlayer()
     // let filteredPlayer =  this.exactMatch()
     
-    this.newPlayerBody.value =''  
+    // this.newPlayerBody.value =''  
     this.render(filteredPlayer)
     //   this.renderPlayerNames()
     })
   }
 
   filteredPlayer() {
-    return this.players.filter(player =>     
-      player.name.toLowerCase().includes(this.newPlayerBody.value.toLowerCase())
-    );
+    return this.players.filter(player =>  {   
+      // console.log(`player_id: ${player.id}`)
+      return player.name.toLowerCase().includes(this.newPlayerBody.value.toLowerCase())
+    } );
   }
 
   exactMatch() {
@@ -45,7 +46,8 @@ class Players{
   }
 
   render(player){
-    console.log(player)
+
+    // console.log(player)
     this.playersContainer.innerHTML =  player.map(player => 
       player.renderLi())
   }

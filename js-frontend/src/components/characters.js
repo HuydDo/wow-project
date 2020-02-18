@@ -16,6 +16,9 @@ class Characters{
     
     this.characterForm = document.getElementById('new-character-form')
     this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
+
+    this.playerName = document.getElementById('new-player-body')
+
   }
 
   createCharacter(e) {
@@ -26,13 +29,20 @@ class Characters{
     const name = this.newCharacterBody.value
     const race = this.selectRace.value
     const character_class = this.selectClass.value
+
+    const id = this.getPlayerId()
+    // console.log(`playerId: ${playerName}`)
+    // debugger
+
     // console.log(`class: ${character_class}`)
-    this.adapter.createCharacter(gender, name, race, character_class, 1).then(character => {
-      console.log(character)
-      // debugger
+    this.adapter.createCharacter(gender, name, race, character_class, id).then(character => {
+      // console.log(character)
+      
       this.characters.push(new Character(character))
       this.newCharacterBody.value = ''
       // this.render()
+
+      
     })
   }
 
@@ -40,7 +50,7 @@ class Characters{
     this.adapter.getCharacters()
     .then(characters => {
       characters.forEach(character => this.characters.push(new Character(character)))
-      console.log(this.characters)
+      // console.log(this.characters)
     })
     .then(() => {
       this.render()
@@ -53,6 +63,39 @@ class Characters{
   render(){
     this.charactersContainer.innerHTML =  this.characters.map(character => 
       character.renderLi()).join('')
-      
   }
+
+
+  getPlayerId(){
+    this.players = []
+    // e.preventDefault()
+    // const value = this.newPlayerBody.value
+    
+    this.adapter.getPlayers()
+    .then(players => {
+        players.forEach(player => this.players.push(new Player(player)))
+    })
+    .then(() => {
+    let filteredPlayer =  this.filteredPlayer()
+    // let filteredPlayer =  this.exactMatch()
+
+    console.log(filteredPlayer[0].id)
+    debugger
+
+    // this.newPlayerBody.value =''  
+    // this.render(filteredPlayer)
+    //   this.renderPlayerNames()
+    })
+  }
+
+  filteredPlayer() {
+    return this.players.filter(player =>  {   
+      // console.log(`player_id: ${player.id}`)
+      return player.name.toLowerCase().includes(this.playerName
+        .value.toLowerCase())
+    } );
+  }
+
+
+
 }
