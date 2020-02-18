@@ -19,7 +19,7 @@ class Adapter {
   }
 
   
-  createCharacter(gender, name, race, character_class, player_id=1){
+  createCharacter(gender, name, race, character_class, player_id){
     const character = {
       gender: gender,
       name: name,
