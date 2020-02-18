@@ -1,4 +1,4 @@
-let player_id = 0
+
 class Characters{
   constructor() {
     this.characters = []
@@ -33,7 +33,7 @@ class Characters{
     const race = this.selectRace.value
     const character_class = this.selectClass.value
 
-    const id = player_id
+    const id = this.getPlayerId
     console.log(`playerId: ${id}`)
     debugger
     
@@ -55,6 +55,7 @@ class Characters{
     .then(() => {
       this.render()
     })
+
   }
 
   render(){
@@ -64,6 +65,7 @@ class Characters{
 
 
   getPlayerId(){
+    let player_id = 0
     this.players = []
     this.adapter.getPlayers()
     .then(players => {
@@ -75,6 +77,10 @@ class Characters{
     player_id =  playerObj[0].id
     console.log(playerObj[0].id)
     })
+    .catch(error => {
+      return error;
+    })
+    return player_id
   }
 
   filteredPlayer() {
