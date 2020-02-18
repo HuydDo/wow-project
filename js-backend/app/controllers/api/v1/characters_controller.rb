@@ -14,7 +14,7 @@ class Api::V1::CharactersController < ApplicationController
       # render json: character, include: [:player]
 
       render json: character.to_json(:include => {
-        :player => {:only => [:name]}
+        :player => {:only => [:name, :id]}
         
       }, :except => [:created_at, :updated_at])
     else
