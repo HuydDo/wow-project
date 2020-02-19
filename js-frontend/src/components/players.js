@@ -25,7 +25,7 @@ class Players{
     .then(() => {
     let result = `Can't find the player name. Please try again or create a new player name.`
     let filteredPlayer =[]
-    console.log(this.exactMatch())
+    // console.log(this.exactMatch())
     
     if (this.exactMatch()!== undefined){
       filteredPlayer.push(this.exactMatch())
@@ -38,6 +38,7 @@ class Players{
      this.noPlayerName.innerHTML = result
     // end
     })
+
   }
 
   filteredPlayer() {
@@ -53,9 +54,7 @@ class Players{
   }
 
   render(player){
-    console.log(player)
-    this.playersContainer.innerHTML =  player.map(p => 
-      p.renderLi())
+    this.playersContainer.innerHTML =  player.map(p => p.renderLi())
   }
  
   renderPlayerNames(){
