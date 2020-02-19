@@ -3,11 +3,10 @@ class Characters{
   constructor() {
     this.playerId 
     this.characters = []
+    this.players = []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
     this.fetchAndLoadCharacters()
-
-   
   }
 
   initBindingAndEvenListeners(){
@@ -34,18 +33,16 @@ class Characters{
     const race = this.selectRace.value
     const character_class = this.selectClass.value
    
-    this.getPlayerId()
+    this.getPlayerId(this.playerName.value)
     const id = this.playerId
 
     console.log(`playerId: ${id}`)
-    // debugger
     
-    this.adapter.createCharacter(gender, name, race, character_class).then(character => {
+    this.adapter.createCharacter(gender, name, race, character_class, playerId).then(character => {
       
       this.characters.push(new Character(character))
       this.newCharacterBody.value = ''
       // this.render()
-
       
     })
   }
@@ -67,10 +64,10 @@ class Characters{
   }
 
 
-  getPlayerId(){
+  getPlayerId(name){
     // let player_id = 0
-    this.players = []
-    this.adapter.getPlayers()
+    // this.players = []
+    this.adapter.getPlayerByName(name)
     .then(players => {
         players.forEach(player => this.players.push(new Player(player)))
     })

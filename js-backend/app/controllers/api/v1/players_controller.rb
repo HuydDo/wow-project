@@ -7,7 +7,7 @@ class Api::V1::PlayersController < ApplicationController
   end 
 
   def show
-    player = Player.find_by(id: params[:id])
+    player = Player.find_by(name: params[:name])
     # render json: player
     # render json: {name: player.name}
     # render json: player, include: [:characters]

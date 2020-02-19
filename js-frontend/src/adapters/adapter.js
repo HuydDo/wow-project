@@ -18,7 +18,10 @@ class Adapter {
     return fetch(this.playersUrl).then(res => res.json())
   }
 
-  
+  getPlayerByName(name) {
+    return fetch(`this.playersUrl/${name}`).then(res => res.json())
+  }
+
   createCharacter(gender, name, race, character_class, player_id){
     const character = {
       gender: gender,
@@ -27,7 +30,6 @@ class Adapter {
       character_class: character_class,
       player_id : player_id
     }
-    // console.log(`class: ${character_class}`)
 
     return fetch(this.charactersUrl,{
       method: 'POST',

@@ -1,12 +1,11 @@
 class Players{
   constructor() {
-    // this.players = []
+    this.players = []
     this.playerNames= []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
     // this.fetchAndLoadPlayers()
   }
-  // <input type="text" name="player-body" id="new-player-body"></input>
   initBindingAndEvenListeners(){
     this.playersContainer = document.getElementById('players-container')
     this.newPlayerBody = document.getElementById('new-player-body')
@@ -15,7 +14,7 @@ class Players{
   }
 
   fetchAndLoadPlayers(e){
-    this.players = []
+    // this.players = []
     e.preventDefault()
     // const value = this.newPlayerBody.value
     this.adapter.getPlayers()
@@ -34,7 +33,6 @@ class Players{
 
   filteredPlayer() {
     return this.players.filter(player =>  {   
-      // console.log(`player_id: ${player.id}`)
       return player.name.toLowerCase().includes(this.newPlayerBody.value.toLowerCase())
     } );
   }
@@ -46,8 +44,6 @@ class Players{
   }
 
   render(player){
-
-    // console.log(player)
     this.playersContainer.innerHTML =  player.map(player => 
       player.renderLi())
   }
@@ -56,7 +52,6 @@ class Players{
     this.players.forEach(e => {
       this.playerNames.push(e.name)
     })
-    // console.log(this.playerNames)
     renderDropdown("#myPlayer", this.playerNames)
   }
   
