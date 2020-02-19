@@ -80,7 +80,7 @@ class Characters{
     console.log(playerObj[0].id)
     this.playerId =  playerObj[0].id
     console.log(this.playerId)
-    debugger
+    // debugger
     // return player_id
     })
 

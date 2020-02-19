@@ -24,9 +24,8 @@ class Players{
     })
     .then(() => {
     let result = `Can't find the player name. Please try again or create a new player name.`
-    // let filteredPlayer =  this.filteredPlayer()
-    let filteredPlayer =  this.exactMatch()
-    console.log(filteredPlayer)
+    let filteredPlayer =[]
+    filteredPlayer.push(  this.exactMatch())
     if (filteredPlayer != undefined){
       this.noPlayerName.innerHTML = ''
       // this.newPlayerBody.value =''  
@@ -46,13 +45,9 @@ class Players{
   }
 
   exactMatch() {
-    console.log(this.filteredPlayer())
-    return this.filteredPlayer().find(
-    // return this.players.find(  
-      player => {
-        // console.log(player.name.toLowerCase(), this.newPlayerBody.value.toLowerCase())
-        return  player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
-    });
+    return this.players.find(  
+      player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
+    );
   }
 
   render(player){
