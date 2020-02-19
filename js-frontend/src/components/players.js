@@ -50,7 +50,7 @@ class Players{
     return this.filteredPlayer().find(
     // return this.players.find(  
       player => {
-        console.log(player.name.toLowerCase(), this.newPlayerBody.value.toLowerCase())
+        // console.log(player.name.toLowerCase(), this.newPlayerBody.value.toLowerCase())
         return  player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
     });
   }
