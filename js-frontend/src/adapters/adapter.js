@@ -30,8 +30,11 @@ class Adapter {
   //       }
   // }
   //   const player  = fetch('http://localhost:3000/api/v1/players/1', configObj).then(resp => resp.json())
+    const player  = fetch(`${this.playersUrl}/${name}`).then(res => res.json())
+    debugger
+    return player
     return fetch(`${this.playersUrl}/${name}`).then(res => res.json())
-    // debugger
+   
   }
 
   createCharacter(gender, name, race, character_class, player_id){

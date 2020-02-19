@@ -36,7 +36,9 @@ class Characters{
     // console.log(this.playerName.value)
     this.getPlayerId(this.playerName.value)
 
-    debugger
+    
+
+    
     // const id = this.playerId
     // console.log(`playerId: ${id}`)
     
@@ -69,6 +71,10 @@ class Characters{
   getPlayerId(name){
     // let player_id = 0
     // this.players = []
+    const pName = this.adapter.getPlayerByName(name)
+    console.log(`player name ${pName}`
+    )
+
     this.adapter.getPlayerByName(name)
     .then(players => {
          players.forEach(player => console.log(`Player: ${player}`))

@@ -52,6 +52,7 @@ class Players{
       player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
     );
   }
+  
 
   render(player){
     this.playersContainer.innerHTML =  player.map(p => p.renderLi())
