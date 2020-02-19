@@ -23,4 +23,14 @@ class Api::V1::PlayersController < ApplicationController
       render json: { message: 'No player found with that id' }
     end
   end
+  
+  def create
+    player = Player.create(player_params)
+    render json: player
+  end
+
+  private
+  def player_params
+    params.require(:player).permit(:name)
+  end
 end
