@@ -8,7 +8,8 @@ class Api::V1::PlayersController < ApplicationController
 
   def show
     # binding.pry
-    player = Player.find_by(name: params[:name])
+    # player = Player.find_by(name: params[:name])
+    player = Player.find_by_name(params[:name])
     # render json: player
     # render json: {name: player.name}
     # render json: player, include: [:characters]

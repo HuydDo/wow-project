@@ -33,9 +33,10 @@ class Characters{
     const race = this.selectRace.value
     const character_class = this.selectClass.value
     
-    console.log(this.playerName.value)
+    // console.log(this.playerName.value)
     this.getPlayerId(this.playerName.value)
-    // debugger
+
+    debugger
     // const id = this.playerId
     // console.log(`playerId: ${id}`)
     
@@ -43,7 +44,7 @@ class Characters{
       
       this.characters.push(new Character(character))
       this.newCharacterBody.value = ''
-      this.render()
+      // this.render()
       
     })
   }
@@ -70,7 +71,9 @@ class Characters{
     // this.players = []
     this.adapter.getPlayerByName(name)
     .then(players => {
-        players.forEach(player => this.players.push(new Player(player)))
+         players.forEach(player => console.log(`Player: ${player}`))
+         
+        // players.forEach(player => this.players.push(new Player(player)))
     })
     .then(() => {
     let playerObj =  this.filteredPlayer()

@@ -10,6 +10,8 @@ class Players{
     this.newPlayerBody = document.getElementById('new-player-body')
     this.characterForm = document.getElementById('new-player-form')
     this.characterForm.addEventListener('submit', this.fetchAndLoadPlayers.bind(this))
+    
+    this.noPlayerName = document.getElementById('no-player-name')
   }
 
   fetchAndLoadPlayers(e){
@@ -17,15 +19,19 @@ class Players{
     e.preventDefault()
     this.adapter.getPlayers()
     .then(players => {
+      let result = `<h2> Can't find the player name. Please try again or create a new player name.</h2>`
         players.forEach(player => this.players.push(new Player(player)))
     })
     .then(() => {
     let filteredPlayer =  this.filteredPlayer()
     // let filteredPlayer =  this.exactMatch()
-    
+    if (filteredPlayer)
     // this.newPlayerBody.value =''  
-    this.render(filteredPlayer)
+      this.render(filteredPlayer)
     //   this.renderPlayerNames()
+    else 
+      this.noPlayerName.innerHTML = result
+    end
     })
   }
 

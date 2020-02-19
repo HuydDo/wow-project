@@ -18,10 +18,20 @@ class Adapter {
     return fetch(this.playersUrl).then(res => res.json())
   }
 
+
+  
   getPlayerByName(name) {
-    console.log(`${this.playersUrl}/${name}`)
-    debugger
+  //   console.log(`${this.playersUrl}/${name}`)
+  //   let configObj = {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "Accept": "application/json"
+  //       }
+  // }
+  //   const player  = fetch('http://localhost:3000/api/v1/players/1', configObj).then(resp => resp.json())
     return fetch(`${this.playersUrl}/${name}`).then(res => res.json())
+    // debugger
   }
 
   createCharacter(gender, name, race, character_class, player_id){
