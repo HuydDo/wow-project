@@ -32,17 +32,18 @@ class Characters{
     const name = this.newCharacterBody.value
     const race = this.selectRace.value
     const character_class = this.selectClass.value
-   
-    this.getPlayerId(this.playerName.value)
-    const id = this.playerId
-
-    console.log(`playerId: ${id}`)
     
-    this.adapter.createCharacter(gender, name, race, character_class, playerId).then(character => {
+    console.log(this.playerName.value)
+    this.getPlayerId(this.playerName.value)
+    // debugger
+    // const id = this.playerId
+    // console.log(`playerId: ${id}`)
+    
+    this.adapter.createCharacter(gender, name, race, character_class).then(character => {
       
       this.characters.push(new Character(character))
       this.newCharacterBody.value = ''
-      // this.render()
+      this.render()
       
     })
   }
@@ -53,7 +54,7 @@ class Characters{
       characters.forEach(character => this.characters.push(new Character(character)))
     })
     .then(() => {
-      this.render()
+      // this.render()
     })
 
   }

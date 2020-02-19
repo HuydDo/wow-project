@@ -1,6 +1,5 @@
 class Players{
   constructor() {
-    this.players = []
     this.playerNames= []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
@@ -14,9 +13,8 @@ class Players{
   }
 
   fetchAndLoadPlayers(e){
-    // this.players = []
+    this.players = []
     e.preventDefault()
-    // const value = this.newPlayerBody.value
     this.adapter.getPlayers()
     .then(players => {
         players.forEach(player => this.players.push(new Player(player)))

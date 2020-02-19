@@ -19,7 +19,9 @@ class Adapter {
   }
 
   getPlayerByName(name) {
-    return fetch(`this.playersUrl/${name}`).then(res => res.json())
+    console.log(`${this.playersUrl}/${name}`)
+    debugger
+    return fetch(`${this.playersUrl}/${name}`).then(res => res.json())
   }
 
   createCharacter(gender, name, race, character_class, player_id){
