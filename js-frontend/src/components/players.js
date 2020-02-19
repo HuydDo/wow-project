@@ -19,37 +19,46 @@ class Players{
     e.preventDefault()
     this.adapter.getPlayers()
     .then(players => {
-      let result = `<h2> Can't find the player name. Please try again or create a new player name.</h2>`
+      
         players.forEach(player => this.players.push(new Player(player)))
     })
     .then(() => {
-    let filteredPlayer =  this.filteredPlayer()
-    // let filteredPlayer =  this.exactMatch()
-    if (filteredPlayer)
-    // this.newPlayerBody.value =''  
+    let result = `Can't find the player name. Please try again or create a new player name.`
+    // let filteredPlayer =  this.filteredPlayer()
+    let filteredPlayer =  this.exactMatch()
+    console.log(filteredPlayer)
+    if (filteredPlayer != undefined){
+      this.noPlayerName.innerHTML = ''
+      // this.newPlayerBody.value =''  
       this.render(filteredPlayer)
     //   this.renderPlayerNames()
+    }
     else 
-      this.noPlayerName.innerHTML = result
-    end
+     this.noPlayerName.innerHTML = result
+    // end
     })
   }
 
   filteredPlayer() {
-    return this.players.filter(player =>  {   
-      return player.name.toLowerCase().includes(this.newPlayerBody.value.toLowerCase())
-    } );
+    return this.players.filter(player =>   
+       player.name.toLowerCase().includes(this.newPlayerBody.value.toLowerCase())
+     );
   }
 
   exactMatch() {
+    console.log(this.filteredPlayer())
     return this.filteredPlayer().find(
-      player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
-    );
+    // return this.players.find(  
+      player => {
+        console.log(player.name.toLowerCase(), this.newPlayerBody.value.toLowerCase())
+        return  player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
+    });
   }
 
   render(player){
-    this.playersContainer.innerHTML =  player.map(player => 
-      player.renderLi())
+    console.log(player)
+    this.playersContainer.innerHTML =  player.map(p => 
+      p.renderLi())
   }
  
   renderPlayerNames(){
