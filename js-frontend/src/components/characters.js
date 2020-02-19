@@ -16,7 +16,7 @@ class Characters{
     this.selectGender = document.querySelector('#gender')
     this.selectRace = document.querySelector('#race')
     this.selectClass = document.querySelector('#charClass')
-    
+    //create new character
     this.characterForm = document.getElementById('new-character-form')
     this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
 
@@ -38,7 +38,7 @@ class Characters{
 
     
 
-    
+
     // const id = this.playerId
     // console.log(`playerId: ${id}`)
     

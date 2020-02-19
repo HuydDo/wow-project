@@ -31,7 +31,8 @@ class Adapter {
   // }
   //   const player  = fetch('http://localhost:3000/api/v1/players/1', configObj).then(resp => resp.json())
     const player  = fetch(`${this.playersUrl}/${name}`).then(res => res.json())
-    debugger
+    console.log(player)
+    // debugger
     return player
     return fetch(`${this.playersUrl}/${name}`).then(res => res.json())
    
@@ -52,6 +53,21 @@ class Adapter {
         'content-type': 'application/json'
       },
       body: JSON.stringify({character})
+    }).then(res => res.json())
+
+  }
+
+  createPlayer(name){
+    const player = {
+      name: name,
+    }
+
+    return fetch(this.playersUrl,{
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({player})
     }).then(res => res.json())
 
   }

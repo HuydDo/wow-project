@@ -1,6 +1,7 @@
 class Players{
   constructor() {
     this.playerNames= []
+    this.players = []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
     // this.fetchAndLoadPlayers()
@@ -11,7 +12,28 @@ class Players{
     this.characterForm = document.getElementById('new-player-form')
     this.characterForm.addEventListener('submit', this.fetchAndLoadPlayers.bind(this))
     
+    //create new player name
+    this.createPlayerBody = document.getElementById('create-player-body')
+    this.playerForm = document.getElementById('create-player-form')
+    this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
+
     this.noPlayerName = document.getElementById('no-player-name')
+
+  }
+
+  createPlayer(e) {
+   
+    e.preventDefault()
+    const name = this.newPlayerBody.value
+    this.getPlayerId(this.playerName.value)
+     
+    this.adapter.createPlayer(name).then(player => {
+      
+      this.players.push(new Player(player))
+      this.newPlayerBody.value = ''
+      // this.render()
+      
+    })
   }
 
   fetchAndLoadPlayers(e){
@@ -25,7 +47,7 @@ class Players{
     .then(() => {
     let result = `Can't find the player name. Please try again or create a new player name.`
     let filteredPlayer =[]
-    // console.log(this.exactMatch())
+    console.log(this.exactMatch())
     
     if (this.exactMatch()!== undefined){
       filteredPlayer.push(this.exactMatch())
@@ -52,7 +74,7 @@ class Players{
       player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
     );
   }
-  
+
 
   render(player){
     this.playersContainer.innerHTML =  player.map(p => p.renderLi())
