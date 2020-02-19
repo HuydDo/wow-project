@@ -24,13 +24,12 @@ class Players{
   createPlayer(e) {
    
     e.preventDefault()
-    const name = this.newPlayerBody.value
-    this.getPlayerId(this.playerName.value)
-     
+    const name = this.createPlayerBody.value
+    console.log(name)
     this.adapter.createPlayer(name).then(player => {
       
       this.players.push(new Player(player))
-      this.newPlayerBody.value = ''
+      this.createPlayerBody.value = ''
       // this.render()
       
     })
@@ -47,7 +46,7 @@ class Players{
     .then(() => {
     let result = `Can't find the player name. Please try again or create a new player name.`
     let filteredPlayer =[]
-    console.log(this.exactMatch())
+    // console.log(this.exactMatch())
     
     if (this.exactMatch()!== undefined){
       filteredPlayer.push(this.exactMatch())
@@ -56,9 +55,10 @@ class Players{
       this.render(filteredPlayer)
     //   this.renderPlayerNames()
     }
-    else 
+    else {
      this.noPlayerName.innerHTML = result
-    // end
+     this.playersContainer.innerHTML = ''
+    }
     })
 
   }

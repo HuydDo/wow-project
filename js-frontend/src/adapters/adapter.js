@@ -31,7 +31,7 @@ class Adapter {
   // }
   //   const player  = fetch('http://localhost:3000/api/v1/players/1', configObj).then(resp => resp.json())
     const player  = fetch(`${this.playersUrl}/${name}`).then(res => res.json())
-    console.log(player)
+    // console.log(player)
     // debugger
     return player
     return fetch(`${this.playersUrl}/${name}`).then(res => res.json())
@@ -59,7 +59,7 @@ class Adapter {
 
   createPlayer(name){
     const player = {
-      name: name,
+      name: name
     }
 
     return fetch(this.playersUrl,{
