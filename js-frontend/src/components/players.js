@@ -25,8 +25,10 @@ class Players{
     .then(() => {
     let result = `Can't find the player name. Please try again or create a new player name.`
     let filteredPlayer =[]
-    filteredPlayer.push(  this.exactMatch())
-    if (filteredPlayer != undefined){
+    console.log(this.exactMatch())
+    
+    if (this.exactMatch()!== undefined){
+      filteredPlayer.push(this.exactMatch())
       this.noPlayerName.innerHTML = ''
       // this.newPlayerBody.value =''  
       this.render(filteredPlayer)
