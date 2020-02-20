@@ -40,10 +40,14 @@ class Characters{
     
     
     console.log(`strName:`+ strName + `charName:`+ charName)
-    debugger
     const id = this.getPlayerId(charName)
     // const id = this.playerId
-    console.log(`from createCharacter: ${id}`)
+    
+
+
+    console.log(`Player Id from createCharacter: ${id}`)
+
+    debugger
     // this.playerId = this.getPlayerId(this.playerName.value)
     // console.log(`playerId: ${this.playerId}`)
     
