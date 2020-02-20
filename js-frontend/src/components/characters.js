@@ -33,8 +33,13 @@ class Characters{
     const character_class = this.selectClass.value
 
     let strName = this.playerName.value
-    const charName= strName[0].toUpperCase() + strName.slice(1)
-    console.log(charName)
+    // const charName= strName[0].toUpperCase() + strName.slice(1)
+    
+    const charName = this.titleCase(strName)
+    
+    
+    
+    console.log(`strName:`+ strName + `charName:`+ charName)
     debugger
     const id = this.getPlayerId(charName)
     // const id = this.playerId
@@ -99,5 +104,17 @@ class Characters{
         .value.toLowerCase())
     })
   }
+
+
+ titleCase(str) {
+    var splitStr = str.toLowerCase().split(' ');
+    for (var i = 0; i < splitStr.length; i++) {
+        // You do not need to check if i is larger than splitStr length, as your for does that for you
+        // Assign it back to the array
+        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+    }
+    // Directly return the joined string
+    return splitStr.join(' '); 
+ }
 
 }
