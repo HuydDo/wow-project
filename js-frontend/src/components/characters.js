@@ -31,10 +31,14 @@ class Characters{
     const name = this.newCharacterBody.value
     const race = this.selectRace.value
     const character_class = this.selectClass.value
-  
-    // const id = this.getPlayerId(this.playerName.value)
-    const id = this.playerId
-console.log(`from createCharacter: ${id}`)
+
+    let strName = this.playerName.value
+    const charName= strName[0].toUpperCase() + strName.slice(1)
+    console.log(charName)
+    debugger
+    const id = this.getPlayerId(charName)
+    // const id = this.playerId
+    console.log(`from createCharacter: ${id}`)
     // this.playerId = this.getPlayerId(this.playerName.value)
     // console.log(`playerId: ${this.playerId}`)
     
@@ -71,8 +75,8 @@ console.log(`from createCharacter: ${id}`)
     .then(player => {
         //  players.forEach(player => console.log(`Player: ${player}`))
         // console.log(player.id) 
-        this.playerId = player.id
-        // return player.id
+        // this.playerId = player.id
+        return player.id
         // players.forEach(player => this.players.push(new Player(player)))
     })
     // .then(() => {
