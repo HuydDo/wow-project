@@ -21,24 +21,11 @@ class Adapter {
 
   
   getPlayerByName(name) {
-  //   console.log(`${this.playersUrl}/${name}`)
-  //   let configObj = {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "Accept": "application/json"
-  //       }
-  // }
-  //   const player  = fetch('http://localhost:3000/api/v1/players/1', configObj).then(resp => resp.json())
-    const player  = fetch(`${this.playersUrl}/${name}`).then(res => res.json())
-    // console.log(player)
-    // debugger
-    return player
     return fetch(`${this.playersUrl}/${name}`).then(res => res.json())
-   
   }
 
   createCharacter(gender, name, race, character_class, player_id){
+    console.log(player_id)
     const character = {
       gender: gender,
       name: name,

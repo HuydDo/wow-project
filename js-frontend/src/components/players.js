@@ -22,16 +22,13 @@ class Players{
   }
 
   createPlayer(e) {
-   
     e.preventDefault()
     const name = this.createPlayerBody.value
-    console.log(name)
+    // console.log(name)
     this.adapter.createPlayer(name).then(player => {
-      
-      this.players.push(new Player(player))
-      this.createPlayerBody.value = ''
-      // this.render()
-      
+    this.players.push(new Player(player))
+    this.createPlayerBody.value = ''
+     // this.render()
     })
   }
 
@@ -40,7 +37,6 @@ class Players{
     e.preventDefault()
     this.adapter.getPlayers()
     .then(players => {
-      
         players.forEach(player => this.players.push(new Player(player)))
     })
     .then(() => {

@@ -27,22 +27,18 @@ class Characters{
   createCharacter(e) {
     // console.log(this)
     e.preventDefault()
-    
     const gender = this.selectGender.value
     const name = this.newCharacterBody.value
     const race = this.selectRace.value
     const character_class = this.selectClass.value
+  
+    // const id = this.getPlayerId(this.playerName.value)
+    const id = this.playerId
+console.log(`from createCharacter: ${id}`)
+    // this.playerId = this.getPlayerId(this.playerName.value)
+    // console.log(`playerId: ${this.playerId}`)
     
-    // console.log(this.playerName.value)
-    this.getPlayerId(this.playerName.value)
-
-    
-
-
-    // const id = this.playerId
-    // console.log(`playerId: ${id}`)
-    
-    this.adapter.createCharacter(gender, name, race, character_class).then(character => {
+    this.adapter.createCharacter(gender, name, race, character_class,id).then(character => {
       
       this.characters.push(new Character(character))
       this.newCharacterBody.value = ''
@@ -67,28 +63,26 @@ class Characters{
       character.renderLi()).join('')
   }
 
-
   getPlayerId(name){
     // let player_id = 0
     // this.players = []
-    const pName = this.adapter.getPlayerByName(name)
-    console.log(`player name ${pName}`
-    )
 
     this.adapter.getPlayerByName(name)
-    .then(players => {
-         players.forEach(player => console.log(`Player: ${player}`))
-         
+    .then(player => {
+        //  players.forEach(player => console.log(`Player: ${player}`))
+        // console.log(player.id) 
+        this.playerId = player.id
+        // return player.id
         // players.forEach(player => this.players.push(new Player(player)))
     })
-    .then(() => {
-    let playerObj =  this.filteredPlayer()
-    console.log(playerObj[0].id)
-    this.playerId =  playerObj[0].id
-    console.log(this.playerId)
+    // .then(() => {
+    // let playerObj =  this.filteredPlayer()
+    // console.log(playerObj[0].id)
+    // this.playerId =  playerObj[0].id
+    // console.log(this.playerId)
     // debugger
     // return player_id
-    })
+    // })
 
     .catch(error => {
       return error;

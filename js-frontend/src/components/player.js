@@ -16,5 +16,4 @@ class Player{
     return playerCharacters.join('')
   }
 
-
 }

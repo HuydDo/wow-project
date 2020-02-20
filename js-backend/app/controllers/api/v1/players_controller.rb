@@ -2,14 +2,13 @@ class Api::V1::PlayersController < ApplicationController
   # binding.pry
   def index
    players = Player.all
-  #  render json: players, include: [:characters]
+   #  render json: players, include: [:characters]
    render json: players.to_json(include: [:characters])
   end 
 
   def show
-   
-    # player = Player.find_by(name: params[:name])
-    player = Player.find_by_name(player_params[:name])
+    player = Player.find_by(name: params[:id])
+    # player = Player.find_by_name(player_params[:name])
     # render json: player
     # render json: {name: player.name}
     # render json: player, include: [:characters]
@@ -25,6 +24,7 @@ class Api::V1::PlayersController < ApplicationController
   end
   
   def create
+    #  binding.pry
     player = Player.create(player_params)
     render json: player
   end

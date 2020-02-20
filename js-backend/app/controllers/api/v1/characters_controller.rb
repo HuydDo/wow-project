@@ -23,11 +23,11 @@ class Api::V1::CharactersController < ApplicationController
   end
   
   def create 
-    # binding.pry
-    # player = Player.find(params[:player_id])
-    # character = player.characters.create(character_params)
+    # byebug
+    player = Player.find(params[:player_id])
+    character = player.characters.create(character_params)
     # character = Character.find(params[:player_id])
-    character = Character.create(character_params)
+    # character = Character.create(character_params)
     render json: character
   end
   

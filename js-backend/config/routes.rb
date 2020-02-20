@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :characters
       # resources :players
-      resources :players, only: [:index, :show]
+      resources :players, only: [:index, :show, :create]
       # get '/players' => 'players#index'
     end
   end
