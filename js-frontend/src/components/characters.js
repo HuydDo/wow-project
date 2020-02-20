@@ -38,12 +38,14 @@ class Characters{
     const charName = this.titleCase(strName)
        
     console.log(`strName:`+ strName + `charName:`+ charName)
-    const id = this.getPlayerId(charName)
+    // const id 
+    this.getPlayerId(charName).then(playerId => console.log(`Id:` + playerId))
+
     // const id = this.playerId
-    if (id === undefined)
-      console.log(`player is not found`)
-    else{
-    console.log(`Player Id from createCharacter: ${id}`)
+    // if (id === undefined)
+      // console.log(`player id not found`)
+    // else{
+    // console.log(`Player Id from createCharacter: ${id}`)
 
     debugger
     // this.playerId = this.getPlayerId(this.playerName.value)
@@ -56,7 +58,7 @@ class Characters{
       // this.render()
       
     })
-   }
+  //  }
   }
 
   fetchAndLoadCharacters(){

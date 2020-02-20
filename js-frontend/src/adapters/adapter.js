@@ -20,8 +20,11 @@ class Adapter {
 
 
   
-  getPlayerByName(name) {
-    return fetch(`${this.playersUrl}/${name}`).then(res => res.json())
+  async getPlayerByName(name) {
+    // return  fetch(`${this.playersUrl}/${name}`).then(res => res.json())
+     const response = await fetch(`${this.playersUrl}/${name}`)
+     const json = await response.json()
+     return json
   }
 
   createCharacter(gender, name, race, character_class, player_id){
