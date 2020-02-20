@@ -36,15 +36,13 @@ class Characters{
     // const charName= strName[0].toUpperCase() + strName.slice(1)
     
     const charName = this.titleCase(strName)
-    
-    
-    
+       
     console.log(`strName:`+ strName + `charName:`+ charName)
     const id = this.getPlayerId(charName)
     // const id = this.playerId
-    
-
-
+    if (id === undefined)
+      console.log(`player is not found`)
+    else{
     console.log(`Player Id from createCharacter: ${id}`)
 
     debugger
@@ -58,6 +56,7 @@ class Characters{
       // this.render()
       
     })
+   }
   }
 
   fetchAndLoadCharacters(){
@@ -83,7 +82,7 @@ class Characters{
     this.adapter.getPlayerByName(name)
     .then(player => {
         //  players.forEach(player => console.log(`Player: ${player}`))
-        // console.log(player.id) 
+        console.log(`id was called:` + player.id) 
         // this.playerId = player.id
         return player.id
         // players.forEach(player => this.players.push(new Player(player)))
