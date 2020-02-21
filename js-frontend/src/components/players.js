@@ -10,7 +10,7 @@ class Players{
     this.playersContainer = document.getElementById('players-container')
     this.newPlayerBody = document.getElementById('new-player-body')
     this.characterForm = document.getElementById('new-player-form')
-    this.characterForm.addEventListener('submit', this.fetchAndLoadPlayers.bind(this))
+    this.characterForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
     
     //create new player name
     this.createPlayerBody = document.getElementById('create-player-body')
@@ -34,7 +34,7 @@ class Players{
     })
   }
 
-  fetchAndLoadPlayers(e){
+  showPlayerCharacters(e){
     // this.players = []
     e.preventDefault()
     this.adapter.getPlayers()

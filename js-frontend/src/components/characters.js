@@ -6,9 +6,9 @@ class Characters {
     this.initBindingAndEvenListeners()
     this.fetchAndLoadCharacters()
   }
-}
 
-initBindingAndEvenListeners() {
+
+initBindingAndEvenListeners(){
   this.charactersContainer = document.getElementById('characters-container')
 
   this.playerName = document.getElementById('playerName')
@@ -19,7 +19,6 @@ initBindingAndEvenListeners() {
   //create new character
   this.characterForm = document.getElementById('new-character-form')
   this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
-
 }
 
 createCharacter(e) {
