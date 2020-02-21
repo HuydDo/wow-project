@@ -17,7 +17,7 @@ class Players{
     this.playerForm = document.getElementById('create-player-form')
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
 
-    this.noPlayerName = document.getElementById('no-player-name')
+    this.playerName = document.getElementById('player-name')
 
   }
 
@@ -26,36 +26,38 @@ class Players{
     const name = this.createPlayerBody.value
     // console.log(name)
     this.adapter.createPlayer(name).then(player => {
+    
     this.players.push(new Player(player))
     this.createPlayerBody.value = ''
-     // this.render()
+    
+    // this.render()
     })
   }
 
   fetchAndLoadPlayers(e){
-    this.players = []
+    // this.players = []
     e.preventDefault()
     this.adapter.getPlayers()
     .then(players => {
         players.forEach(player => this.players.push(new Player(player)))
     })
     .then(() => {
-    let result = `Can't find the player name. Please try again or create a new player name.`
+    let result = `Can't find the player name ${this.newPlayerBody.value}.  Please try again or create a new player name.`
     let filteredPlayer =[]
     // console.log(this.exactMatch())
     
     if (this.exactMatch()!== undefined){
       filteredPlayer.push(this.exactMatch())
-      this.noPlayerName.innerHTML = ''
+      this.playerName.innerHTML = ''
       // this.newPlayerBody.value =''  
       this.render(filteredPlayer)
     //   this.renderPlayerNames()
     }
     else {
-     this.noPlayerName.innerHTML = result
-     this.playersContainer.innerHTML = ''
+     this.playersContainer.innerHTML = '' 
+     this.playerName.innerHTML = result
     }
-    })
+   })
 
   }
 

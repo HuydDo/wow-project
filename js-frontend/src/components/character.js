@@ -8,7 +8,6 @@ class Character{
   }
 
   renderLi(){
-   
     return `<li>${this.gender} ${this.name} ${this.race} ${this.character_class}</li>`
   }
 

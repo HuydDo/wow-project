@@ -24,6 +24,7 @@ class Adapter {
     // return  fetch(`${this.playersUrl}/${name}`).then(res => res.json())
      const response = await fetch(`${this.playersUrl}/${name}`)
      const json = await response.json()
+    //  console.log(json.id)
      return json
   }
 
@@ -59,8 +60,6 @@ class Adapter {
       },
       body: JSON.stringify({player})
     }).then(res => res.json())
-
   }
 
-  
 }

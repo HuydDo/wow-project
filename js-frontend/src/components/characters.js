@@ -69,7 +69,6 @@ class Characters{
     .then(() => {
       // this.render()
     })
-
   }
 
   render(){
