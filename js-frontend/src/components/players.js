@@ -23,13 +23,9 @@ class Players{
 
   createPlayer(e) {
     e.preventDefault()
-    const name = this.createPlayerBody.value
-    // console.log(name)
     this.adapter.createPlayer(name).then(player => {
-    
     this.players.push(new Player(player))
     this.createPlayerBody.value = ''
-    
     // this.render()
     })
   }
