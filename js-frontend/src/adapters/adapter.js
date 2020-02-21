@@ -31,11 +31,11 @@ class Adapter {
   createCharacter(gender, name, race, character_class, player_id){
     // console.log(player_id)
     const character = {
-      gender: gender,
-      name: name,
-      race: race,
-      character_class: character_class,
-      player_id : player_id
+     gender,
+     name,
+     race,
+     character_class,
+     player_id
     }
 
     return fetch(this.charactersUrl,{
