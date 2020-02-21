@@ -19,12 +19,18 @@ initBindingAndEvenListeners(){
   //create new character
   this.characterForm = document.getElementById('new-character-form')
   this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
+ 
+  this.createPlayerBody = document.getElementById('new-player-body')
 }
 
 createCharacter(e) {
   // console.log(this)
   e.preventDefault()
+  // const player = this.playerName.value
+
+  this.playerName.innerHTML = this.createPlayerBody.value
   const player = this.playerName.value
+  debugger
   const gender = this.selectGender.value
   const race = this.selectRace.value
   const character_class = this.selectClass.value
@@ -34,7 +40,7 @@ createCharacter(e) {
 
   const charName = this.adapter.titleCase(player)
 
-  console.log(`Player name: ` + player + ` Player Name after format:` + charName)
+  console.log(`Player name: ` + player + ` Player Name after format: ` + charName)
 
   // this.getPlayerId(charName).then(playerId => console.log(`Id:` + playerId))
 

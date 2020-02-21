@@ -9,7 +9,6 @@ class Adapter {
     // this.baseUrl = 'http://localhost:3000/api/v1/characters'
   }
 
-
   getCharacters() {
     return fetch(this.charactersUrl).then(res => res.json())
   }
@@ -17,8 +16,6 @@ class Adapter {
   getPlayers() {
     return fetch(this.playersUrl).then(res => res.json())
   }
-
-
   
   async getPlayerByName(name) {
     // return  fetch(`${this.playersUrl}/${name}`).then(res => res.json())
@@ -73,4 +70,5 @@ class Adapter {
     return splitStr.join(' '); 
  }
 
+ 
 }

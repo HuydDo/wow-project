@@ -38,7 +38,7 @@ class Players{
         players.forEach(player => this.players.push(new Player(player)))
     })
     .then(() => {
-    let result = `Can't find the player name ${this.newPlayerBody.value}.  Please try again or create a new player name.`
+    let result = `Can't find the player ${this.newPlayerBody.value}.  Please try again or create a new player name.`
     let filteredPlayer =[]
     // console.log(this.exactMatch())
     
@@ -46,6 +46,7 @@ class Players{
       filteredPlayer.push(this.exactMatch())
       this.playerName.innerHTML = ''
       // this.newPlayerBody.value =''  
+
       this.render(filteredPlayer)
     //   this.renderPlayerNames()
     }
