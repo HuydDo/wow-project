@@ -4,7 +4,7 @@ require 'pry'
 class Api::V1::CharactersController < ApplicationController
   def index
     characters = Character.all
-    render json: characters
+    render json: characters.to_json(include: [:player])
   end
 
   def show
@@ -24,8 +24,10 @@ class Api::V1::CharactersController < ApplicationController
   
   def create 
     # byebug
-    player = Player.find(params[:player_id])
+    # player = Player.find(params[:player_id])
+    player = Player.find_by(name: params[:character][:player_id])
     character = player.characters.create(character_params)
+  #  byebug
     # character = Character.find(params[:player_id])
     # character = Character.create(character_params)
     render json: character

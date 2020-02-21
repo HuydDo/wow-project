@@ -1,6 +1,6 @@
 class Players{
   constructor() {
-    this.playerNames= []
+    // this.playerNames= []
     this.players = []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
