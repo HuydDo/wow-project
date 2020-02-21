@@ -25,9 +25,10 @@ class Players{
 
   createPlayer(e) {
     e.preventDefault()
-    this.adapter.createPlayer(name).then(player => {
+    let newPlayer = this.createPlayerBody.value
+    this.adapter.createPlayer(newPlayer).then(player => {
     this.players.push(new Player(player))
-    this.createPlayerBody.value = ''
+    // this.createPlayerBody.value = ''
     // this.render()
     })
   }

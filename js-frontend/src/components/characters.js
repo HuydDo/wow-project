@@ -27,15 +27,17 @@ createCharacter(e) {
   // console.log(this)
   e.preventDefault()
   // const player = this.playerName.value
+  console.log (this.createPlayerBody.value)
+  const player = this.createPlayerBody.value
 
   this.playerName.innerHTML = this.createPlayerBody.value
-  const player = this.playerName.value
-  debugger
+  
+  // debugger
+  
   const gender = this.selectGender.value
   const race = this.selectRace.value
   const character_class = this.selectClass.value
   const name = this.newCharacterBody.value
-
   // let strName = this.playerName.value
 
   const charName = this.adapter.titleCase(player)
