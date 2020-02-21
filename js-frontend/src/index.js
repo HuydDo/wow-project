@@ -19,7 +19,7 @@ renderDropdown("#myRace", races, "race")
 renderDropdown("#myClass", classes, "charClass")
 
 
-function asd(a)
+function newCharForm(a)
 {
     if(a==1)
         document.getElementById("new-character-form").style.display="none";

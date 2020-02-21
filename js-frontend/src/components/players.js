@@ -19,6 +19,8 @@ class Players{
 
     this.playerName = document.getElementById('player-name')
 
+    document.getElementById("new-character-form").style.display="none";
+    document.getElementById('myBtn').disabled = true
   }
 
   createPlayer(e) {
@@ -44,6 +46,7 @@ class Players{
     
     if (this.exactMatch()!== undefined){
       filteredPlayer.push(this.exactMatch())
+      document.getElementById('myBtn').disabled = false
       this.playerName.innerHTML = ''
       // this.newPlayerBody.value =''  
 
@@ -51,6 +54,8 @@ class Players{
     //   this.renderPlayerNames()
     }
     else {
+     document.getElementById('myBtn').disabled = true
+
      this.playersContainer.innerHTML = '' 
      this.playerName.innerHTML = result
     }
