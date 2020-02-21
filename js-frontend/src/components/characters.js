@@ -10,13 +10,11 @@ class Characters {
 
 initBindingAndEvenListeners(){
   this.charactersContainer = document.getElementById('characters-container')
-
   this.playerName = document.getElementById('playerName')
   this.selectGender = document.querySelector('#gender')
   this.selectRace = document.querySelector('#race')
   this.selectClass = document.querySelector('#charClass')
   this.newCharacterBody = document.getElementById('new-character-body')
-  //create new character
   this.characterForm = document.getElementById('new-character-form')
   this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
  
@@ -24,37 +22,16 @@ initBindingAndEvenListeners(){
 }
 
 createCharacter(e) {
-  // console.log(this)
   e.preventDefault()
-  // const player = this.playerName.value
-  console.log (this.createPlayerBody.value)
+  
   const player = this.createPlayerBody.value
-
-  this.playerName.innerHTML = this.createPlayerBody.value
-  
-  // debugger
-  
   const gender = this.selectGender.value
   const race = this.selectRace.value
   const character_class = this.selectClass.value
   const name = this.newCharacterBody.value
-  // let strName = this.playerName.value
-
   const charName = this.adapter.titleCase(player)
 
-  console.log(`Player name: ` + player + ` Player Name after format: ` + charName)
-
-  // this.getPlayerId(charName).then(playerId => console.log(`Id:` + playerId))
-
-  // const id = this.playerId
-  // if (id === undefined)
-  // console.log(`player id not found`)
-  // else{
-  // console.log(`Player Id from createCharacter: ${id}`)
-
-
-  // this.playerId = this.getPlayerId(this.playerName.value)
-  // console.log(`playerId: ${this.playerId}`)
+  // console.log(`Player name: ` + player + ` Player Name after format: ` + charName)
 
   this.adapter.createCharacter(gender, name, race, character_class, charName)
     .then(character => {
@@ -62,7 +39,6 @@ createCharacter(e) {
       this.newCharacterBody.value = ''
       // this.render()
     })
-  //  }
 }
 
 fetchAndLoadCharacters() {
@@ -80,15 +56,17 @@ render() {
     character.renderLi()).join('')
 }
 
-getPlayerId(name) {
-  // let player_id = 0
-  // this.players = []
+filteredPlayer() {
+  return this.players.filter(player => {
+    return player.name.toLowerCase().includes(this.playerName
+      .value.toLowerCase())
+  })
+}
 
+getPlayerId(name) {
   this.adapter.getPlayerByName(name)
     .then(player => {
       //  players.forEach(player => console.log(`Player: ${player}`))
-      console.log(`id was called:` + player.id)
-      // this.playerId = player.id
       return player.id
       // players.forEach(player => this.players.push(new Player(player)))
     })
@@ -100,17 +78,9 @@ getPlayerId(name) {
     // debugger
     // return player_id
     // })
-
     .catch(error => {
       return error;
     })
-}
-
-filteredPlayer() {
-  return this.players.filter(player => {
-    return player.name.toLowerCase().includes(this.playerName
-      .value.toLowerCase())
-  })
 }
 
 }

@@ -1,92 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>World Of Warcraft</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
 
-  <body>
-    <header>
-      <h2>World Of Warcraft</h2>
-    </header>
+<head>
+  <meta charset="utf-8">
+  <title>World Of Warcraft</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-    <main>
-      <div class="container">
-        <div id="new-character-container">
-         <!-- Login:
-            <input type="text" />
-            <input type="submit" />
-           Create Player:
-          <input type="text" />
-          <input type="submit" /> -->
-          <br><br>
-          <form id="new-player-form">
-            <!-- Player Name:
-            <div id="myPlayer">
-            </div> -->
-            Player Name:
-            <input type="text" name="player-body" id="new-player-body">
-            <input type="submit" value="login">
-          </form>
-          <button  onclick="newCharForm(1)">Hide</button>
-          <button id ="myBtn" onclick="newCharForm(2)">Create New Character</button>
-          <br>
-          <form id="create-player-form">
-           Create a new player:
-           <input type="text" name="create-player-body" id="create-player-body">
-           <input type="submit">
-         </form>
-         <br><br>
-          <form id="new-character-form">
-            Enter player name:
+<body>
+  <header>
+    <h2>World Of Warcraft</h2>
+  </header>
+
+  <main>
+    <div class="container">
+      <div id="new-character-container">
+        <br><br>
+        <form id="new-player-form">
+          Player Name:
+          <input type="text" name="player-body" id="new-player-body">
+          <input type="submit" value="login">
+        </form>
+        <br>
+        <button onclick="newCharForm(1)">Hide</button>
+        <button id="myBtn" onclick="newCharForm(2)">Create New Character</button>
+        <br><br>
+        <form id="create-player-form">
+          Create a new player:
+          <input type="text" name="create-player-body" id="create-player-body">
+          <input type="submit">
+        </form>
+        <br><br>
+        <form id="new-character-form">
+          <!-- Enter player name:
             <input type="text" name="playerName" id="playerName">
-            <br><br>
-            Gender:
-            <div id="myGender">
-            </div>
-            <br>
-            Race:
-            <div id="myRace">
-            </div>
-            <br>
-            Class:
-            <div id="myClass">
-            </div>
-            <br>
-            Character Name:
-            <input type="text" name="character-body" id="new-character-body">
-            <br><br>
-            <input type="submit" value="Save character">
-            <br></br>
-          </form>
-         
-         </div>
-         
-         <div id="characters-content">
-            <ul id="characters-container">
-            
-            </ul>
-            <ul id="players-container">
-            
-            </ul>
-           
-            <div id="character-show">
+            <br><br> -->
+          Gender:
+          <div id="myGender">
+          </div>
+          <br>
+          Race:
+          <div id="myRace">
+          </div>
+          <br>
+          Class:
+          <div id="myClass">
+          </div>
+          <br>
+          Character Name:
+          <input type="text" name="character-body" id="new-character-body">
+          <br><br>
+          <input type="submit" value="Save character">
+          <br></br>
+        </form>
 
-            </div>
-         </div>
-         <p id="player-name">
+      </div>
 
-         </p>
+      <div id="characters-content">
+        <ul id="characters-container">
+
+        </ul>
+        <ul id="players-container">
+
+        </ul>
+        <div id="character-show">
+
         </div>
-    </main>
+      </div>
+      <p id="player-name"></p>
+    </div>
+  </main>
 
-    <script src="./src/components/app.js"></script>
-    <script src="./src/components/character.js"></script>
-    <script src="./src/components/characters.js"></script>
-    <script src="./src/components/player.js"></script>
-    <script src="./src/components/players.js"></script>
-    <script src="./src/adapters/adapter.js"></script>
-    <script src="./src/index.js"></script>
-  </body>
+  <script src="./src/components/app.js"></script>
+  <script src="./src/components/character.js"></script>
+  <script src="./src/components/characters.js"></script>
+  <script src="./src/components/player.js"></script>
+  <script src="./src/components/players.js"></script>
+  <script src="./src/adapters/adapter.js"></script>
+  <script src="./src/index.js"></script>
+</body>
+
 </html>

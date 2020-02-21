@@ -1,6 +1,5 @@
 class Players{
   constructor() {
-    // this.playerNames= []
     this.players = []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
@@ -11,8 +10,6 @@ class Players{
     this.newPlayerBody = document.getElementById('new-player-body')
     this.characterForm = document.getElementById('new-player-form')
     this.characterForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
-    
-    //create new player name
     this.createPlayerBody = document.getElementById('create-player-body')
     this.playerForm = document.getElementById('create-player-form')
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
@@ -34,7 +31,6 @@ class Players{
   }
 
   showPlayerCharacters(e){
-    // this.players = []
     e.preventDefault()
     this.adapter.getPlayers()
     .then(players => {
@@ -43,7 +39,6 @@ class Players{
     .then(() => {
     let result = `Can't find the player ${this.newPlayerBody.value}.  Please try again or create a new player name.`
     let filteredPlayer =[]
-    // console.log(this.exactMatch())
     
     if (this.exactMatch()!== undefined){
       filteredPlayer.push(this.exactMatch())
@@ -61,7 +56,6 @@ class Players{
      this.playerName.innerHTML = result
     }
    })
-
   }
 
   filteredPlayer() {

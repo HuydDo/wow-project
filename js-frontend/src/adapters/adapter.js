@@ -21,12 +21,10 @@ class Adapter {
     // return  fetch(`${this.playersUrl}/${name}`).then(res => res.json())
      const response = await fetch(`${this.playersUrl}/${name}`)
      const json = await response.json()
-    //  console.log(json.id)
      return json
   }
 
   createCharacter(gender, name, race, character_class, player_id){
-    // console.log(player_id)
     const character = {
      gender,
      name,
@@ -47,7 +45,7 @@ class Adapter {
 
   createPlayer(name){
     const player = {
-      name: name
+      name,
     }
 
     return fetch(this.playersUrl,{
@@ -60,8 +58,8 @@ class Adapter {
   }
 
   titleCase(str) {
-    var splitStr = str.toLowerCase().split(' ');
-    for (var i = 0; i < splitStr.length; i++) {
+    let splitStr = str.toLowerCase().split(' ');
+    for (let i = 0; i < splitStr.length; i++) {
         // You do not need to check if i is larger than splitStr length, as your for does that for you
         // Assign it back to the array
         splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
