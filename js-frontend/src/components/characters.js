@@ -49,7 +49,7 @@ createCharacter(e) {
       .then(character => {
         this.characters.push(new Character(character))
         // this.newCharacterBody.value = ''
-        // this.render()
+        this.render()
 
       })
    }
