@@ -23,7 +23,7 @@ initBindingAndEvenListeners(){
 
 createCharacter(e) {
   e.preventDefault()
-  
+
   const player = this.createPlayerBody.value
   const gender = this.selectGender.value
   const race = this.selectRace.value
@@ -36,7 +36,7 @@ createCharacter(e) {
   this.adapter.createCharacter(gender, name, race, character_class, charName)
     .then(character => {
       this.characters.push(new Character(character))
-      this.newCharacterBody.value = ''
+      // this.newCharacterBody.value = ''
       // this.render()
     })
 }

@@ -33,6 +33,7 @@ class Players{
   showPlayerCharacters(e){
     e.preventDefault()
     this.adapter.getPlayers()
+    // this.adapter.getPlayerByName(name)
     .then(players => {
         players.forEach(player => this.players.push(new Player(player)))
     })
@@ -40,7 +41,7 @@ class Players{
     let result = `Can't find the player ${this.newPlayerBody.value}.  Please try again or create a new player name.`
     let filteredPlayer =[]
     
-    if (this.exactMatch()!== undefined){
+    if (this.exactMatch()!== undefined && this.newPlayerBody.value !==''){
       filteredPlayer.push(this.exactMatch())
       document.getElementById('myBtn').disabled = false
       this.playerName.innerHTML = ''
@@ -51,7 +52,6 @@ class Players{
     }
     else {
      document.getElementById('myBtn').disabled = true
-
      this.playersContainer.innerHTML = '' 
      this.playerName.innerHTML = result
     }
@@ -69,7 +69,6 @@ class Players{
       player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
     );
   }
-
 
   render(player){
     this.playersContainer.innerHTML =  player.map(p => p.renderLi())
