@@ -35,22 +35,29 @@ class Players{
     let playerObj = []
     let playerName =  this.newPlayerBody.value
     
-    const formattedPlayerName = this.adapter.titleCase(playerName)
-    console.log(formattedPlayerName)
-    // this.adapter.getPlayers()
-    this.adapter.getPlayerByName(formattedPlayerName)
-    // .then(players => {
-    //     players.forEach(player => this.players.push(new Player(player)))
-    // })
-
-    .then(player => playerObj.push(new Player(player)))
+    let result = `Player name can't be empty.`
     
-    .then(() => {
-    let result = `Can't find the player ${this.newPlayerBody.value}.  Please try again or create a new player name.`
-    let filteredPlayer =[]
-    console.log(playerObj[0].id)
-    // if (this.exactMatch()!== undefined && playerName !==''){
-      if (playerObj[0].id !== undefined && playerName !==''){
+    if (playerName === ''){
+     this.message.innerHTML = result
+    }
+
+    else {
+      const formattedPlayerName = this.adapter.titleCase(playerName)
+      console.log(formattedPlayerName)
+      // this.adapter.getPlayers()
+      this.adapter.getPlayerByName(formattedPlayerName)
+      // .then(players => {
+      //     players.forEach(player => this.players.push(new Player(player)))
+      // })
+
+      .then(player => playerObj.push(new Player(player)))
+      
+      .then(() => {
+      let result = `Can't find the player ${this.newPlayerBody.value}.  Please try again or create a new player name.`
+      let filteredPlayer =[]
+      console.log(playerObj[0].id)
+      // if (this.exactMatch()!== undefined && playerName !==''){
+      if (playerObj[0].id !== undefined ){
       // filteredPlayer.push(this.exactMatch())
       document.getElementById('myBtn').disabled = false
       this.message.innerHTML = ''
@@ -58,14 +65,15 @@ class Players{
 
       this.render(playerObj)
       // this.render(filteredPlayer)
-    //   this.renderPlayerNames()
-    }
-    else {
-     document.getElementById('myBtn').disabled = true
-     this.playersContainer.innerHTML = '' 
-     this.message.innerHTML = result
-    }
-   })
+      //   this.renderPlayerNames()
+      }
+      else {
+       document.getElementById('myBtn').disabled = true
+       this.playersContainer.innerHTML = '' 
+       this.message.innerHTML = result
+      }
+     })
+    } 
   }
 
   filteredPlayer() {
