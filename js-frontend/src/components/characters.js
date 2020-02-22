@@ -1,4 +1,7 @@
-class Characters {
+// import Players from './Players.js';
+
+// class Characters extends Players{
+  class Characters{
   constructor() {
     this.characters = []
     this.players = []
@@ -47,9 +50,11 @@ createCharacter(e) {
         this.characters.push(new Character(character))
         // this.newCharacterBody.value = ''
         // this.render()
+
       })
    }
 }
+
 
 fetchAndLoadCharacters() {
   this.adapter.getCharacters()

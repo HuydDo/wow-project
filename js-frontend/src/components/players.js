@@ -1,6 +1,6 @@
 class Players{
   constructor() {
-    // this.players = []
+    this.players = []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
     // this.fetchAndLoadPlayers()
@@ -26,7 +26,7 @@ class Players{
     this.adapter.createPlayer(newPlayer).then(player => {
     this.players.push(new Player(player))
     // this.createPlayerBody.value = ''
-    // this.render()
+    // this.render(this.players)
     })
   }
 
@@ -100,3 +100,4 @@ class Players{
   }
   
 }
+// export default Players
