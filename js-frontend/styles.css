@@ -98,10 +98,7 @@ ul {
   padding: 20 px;
 }
 
-/* #message {
-  border: 1px solid rgb(58, 131, 150);
-  padding: 20 px;
-} */
+
 input[type=submit]:hover {
   background-color: #45a049;
 }
