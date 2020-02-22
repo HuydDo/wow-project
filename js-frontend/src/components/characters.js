@@ -14,7 +14,7 @@ initBindingAndEvenListeners(){
   this.selectGender = document.querySelector('#gender')
   this.selectRace = document.querySelector('#race')
   this.selectClass = document.querySelector('#charClass')
-  this.newCharacterBody = document.getElementById('new-character-body')
+  this.newCharacterBody = document.getElementById('myName')
   this.characterForm = document.getElementById('new-character-form')
   this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
  

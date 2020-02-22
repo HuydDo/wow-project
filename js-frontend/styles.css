@@ -47,8 +47,8 @@ li {
 
 button {
   font-size: .65em;
-  color: #fff;
-  background-color: green;
+  color: rgb(212, 220, 224);
+  background-color: rgb(55, 102, 146);
   border-radius: 10px;
 }
 
@@ -97,6 +97,23 @@ ul {
   border: 1px solid black;
   padding: 20 px;
 }
+
+/* #message {
+  border: 1px solid rgb(58, 131, 150);
+  padding: 20 px;
+} */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+input[type=submit] {
+  font-size: .65em;
+color: rgb(212, 220, 224);
+background-color: rgb(38, 150, 53);
+border-radius: 10px
+}
+
 
 #character-content {
   display: grid;
