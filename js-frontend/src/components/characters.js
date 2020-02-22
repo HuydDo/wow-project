@@ -19,6 +19,8 @@ initBindingAndEvenListeners(){
   this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
  
   this.createPlayerBody = document.getElementById('new-player-body')
+
+  this.message = document.getElementById('message')
 }
 
 createCharacter(e) {
@@ -29,16 +31,24 @@ createCharacter(e) {
   const race = this.selectRace.value
   const character_class = this.selectClass.value
   const name = this.newCharacterBody.value
-  const charName = this.adapter.titleCase(player)
 
-  // console.log(`Player name: ` + player + ` Player Name after format: ` + charName)
+  let result = `Name can't be empty.`
+  if (name === ''){
+    this.message.innerHTML = result
+  }
 
-  this.adapter.createCharacter(gender, name, race, character_class, charName)
-    .then(character => {
-      this.characters.push(new Character(character))
-      // this.newCharacterBody.value = ''
-      // this.render()
-    })
+  else {
+    const charName = this.adapter.titleCase(player)
+
+    // console.log(`Player name: ` + player + ` Player Name after format: ` + charName)
+
+    this.adapter.createCharacter(gender, name, race, character_class, charName)
+      .then(character => {
+        this.characters.push(new Character(character))
+        // this.newCharacterBody.value = ''
+        // this.render()
+      })
+   }
 }
 
 fetchAndLoadCharacters() {

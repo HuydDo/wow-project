@@ -14,7 +14,7 @@ class Players{
     this.playerForm = document.getElementById('create-player-form')
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
 
-    this.playerName = document.getElementById('player-name')
+    this.message = document.getElementById('message')
 
     document.getElementById("new-character-form").style.display="none";
     document.getElementById('myBtn').disabled = true
@@ -44,7 +44,7 @@ class Players{
     if (this.exactMatch()!== undefined && this.newPlayerBody.value !==''){
       filteredPlayer.push(this.exactMatch())
       document.getElementById('myBtn').disabled = false
-      this.playerName.innerHTML = ''
+      this.message.innerHTML = ''
       // this.newPlayerBody.value =''  
 
       this.render(filteredPlayer)
@@ -53,7 +53,7 @@ class Players{
     else {
      document.getElementById('myBtn').disabled = true
      this.playersContainer.innerHTML = '' 
-     this.playerName.innerHTML = result
+     this.message.innerHTML = result
     }
    })
   }
