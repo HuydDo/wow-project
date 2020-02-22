@@ -17,12 +17,15 @@ class Adapter {
     return fetch(this.playersUrl).then(res => res.json())
   }
   
-  async getPlayerByName(name) {
-    // return  fetch(`${this.playersUrl}/${name}`).then(res => res.json())
-     const response = await fetch(`${this.playersUrl}/${name}`)
-     const json = await response.json()
-     return json
-  }
+  // async getPlayerByName(name) {
+  //    const response = await fetch(`${this.playersUrl}/${name}`)
+  //    const json = await response.json()
+  //    return json
+  // }
+
+ getPlayerByName(name) {
+    return  fetch(`${this.playersUrl}/${name}`).then(res => res.json())
+ }
 
   createCharacter(gender, name, race, character_class, player_id){
     const character = {

@@ -106,12 +106,15 @@ input[type=submit]:hover {
 
 input[type=submit] {
   font-size: .65em;
-color: rgb(212, 220, 224);
-background-color: rgb(38, 150, 53);
-border-radius: 10px
+  color: rgb(212, 220, 224);
+  background-color: rgb(38, 150, 53);
+  border-radius: 10px;
+ }
+
+ input[type="text"] {
+  width: 150px;
+  height: 15px;
 }
-
-
 #character-content {
   display: grid;
   grid-template-columns: 2fr 1fr;

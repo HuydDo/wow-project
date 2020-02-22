@@ -1,6 +1,6 @@
 class Players{
   constructor() {
-    this.players = []
+    // this.players = []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
     // this.fetchAndLoadPlayers()
@@ -32,22 +32,32 @@ class Players{
 
   showPlayerCharacters(e){
     e.preventDefault()
-    this.adapter.getPlayers()
-    // this.adapter.getPlayerByName(name)
-    .then(players => {
-        players.forEach(player => this.players.push(new Player(player)))
-    })
+    let playerObj = []
+    let playerName =  this.newPlayerBody.value
+    
+    const formattedPlayerName = this.adapter.titleCase(playerName)
+    console.log(formattedPlayerName)
+    // this.adapter.getPlayers()
+    this.adapter.getPlayerByName(formattedPlayerName)
+    // .then(players => {
+    //     players.forEach(player => this.players.push(new Player(player)))
+    // })
+
+    .then(player => playerObj.push(new Player(player)))
+    
     .then(() => {
     let result = `Can't find the player ${this.newPlayerBody.value}.  Please try again or create a new player name.`
     let filteredPlayer =[]
-    
-    if (this.exactMatch()!== undefined && this.newPlayerBody.value !==''){
-      filteredPlayer.push(this.exactMatch())
+    console.log(playerObj[0].id)
+    // if (this.exactMatch()!== undefined && playerName !==''){
+      if (playerObj[0].id !== undefined && playerName !==''){
+      // filteredPlayer.push(this.exactMatch())
       document.getElementById('myBtn').disabled = false
       this.message.innerHTML = ''
       // this.newPlayerBody.value =''  
 
-      this.render(filteredPlayer)
+      this.render(playerObj)
+      // this.render(filteredPlayer)
     //   this.renderPlayerNames()
     }
     else {
