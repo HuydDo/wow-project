@@ -18,7 +18,6 @@ renderDropdown("#myGender", genders, "gender")
 renderDropdown("#myRace", races, "race")
 renderDropdown("#myClass", classes, "charClass")
 
-
 function newCharForm(a)
 {
     if(a==1){

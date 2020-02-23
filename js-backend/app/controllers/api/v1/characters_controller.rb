@@ -12,7 +12,6 @@ class Api::V1::CharactersController < ApplicationController
     # render json: {id: character.id, player: character.player}
     if character
       # render json: character, include: [:player]
-
       render json: character.to_json(:include => {
         :player => {:only => [:name, :id]}
         
@@ -23,11 +22,9 @@ class Api::V1::CharactersController < ApplicationController
   end
   
   def create 
-    # byebug
     # player = Player.find(params[:player_id])
     player = Player.find_by(name: params[:character][:player_id])
     character = player.characters.create(character_params)
-  #  byebug
     # character = Character.find(params[:player_id])
     # character = Character.create(character_params)
     render json: character
@@ -43,7 +40,6 @@ class Api::V1::CharactersController < ApplicationController
   #   @character.delete
   #   render json: {characterId: character.id}
   # end
-
 
   private
   def character_params

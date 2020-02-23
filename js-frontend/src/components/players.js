@@ -9,26 +9,23 @@ class Players{
     this.playersContainer = document.getElementById('players-container')
     this.newPlayerBody = document.getElementById('new-player-body')
     this.characterForm = document.getElementById('new-player-form')
-    this.characterForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
     this.createPlayerBody = document.getElementById('create-player-body')
     this.playerForm = document.getElementById('create-player-form')
-    this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
-
-
-    
     this.message = document.getElementById('message')
 
     document.getElementById('new-character-form').style.display="none"
     document.getElementById('create-player-form').style.display="none"
     document.getElementById('my-characters').style.display="none"
     document.getElementById('charBtn').disabled = true
+
+    this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
+    this.characterForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
   }
 
   createPlayer(e) {
     e.preventDefault()
     
     let newPlayer = this.createPlayerBody.value
-
     if (newPlayer === ''){
        this.message.innerHTML = this.adapter.nameCheck('New player name')
     }
@@ -46,14 +43,12 @@ class Players{
     e.preventDefault()
     let playerObj = []
     let playerName =  this.newPlayerBody.value
-    
     // let result = `Player name can't be empty.`
     
     if (playerName === ''){
     //  this.message.innerHTML = result
     this.message.innerHTML = this.adapter.nameCheck('Player name')
     }
-
     else {
       const formattedPlayerName = this.adapter.titleCase(playerName)
       console.log(`Formatted Name:` + formattedPlayerName)
@@ -105,17 +100,15 @@ class Players{
 
   render(player){    
     // this.playersContainer.innerHTML =  player.map(p => p.renderLi())
-
     this.charactersContainer = document.getElementById('characters-container')
     this.charactersContainer.innerHTML =  player.map(p => p.renderLi())
   }
  
-  renderPlayerNames(){
-    this.players.forEach(e => {
-      this.playerNames.push(e.name)
-    })
-    renderDropdown("#myPlayer", this.playerNames)
-  }
+  // renderPlayerNames(){
+  //   this.players.forEach(e => {
+  //     this.playerNames.push(e.name)
+  //   })
+  //   renderDropdown("#myPlayer", this.playerNames)
+  // }
   
 }
-// export default Players

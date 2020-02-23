@@ -1,9 +1,8 @@
 class Api::V1::PlayersController < ApplicationController
-  # binding.pry
   def index
-   players = Player.all
-   #  render json: players, include: [:characters]
-   render json: players.to_json(include: [:characters])
+     players = Player.all
+     #  render json: players, include: [:characters]
+     render json: players.to_json(include: [:characters])
   end 
 
   def show

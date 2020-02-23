@@ -23,9 +23,9 @@ class Adapter {
   //    return json
   // }
 
- getPlayerByName(name) {
-    return  fetch(`${this.playersUrl}/${name}`).then(res => res.json())
- }
+   getPlayerByName(name) {
+      return  fetch(`${this.playersUrl}/${name}`).then(res => res.json())
+   }
 
   createCharacter(gender, name, race, character_class, player_id){
     const character = {
@@ -43,7 +43,6 @@ class Adapter {
       },
       body: JSON.stringify({character})
     }).then(res => res.json())
-
   }
 
   createPlayer(name){
@@ -69,10 +68,10 @@ class Adapter {
     }
     // Directly return the joined string
     return splitStr.join(' '); 
- }
+  }
 
- nameCheck(str){
-  return `${str} can't be empty`
-}
+  nameCheck(str){
+    return `${str} can't be empty`
+  }
  
 }
