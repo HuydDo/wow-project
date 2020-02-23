@@ -1,6 +1,5 @@
 # Wow App
-This JS and Rail app will help the player to show/create new character(s).  
-It can create new player if the player is not exists.
+This JS and Rail app is JS frontend SPA which use a Rail API.  It will be run in local dev environment.
 
 ## Prerequisites
 The setups steps expect following tools installed on the system.
@@ -33,23 +32,21 @@ The setups steps expect following tools installed on the system.
    `git clone git@github.com:HuydDo/wow-project.git`
 
    Change dir to 
-   
+   `cd js-backend`
    `cd wow-project`
-
-    `cd js-backend`
-
-2. Install the gems required by the applications
    `bundle install`
+   `rails db:create`
+   `rails db:migrate`
+   `rails db:seed [optional]`
 
-3. Start the Rails server
-   You can start the rails server using the command given below.
-
-   `bundle exec rails s` or `rails s`
-   View index.html file in the browser
-  You can visit the site with the URLs below to view the JSON 
+2. Open `js-backend/index.html` in the browser
+  You can visit the site with the URLs below to view the JSON data
     http://localhost:3000/api/v1/characters;
     http://localhost:3000/api/v1/players 
 
+
+## Usage
+  If you use seed file for database, you can login as user `James`, `Marry`, or `Josh`
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/HuydDo/wow-project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
