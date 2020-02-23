@@ -36,9 +36,10 @@ createCharacter(e) {
   const character_class = this.selectClass.value
   const name = this.newCharacterBody.value
 
-  let result = `Name can't be empty.`
+  // let result = `Name can't be empty.`
   if (name === ''){
-    this.message.innerHTML = result
+    this.message.innerHTML = this.adapter.nameCheck('Name')
+    
   }
 
   else {

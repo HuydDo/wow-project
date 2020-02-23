@@ -18,20 +18,28 @@ class Players{
     
     this.message = document.getElementById('message')
 
-    document.getElementById('new-character-form').style.display="none";
-    document.getElementById('create-player-form').style.display="none";
+    document.getElementById('new-character-form').style.display="none"
+    document.getElementById('create-player-form').style.display="none"
+    document.getElementById('my-characters').style.display="none"
     document.getElementById('charBtn').disabled = true
   }
 
   createPlayer(e) {
     e.preventDefault()
+    
     let newPlayer = this.createPlayerBody.value
-    const charName = this.adapter.titleCase(newPlayer)
-    this.adapter.createPlayer(charName).then(player => {
-    this.players.push(new Player(player))
-    // this.createPlayerBody.value = ''
-    // this.render(this.players)
-    })
+
+    if (newPlayer === ''){
+       this.message.innerHTML = this.adapter.nameCheck('New player name')
+    }
+    else {
+      const charName = this.adapter.titleCase(newPlayer)
+      this.adapter.createPlayer(charName).then(player => {
+      this.players.push(new Player(player))
+      // this.createPlayerBody.value = ''
+      // this.render(this.players)
+      })
+    }
   }
 
   showPlayerCharacters(e){
@@ -39,10 +47,11 @@ class Players{
     let playerObj = []
     let playerName =  this.newPlayerBody.value
     
-    let result = `Player name can't be empty.`
+    // let result = `Player name can't be empty.`
     
     if (playerName === ''){
-     this.message.innerHTML = result
+    //  this.message.innerHTML = result
+    this.message.innerHTML = this.adapter.nameCheck('Player name')
     }
 
     else {

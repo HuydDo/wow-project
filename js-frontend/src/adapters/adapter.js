@@ -71,5 +71,8 @@ class Adapter {
     return splitStr.join(' '); 
  }
 
+ nameCheck(str){
+  return `${str} can't be empty`
+}
  
 }

@@ -29,6 +29,10 @@ function newCharForm(a)
      document.getElementById("new-character-form").style.display="block"
     else if(a==3)
       document.getElementById("create-player-form").style.display="block"
+    else
+      document.getElementById('my-characters').style.display="table"
         
 }
+
+
 const app = new App()
