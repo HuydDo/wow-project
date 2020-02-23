@@ -27,7 +27,6 @@ class Players{
     e.preventDefault()
     
     let newPlayer = this.createPlayerBody.value
-    console.log(newPlayer)
     if (newPlayer === ''){
        this.message.innerHTML = this.adapter.nameCheck('New player name')
     }
