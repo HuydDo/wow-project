@@ -13,8 +13,9 @@ class Players{
     this.playerForm = document.getElementById('create-player-form')
     this.message = document.getElementById('message')
 
-    document.getElementById('new-character-form').style.display="none"
     document.getElementById('create-player-form').style.display="none"
+    document.getElementById('new-character-form').style.display="none"
+    
     document.getElementById('my-characters').style.display="none"
     document.getElementById('charBtn').disabled = true
 
@@ -26,6 +27,7 @@ class Players{
     e.preventDefault()
     
     let newPlayer = this.createPlayerBody.value
+    console.log(newPlayer)
     if (newPlayer === ''){
        this.message.innerHTML = this.adapter.nameCheck('New player name')
     }

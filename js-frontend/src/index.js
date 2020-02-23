@@ -20,16 +20,21 @@ renderDropdown("#myClass", classes, "charClass")
 
 function newCharForm(a)
 {
+    let playerName = document.getElementById('new-player-body')
+    let newCharacter = document.getElementById("new-character-form")
+    let createPlayer = document.getElementById("create-player-form")
+    let myCharacter = document.getElementById('my-characters')
+    
     if(a==1){
-      document.getElementById("new-character-form").style.display="none"
-      document.getElementById("create-player-form").style.display="none"
+      newCharacter.style.display="none"
+      createPlayer.style.display="none"
     }
     else if(a==2)
-     document.getElementById("new-character-form").style.display="block"
+      newCharacter.style.display="block"
     else if(a==3)
-      document.getElementById("create-player-form").style.display="block"
-    else
-      document.getElementById('my-characters').style.display="table"
+     createPlayer.style.display="block"
+    else if(a==4 && playerName.value !== '')
+      myCharacter.style.display="table"
 }
 
 const app = new App()
