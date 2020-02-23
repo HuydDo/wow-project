@@ -33,15 +33,14 @@ div.card {
 }
 
 p {
-  font-size: 1em;
+  font-size: 0.8em;
   color: black;
   font-family: Helvetica;
 }
 
 li {
-  font-size: 1.05em;
+  font-size: 0.9em;
   list-style: none;
-
   padding-right: 20px;
 }
 
@@ -54,7 +53,7 @@ button {
 
 button:hover {
   background-color: #7e95d4;
-} */
+} 
 
 button.release {
   float: right;
@@ -81,7 +80,7 @@ a {
 }
 
 input {
-  font-size: 1.2rem;
+  font-size: 1em;
 }
 
 .container {
@@ -119,7 +118,7 @@ input[type=submit] {
 
  input[type="text"] {
   width: 150px;
-  height: 25px;
+  height: 20px;
 }
 #character-content {
   display: grid;
