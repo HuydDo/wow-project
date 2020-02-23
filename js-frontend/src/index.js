@@ -21,9 +21,14 @@ renderDropdown("#myClass", classes, "charClass")
 
 function newCharForm(a)
 {
-    if(a==1)
-        document.getElementById("new-character-form").style.display="none";
-    else
-        document.getElementById("new-character-form").style.display="block";
+    if(a==1){
+      document.getElementById("new-character-form").style.display="none"
+      document.getElementById("create-player-form").style.display="none"
+    }
+    else if(a==2)
+     document.getElementById("new-character-form").style.display="block"
+    else if(a==3)
+      document.getElementById("create-player-form").style.display="block"
+        
 }
 const app = new App()

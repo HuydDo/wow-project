@@ -16,8 +16,9 @@ class Players{
 
     this.message = document.getElementById('message')
 
-    document.getElementById("new-character-form").style.display="none";
-    document.getElementById('myBtn').disabled = true
+    document.getElementById('new-character-form').style.display="none";
+    document.getElementById('create-player-form').style.display="none";
+    document.getElementById('charBtn').disabled = true
   }
 
   createPlayer(e) {
@@ -59,7 +60,8 @@ class Players{
       // if (this.exactMatch()!== undefined && playerName !==''){
       if (playerObj[0].id !== undefined ){
       // filteredPlayer.push(this.exactMatch())
-      document.getElementById('myBtn').disabled = false
+      document.getElementById('charBtn').disabled = false
+      document.getElementById('playerBtn').disabled = true
       this.message.innerHTML = ''
       // this.newPlayerBody.value =''  
 
@@ -68,7 +70,8 @@ class Players{
       //   this.renderPlayerNames()
       }
       else {
-       document.getElementById('myBtn').disabled = true
+       document.getElementById('charBtn').disabled = true
+       document.getElementById('playerBtn').disabled = false
        this.playersContainer.innerHTML = '' 
        this.message.innerHTML = result
       }
