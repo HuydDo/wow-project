@@ -1,6 +1,7 @@
 // import Players from './Players.js';
 
 // class Characters extends Players{
+  
   class Characters{
   constructor() {
     this.characters = []
@@ -28,7 +29,7 @@ initBindingAndEvenListeners(){
 
 createCharacter(e) {
   e.preventDefault()
-
+  
   const player = this.createPlayerBody.value
   const gender = this.selectGender.value
   const race = this.selectRace.value

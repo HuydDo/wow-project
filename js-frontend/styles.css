@@ -113,7 +113,7 @@ input[type=submit] {
 
  input[type="text"] {
   width: 150px;
-  height: 15px;
+  height: 25px;
 }
 #character-content {
   display: grid;

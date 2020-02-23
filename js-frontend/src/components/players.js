@@ -14,6 +14,8 @@ class Players{
     this.playerForm = document.getElementById('create-player-form')
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
 
+
+    
     this.message = document.getElementById('message')
 
     document.getElementById('new-character-form').style.display="none";
@@ -91,8 +93,11 @@ class Players{
     );
   }
 
-  render(player){
-    this.playersContainer.innerHTML =  player.map(p => p.renderLi())
+  render(player){    
+    // this.playersContainer.innerHTML =  player.map(p => p.renderLi())
+
+    this.charactersContainer = document.getElementById('characters-container')
+    this.charactersContainer.innerHTML =  player.map(p => p.renderLi())
   }
  
   renderPlayerNames(){
