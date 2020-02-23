@@ -108,7 +108,6 @@ ul {
   background-color: #45a049;
 } */
 
-
 input[type=submit] {
   font-size: .65em;
   /* color: rgb(212, 220, 224); */
@@ -120,6 +119,7 @@ input[type=submit] {
   width: 150px;
   height: 20px;
 }
+
 #character-content {
   display: grid;
   grid-template-columns: 2fr 1fr;

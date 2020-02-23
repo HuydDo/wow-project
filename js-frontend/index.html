@@ -29,7 +29,6 @@
           <input type="submit" class="btn btn-info btn-sm" onclick="newCharForm(4)" value="login">
           </p>  
         </form>
-        <br>
         
         <button onclick="newCharForm(1)">Hide</button>
         <button id="charBtn" onclick="newCharForm(2)">Create New Character</button>
@@ -43,27 +42,12 @@
           </p>  
         </form>
         
-        <br><br>
         <form id="new-character-form">
-          <!-- Enter player name:
-            <input type="text" name="playerName" id="playerName">
-            <br><br> -->
-          Gender:
-          <div id="myGender">
-          </div>
-          <br>
-          Race:
-          <div id="myRace">
-          </div>
-          <br>
-          Class:
-          <div id="myClass">
-          </div>
-          <br>
-          Name:
-          <input type="text" name="character-body" id="myName">
-          <br><br>
-          <input type="submit" class="btn btn-info" value="Save character">
+          <p id="myGender">Gender: </p>
+          <p id="myRace">Race: </p>
+          <p id="myClass">Class: </p>
+          <p>Name: <input type="text" name="character-body" id="myName"></p>
+          <input type="submit" class="btn btn-info btn-sm" >
           <br></br>
         </form>
 
