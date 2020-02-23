@@ -48,14 +48,20 @@ li {
 button {
   font-size: .65em;
   color: rgb(212, 220, 224);
-  background-color: rgb(55, 102, 146);
+  background-color: rgb(113, 141, 194);
   border-radius: 10px;
 }
+
+button:hover {
+  background-color: #7e95d4;
+} */
 
 button.release {
   float: right;
   background-color: #E1332D;
 }
+
+
 
 @media only screen and (min-width: 500px) {
   main {
@@ -99,15 +105,15 @@ ul {
 }
 
 
-input[type=submit]:hover {
+/* input[type=submit]:hover {
   background-color: #45a049;
-}
+} */
 
 
 input[type=submit] {
   font-size: .65em;
-  color: rgb(212, 220, 224);
-  background-color: rgb(38, 150, 53);
+  /* color: rgb(212, 220, 224); */
+  /* background-color: rgb(38, 150, 53); */
   border-radius: 10px;
  }
 
