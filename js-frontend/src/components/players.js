@@ -26,7 +26,8 @@ class Players{
   createPlayer(e) {
     e.preventDefault()
     let newPlayer = this.createPlayerBody.value
-    this.adapter.createPlayer(newPlayer).then(player => {
+    const charName = this.adapter.titleCase(newPlayer)
+    this.adapter.createPlayer(charName).then(player => {
     this.players.push(new Player(player))
     // this.createPlayerBody.value = ''
     // this.render(this.players)
@@ -46,7 +47,7 @@ class Players{
 
     else {
       const formattedPlayerName = this.adapter.titleCase(playerName)
-      console.log(formattedPlayerName)
+      console.log(`Formatted Name:` + formattedPlayerName)
       // this.adapter.getPlayers()
       this.adapter.getPlayerByName(formattedPlayerName)
       // .then(players => {
@@ -63,7 +64,7 @@ class Players{
       if (playerObj[0].id !== undefined ){
       // filteredPlayer.push(this.exactMatch())
       document.getElementById('charBtn').disabled = false
-      document.getElementById('playerBtn').disabled = true
+      // document.getElementById('playerBtn').disabled = true
       this.message.innerHTML = ''
       // this.newPlayerBody.value =''  
 
@@ -73,7 +74,7 @@ class Players{
       }
       else {
        document.getElementById('charBtn').disabled = true
-       document.getElementById('playerBtn').disabled = false
+      //  document.getElementById('playerBtn').disabled = false
        this.playersContainer.innerHTML = '' 
        this.message.innerHTML = result
       }
