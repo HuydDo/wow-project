@@ -60,21 +60,6 @@ button.release {
   background-color: #E1332D;
 }
 
-
-
-@media only screen and (min-width: 500px) {
-  main {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media only screen and (min-width: 850px) {
-  main {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
-/* For wow project */
 a {
   color: turquoise;
 }
@@ -103,19 +88,12 @@ ul {
   padding: 20 px;
 }
 
-
-/* input[type=submit]:hover {
-  background-color: #45a049;
-} */
-
 input[type=submit] {
   font-size: .65em;
-  /* color: rgb(212, 220, 224); */
-  /* background-color: rgb(38, 150, 53); */
-  border-radius: 10px;
+  border-radius: 10px; */
  }
 
- input[type="text"] {
+input[type="text"] {
   width: 150px;
   height: 20px;
 }
@@ -125,3 +103,16 @@ input[type=submit] {
   grid-template-columns: 2fr 1fr;
   grid-gap: 10px;
 }
+
+@media only screen and (min-width: 500px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 850px) {
+  main {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+

@@ -31,8 +31,6 @@ function newCharForm(a)
       document.getElementById("create-player-form").style.display="block"
     else
       document.getElementById('my-characters').style.display="table"
-        
 }
-
 
 const app = new App()
