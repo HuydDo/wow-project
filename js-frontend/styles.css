@@ -32,7 +32,7 @@ div.card {
   border-radius: 10px;
 }
 
-p {
+p, #my-characters {
   font-size: 0.8em;
   color: black;
   font-family: Helvetica;
