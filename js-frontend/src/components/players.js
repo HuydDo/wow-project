@@ -52,7 +52,7 @@ class Players{
     }
     else {
       const formattedPlayerName = this.adapter.titleCase(playerName)
-      console.log(`Formatted Name:` + formattedPlayerName)
+      // console.log(`Formatted Name:` + formattedPlayerName)
       // this.adapter.getPlayers()
       this.adapter.getPlayerByName(formattedPlayerName)
       // .then(players => {
@@ -64,7 +64,7 @@ class Players{
       .then(() => {
       let result = `Can't find the player ${this.newPlayerBody.value}.  Please try again or create a new player name.`
       let filteredPlayer =[]
-      console.log(playerObj[0].id)
+      // console.log(playerObj[0].id)
       // if (this.exactMatch()!== undefined && playerName !==''){
       if (playerObj[0].id !== undefined ){
       // filteredPlayer.push(this.exactMatch())
@@ -81,7 +81,9 @@ class Players{
        document.getElementById('charBtn').disabled = true
       //  document.getElementById('playerBtn').disabled = false
        this.playersContainer.innerHTML = '' 
-       this.message.innerHTML = result
+      //  this.message.innerHTML = result
+       
+       this.message.innerHTML = this.adapter.nameCheck(playerName, 1)
       }
      })
     } 

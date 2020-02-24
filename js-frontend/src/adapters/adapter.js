@@ -70,11 +70,17 @@ class Adapter {
     return splitStr.join(' '); 
   }
 
-  nameCheck(str){
+  nameCheck(str, value=0){
     // return `<div class='alert alert-warning'>${str} can't be empty</div>`
-    return `<div class='alert alert-warning alert-dismissible fade show'>
-            <button type='button' class='close' data-dismiss='alert'>&times;</button>
-            ${str} can't be empty</div>`
+
+    if (value == 1)
+      return `<div class='alert alert-warning alert-dismissible fade show'>
+              <button type='button' class='close' data-dismiss='alert'>&times;</button>
+              Can't find the player ${str}.  Please try again or create a new player.</div>`
+    else
+      return `<div class='alert alert-warning alert-dismissible fade show'>
+              <button type='button' class='close' data-dismiss='alert'>&times;</button>
+              ${str} can't be empty</div>`
   }
  
 }
