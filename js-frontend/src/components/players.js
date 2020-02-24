@@ -19,7 +19,8 @@ class Players{
     this.playerForm.style.display = "none"
     this.myCharacter.style.display ="none"
 
-    document.getElementById('charBtn').disabled = true
+    this.charBtn = document.getElementById('charBtn')
+    this.charBtn.style.display = "none"
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
     this.characterForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
@@ -54,6 +55,7 @@ class Players{
       this.message.innerHTML = this.adapter.nameCheck('Player name')
     }
     else {
+      this.charBtn.style.display = "inline"
       const formattedPlayerName = this.adapter.titleCase(playerName)
       
       this.adapter.getPlayerByName(formattedPlayerName)
