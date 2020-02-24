@@ -16,11 +16,9 @@ class Characters{
     this.selectClass = document.querySelector('#charClass')
     this.newCharacterBody = document.getElementById('myName')
     this.characterForm = document.getElementById('new-character-form')
-    this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
-   
     this.createPlayerBody = document.getElementById('new-player-body')
-
     this.message = document.getElementById('message')
+    this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
   }
 
   createCharacter(e) {

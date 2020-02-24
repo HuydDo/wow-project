@@ -1,5 +1,4 @@
 require 'faker'
-require 'pry'
 
 class Api::V1::CharactersController < ApplicationController
   def index

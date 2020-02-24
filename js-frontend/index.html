@@ -15,41 +15,41 @@
 </head>
 
 <body>
-  
+
   <header>
     <h2>World Of Warcraft</h2>
   </header>
 
   <main>
-    
+
     <div class="container">
       <div id="new-character-container">
         <br><br>
         <form id="new-player-form">
           <p>Player Name:
-          <input type="text" name="player-body" id="new-player-body">
-          <input type="submit" class="btn btn-info btn-sm" onclick="newCharForm(4)" value="login">
-          </p>  
+            <input type="text" name="player-body" id="new-player-body">
+            <input type="submit" class="btn btn-info btn-sm" value="login">
+          </p>
         </form>
-        
-        <button onclick="newCharForm(1)">Hide</button>
-        <button id="charBtn" onclick="newCharForm(2)">Create New Character</button>
-        <button id="playerBtn" onclick="newCharForm(3)">Create New Player</button>
+
+        <button onclick="displayForm(1)">Hide</button>
+        <button id="charBtn" onclick="displayForm(2)">Create New Character</button>
+        <button id="playerBtn" onclick="displayForm(3)">Create New Player</button>
         <br><br>
 
         <form id="create-player-form">
           <p>New Player Name:
-          <input type="text" name="create-player-body" id="create-player-body">
-          <input type="submit" class="btn btn-info btn-sm">
-          </p>  
+            <input type="text" name="create-player-body" id="create-player-body">
+            <input type="submit" class="btn btn-info btn-sm">
+          </p>
         </form>
-        
+
         <form id="new-character-form">
           <p id="myGender">Gender: </p>
           <p id="myRace">Race: </p>
           <p id="myClass">Class: </p>
           <p>Name: <input type="text" name="character-body" id="myName"></p>
-          <input type="submit" class="btn btn-info btn-sm" >
+          <input type="submit" class="btn btn-info btn-sm">
           <br></br>
         </form>
 
@@ -65,9 +65,10 @@
           <tbody id="characters-container">
 
           </tbody>
-        </table>  
+        </table>
 
-      </div> <!--end container-->
+      </div>
+      <!--end container-->
 
       <div id="characters-content">
         <ul id="characters-container">
@@ -80,10 +81,10 @@
 
         </div>
         <div id="message">
-          
-        </div> 
+
+        </div>
       </div>
-      
+
     </div>
   </main>
 

@@ -23,7 +23,6 @@ class Api::V1::PlayersController < ApplicationController
   end
   
   def create
-    #  binding.pry
     player = Player.create(player_params)
     render json: player, status: 200
   end

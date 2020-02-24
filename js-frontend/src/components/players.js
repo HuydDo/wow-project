@@ -3,7 +3,6 @@ class Players{
     this.players = []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
-    // this.fetchAndLoadPlayers()
   }
   initBindingAndEvenListeners(){
     this.playersContainer = document.getElementById('players-container')
@@ -15,8 +14,8 @@ class Players{
 
     document.getElementById('create-player-form').style.display="none"
     document.getElementById('new-character-form').style.display="none"
-    
-    document.getElementById('my-characters').style.display="none"
+    this.myCharacter = document.getElementById('my-characters')
+    this.myCharacter.style.display ="none"
     document.getElementById('charBtn').disabled = true
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
@@ -44,74 +43,49 @@ class Players{
     e.preventDefault()
     let playerObj = []
     let playerName =  this.newPlayerBody.value
-    // let result = `Player name can't be empty.`
     
     if (playerName === ''){
-    //  this.message.innerHTML = result
-    this.message.innerHTML = this.adapter.nameCheck('Player name')
+      this.message.innerHTML = this.adapter.nameCheck('Player name')
     }
     else {
       const formattedPlayerName = this.adapter.titleCase(playerName)
-      // console.log(`Formatted Name:` + formattedPlayerName)
-      // this.adapter.getPlayers()
-      this.adapter.getPlayerByName(formattedPlayerName)
-      // .then(players => {
-      //     players.forEach(player => this.players.push(new Player(player)))
-      // })
-
-      .then(player => playerObj.push(new Player(player)))
       
+      this.adapter.getPlayerByName(formattedPlayerName)
+      .then(player => playerObj.push(new Player(player)))
       .then(() => {
-      let result = `Can't find the player ${this.newPlayerBody.value}.  Please try again or create a new player name.`
-      let filteredPlayer =[]
-      // console.log(playerObj[0].id)
-      // if (this.exactMatch()!== undefined && playerName !==''){
+      
       if (playerObj[0].id !== undefined ){
-      // filteredPlayer.push(this.exactMatch())
-      document.getElementById('charBtn').disabled = false
-      // document.getElementById('playerBtn').disabled = true
-      this.message.innerHTML = ''
-      // this.newPlayerBody.value =''  
-
-      this.render(playerObj)
-      // this.render(filteredPlayer)
-      //   this.renderPlayerNames()
-      }
+        document.getElementById('charBtn').disabled = false
+        this.message.innerHTML = ''
+        this.render(playerObj)
+        let myCharacter = document.getElementById('my-characters')
+        this.myCharacter.style.display = "table"
+       }
       else {
-       document.getElementById('charBtn').disabled = true
-      //  document.getElementById('playerBtn').disabled = false
-       this.playersContainer.innerHTML = '' 
-      //  this.message.innerHTML = result
-       
-       this.message.innerHTML = this.adapter.nameCheck(playerName, 1)
+        document.getElementById('charBtn').disabled = true
+        this.playersContainer.innerHTML = '' 
+         this.myCharacter.style.display ="none"
+         this.message.innerHTML = this.adapter.nameCheck(playerName, 1)
       }
      })
     } 
   }
 
-  filteredPlayer() {
-    return this.players.filter(player =>   
-       player.name.toLowerCase().includes(this.newPlayerBody.value.toLowerCase())
-     );
-  }
+  // filteredPlayer() {
+  //   return this.players.filter(player =>   
+  //      player.name.toLowerCase().includes(this.newPlayerBody.value.toLowerCase())
+  //    )
+  // }
 
   exactMatch() {
     return this.players.find(  
       player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
-    );
+    )
   }
 
   render(player){    
-    // this.playersContainer.innerHTML =  player.map(p => p.renderLi())
     this.charactersContainer = document.getElementById('characters-container')
     this.charactersContainer.innerHTML =  player.map(p => p.renderLi())
   }
- 
-  // renderPlayerNames(){
-  //   this.players.forEach(e => {
-  //     this.playerNames.push(e.name)
-  //   })
-  //   renderDropdown("#myPlayer", this.playerNames)
-  // }
   
 }
