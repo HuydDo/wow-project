@@ -25,10 +25,23 @@ function displayForm(a) {
   if (a == 1) {
     newCharacter.style.display = "none"
     createPlayer.style.display = "none"
-  } else if (a == 2)
-    newCharacter.style.display = "block"
-  else if (a == 3)
-    createPlayer.style.display = "block"
+  } 
+  else if (a == 2) {
+    if (newCharacter.style.display ==="none") {
+      newCharacter.style.display = "inline"
+    }
+    else {
+      newCharacter.style.display = "none"
+    }
+  }
+  else if (a == 3){
+    if (createPlayer.style.display === "none") {
+      createPlayer.style.display = "inline"
+    }
+    else {
+      createPlayer.style.display = "none"
+    }
+  }
   
 }
 

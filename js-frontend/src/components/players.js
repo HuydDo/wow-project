@@ -24,6 +24,7 @@ class Players{
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
     this.characterForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
+
   }
 
   createPlayer(e) {
