@@ -1,17 +1,27 @@
 body {
   margin: 0;
   padding: 0;
+
+  background-image: url('src/images/wow.jpg');
+ 
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+  
 }
 
 header {
-  background-color: #85a0d8;
+  /* background-color: #bfcbe2; */
   margin: 0 auto;
   height: 50px;
 }
 
 header h2 {
+  color: rgb(218, 223, 217);
   padding: 10px;
   margin: 0;
+  text-align: center;
 }
 
 main {
@@ -23,19 +33,20 @@ main {
   padding-bottom: 30px;
 }
 
-div.card {
+/* div.card {
   background-color: #eeeeee;
   height: 250px;
   width: 300px;
   box-shadow: 10px 10px grey;
   padding: 10px;
   border-radius: 10px;
-}
+} */
 
 p, #my-characters, #message {
   font-size: 0.8em;
   color: black;
   font-family: Helvetica;
+  color: rgb(188, 212, 228);
 }
 
 li {
