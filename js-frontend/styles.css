@@ -45,12 +45,12 @@ li {
 button {
   font-size: .65em;
   color: rgb(212, 220, 224);
-  background-color: rgb(113, 141, 194);
+  background-color: rgb(18, 127, 134);
   border-radius: 10px;
 }
 
 button:hover {
-  background-color: #7e95d4;
+  background-color: #0b6164;
 } 
 
 input {
