@@ -30,12 +30,15 @@ class Players{
     
     let newPlayer = this.createPlayerBody.value
     if (newPlayer === ''){
-       this.message.innerHTML = this.adapter.nameCheck('New player name')
+     this.message.innerHTML = this.adapter.nameCheck('New player name')
+     this.newCharacterForm.style.display = "none"
+     this.myCharacter.style.display ="none"
     }
     else {
       const charName = this.adapter.titleCase(newPlayer)
       this.adapter.createPlayer(charName).then(player => {
       this.players.push(new Player(player))
+    
       // this.createPlayerBody.value = ''
       // this.render(this.players)
       })
