@@ -71,7 +71,10 @@ class Adapter {
   }
 
   nameCheck(str){
-    return `<div class='alert alert-warning'>${str} can't be empty</div>`
+    // return `<div class='alert alert-warning'>${str} can't be empty</div>`
+    return `<div class='alert alert-warning alert-dismissible fade show'>
+            <button type='button' class='close' data-dismiss='alert'>&times;</button>
+            ${str} can't be empty</div>`
   }
  
 }
