@@ -12,15 +12,14 @@ class Players{
     this.playerForm = document.getElementById('create-player-form')
     this.message = document.getElementById('message')
 
-    // this.createPlayer = document.getElementById('create-player-form')
-    this.playerForm.style.display = "none"
-
-    document.getElementById('new-character-form').style.display="none"
+    this.newCharacterForm = document.getElementById('new-character-form')
+    this.newCharacterForm.style.display="none"
     this.myCharacter = document.getElementById('my-characters')
+   
+    this.playerForm.style.display = "none"
     this.myCharacter.style.display ="none"
 
     document.getElementById('charBtn').disabled = true
-    
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
     this.characterForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
@@ -67,11 +66,9 @@ class Players{
        }
       else {
         document.getElementById('charBtn').disabled = true
-        this.playersContainer.innerHTML = '' 
-
-        let myCharacter = document.getElementById('my-characters')
-        this.myCharacter.style.display = "none"
-
+        // this.playersContainer.innerHTML = ''
+        this.newCharacterForm.style.display = "none"
+        this.myCharacter.style.display ="none"
         this.message.innerHTML = this.adapter.nameCheck(playerName, 1)
       }
      })
