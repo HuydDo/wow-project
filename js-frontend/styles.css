@@ -1,18 +1,14 @@
 body {
   margin: 0;
   padding: 0;
-
   background-image: url('src/images/wow2.jpg');
- 
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
-  
 }
 
 header {
-  /* background-color: #bfcbe2; */
   margin: 0 auto;
   height: 50px;
 }
@@ -32,15 +28,6 @@ main {
   padding-top: 10px;
   padding-bottom: 30px;
 }
-
-/* div.card {
-  background-color: #eeeeee;
-  height: 250px;
-  width: 300px;
-  box-shadow: 10px 10px grey;
-  padding: 10px;
-  border-radius: 10px;
-} */
 
 p, #my-characters, #message {
   font-size: 0.8em;
@@ -66,15 +53,6 @@ button:hover {
   background-color: #7e95d4;
 } 
 
-button.release {
-  float: right;
-  background-color: #E1332D;
-}
-
-a {
-  color: turquoise;
-}
-
 input {
   font-size: 0.9em;
 }
@@ -90,15 +68,6 @@ ul {
   padding-left: 20px;
 }
 
-.delete-character-link {
-  color: red;
-}
-
-#editable {
-  border: 1px solid black;
-  padding: 20 px;
-}
-
 input[type=submit] {
   font-size: .65em;
   border-radius: 10px; */
@@ -107,23 +76,5 @@ input[type=submit] {
 input[type="text"] {
   width: 150px;
   height: 20px;
-}
-
-#character-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 10px;
-}
-
-@media only screen and (min-width: 500px) {
-  main {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media only screen and (min-width: 850px) {
-  main {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
 }
 
