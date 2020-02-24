@@ -11,15 +11,13 @@ class Players{
     this.createPlayerBody = document.getElementById('create-player-body')
     this.playerForm = document.getElementById('create-player-form')
     this.message = document.getElementById('message')
-
+    this.charBtn = document.getElementById('charBtn')
     this.newCharacterForm = document.getElementById('new-character-form')
-    this.newCharacterForm.style.display="none"
     this.myCharacter = document.getElementById('my-characters')
-   
+
+    this.newCharacterForm.style.display="none"
     this.playerForm.style.display = "none"
     this.myCharacter.style.display ="none"
-
-    this.charBtn = document.getElementById('charBtn')
     this.charBtn.style.display = "none"
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
@@ -56,7 +54,7 @@ class Players{
       this.message.innerHTML = this.adapter.nameCheck('Player name')
     }
     else {
-      this.charBtn.style.display = "inline"
+      
       const formattedPlayerName = this.adapter.titleCase(playerName)
       
       this.adapter.getPlayerByName(formattedPlayerName)
@@ -65,6 +63,7 @@ class Players{
       
       if (playerObj[0].id !== undefined ){
         document.getElementById('charBtn').disabled = false
+        this.charBtn.style.display = "inline"
         this.message.innerHTML = ''
         this.render(playerObj)
         let myCharacter = document.getElementById('my-characters')
@@ -80,12 +79,6 @@ class Players{
      })
     } 
   }
-
-  // filteredPlayer() {
-  //   return this.players.filter(player =>   
-  //      player.name.toLowerCase().includes(this.newPlayerBody.value.toLowerCase())
-  //    )
-  // }
 
   exactMatch() {
     return this.players.find(  
