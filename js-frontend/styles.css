@@ -44,13 +44,14 @@ li {
 
 button {
   font-size: .65em;
-  color: rgb(212, 220, 224);
-  background-color: rgb(18, 127, 134);
+  color: rgb(210, 212, 69);
+  background-color: rgb(155, 17, 17);
   border-radius: 10px;
 }
 
 button:hover {
-  background-color: #0b6164;
+  color: rgb(188, 212, 228);
+  /* background-color: #0b6164; */
 } 
 
 input {
