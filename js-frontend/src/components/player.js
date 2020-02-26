@@ -14,7 +14,7 @@ class Player{
       
       // playerCharacters.push(`<tr><td>${c.name}</td><td>${c.race}</td><td>${c.character_class}</td><td>${c.gender}</td></tr>`)
       playerCharacters.push(`<tr data-id=${this.characters[0].id}><td>${c.name}</td><td>${c.race}</td><td>${c.character_class}</td><td>${c.gender}</td>
-     <td><a class="delete-character-link">Delete</a></td></tr>`)
+     <td><a class="delete-character-link">Delete It</a></td></tr>`)
 
 
     })

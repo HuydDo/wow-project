@@ -41,7 +41,8 @@ class Characters{
         .then(character => {
           this.characters.push(new Character(character))
           // this.newCharacterBody.value = ''
-          this.render()
+          // this.render()
+          this.render(this.characters)
   
         })
      }
@@ -60,6 +61,11 @@ class Characters{
   render() {
     this.charactersContainer.innerHTML = this.characters.map(character =>
       character.renderLi()).join('')
+  }
+
+  render(player){    
+    this.charactersContainer = document.getElementById('characters-container')
+    this.charactersContainer.innerHTML =  player.map(p => p.renderLi())
   }
 
   filteredPlayer() {
