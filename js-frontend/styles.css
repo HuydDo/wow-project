@@ -45,7 +45,7 @@ li {
 button {
   font-size: .65em;
   color: rgb(210, 212, 69);
-  background-color: rgb(155, 17, 17);
+  background-color: rgb(36, 63, 114);
   border-radius: 10px;
 }
 
@@ -71,7 +71,7 @@ ul {
 
 input[type=submit] {
   font-size: .65em;
-  border-radius: 10px; */
+  border-radius: 10px; 
  }
 
 input[type="text"] {
@@ -79,3 +79,11 @@ input[type="text"] {
   height: 20px;
 }
 
+.delete-character-link {
+  color: red;
+  font-size: .5em;
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: 10px;
+}

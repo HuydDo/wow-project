@@ -22,7 +22,7 @@ class Players{
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
     this.characterForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
-
+    this.myCharacter.addEventListener('dblclick', this.handleCharacterClick.bind(this))
   }
 
   createPlayer(e) {
@@ -90,5 +90,31 @@ class Players{
     this.charactersContainer = document.getElementById('characters-container')
     this.charactersContainer.innerHTML =  player.map(p => p.renderLi())
   }
-  
+
+  handleCharacterClick(e) {
+    if (e.target.classList.contains('delete-character-link')){
+        console.log('will delete', e.target.parentNode);
+        this.deleteCharacter(e)
+    } else {
+        this.toggleCharacter(e)
+    }
+  }
+
+  toggleCharacter(e) {
+    const tr = e.target
+    tr.contentEditable = "true"
+    tr.focus()
+    tr.classList.add('editable')
+}
+
+  deleteCharacter(e) {
+    const tr = e.target.parentNode
+    const id = tr.dataset.id
+    console.log(id)
+    debugger
+    this.adapter.deleteCharacter(id)
+    tr.remove()
+}
+
+
 }

@@ -45,6 +45,13 @@ class Adapter {
     }).then(res => res.json())
   }
 
+  deleteCharacter(id){
+    return fetch(this.charactersUrl + `/${id}`, {
+      method: 'DELETE'
+    })
+    .then(res => res.json())
+  }
+
   createPlayer(name){
     const player = {
       name,

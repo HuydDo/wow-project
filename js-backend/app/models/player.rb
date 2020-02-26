@@ -1,4 +1,5 @@
 class Player < ApplicationRecord
   has_many :characters
-  validates :name, presence: true
+  validates :name, uniqueness: :true
+  # validates :name, presence: true
 end

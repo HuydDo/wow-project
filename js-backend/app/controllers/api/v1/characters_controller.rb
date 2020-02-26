@@ -3,7 +3,7 @@ require 'faker'
 class Api::V1::CharactersController < ApplicationController
   def index
     characters = Character.all
-    render json: characters.to_json(include: [:player])
+    render json: characters.to_json(include: [:player]), status: 200
   end
 
   def show
@@ -34,11 +34,12 @@ class Api::V1::CharactersController < ApplicationController
   #   @character.udpate(character_params)
   #   render json: @character
   
-  # def destroy
-  #   @character = Character.find(params[:id])
-  #   @character.delete
-  #   render json: {characterId: character.id}
-  # end
+  def destroy
+    character = Character.find(params[:id])
+    character.delete
+    # render json: {characterId: character.id}
+    render json: character, status: 200
+  end
 
   private
   def character_params
