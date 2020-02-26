@@ -111,7 +111,6 @@ class Players{
     const tr = e.target.parentNode
     const id = tr.dataset.id
     console.log(id)
-    debugger
     this.adapter.deleteCharacter(id)
     tr.remove()
 }
