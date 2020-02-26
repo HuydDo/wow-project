@@ -15,7 +15,7 @@ class Api::V1::PlayersController < ApplicationController
     if player
       # render json: player.to_json(include: [:characters])
       render json: player.to_json(:include => {
-      :characters => {:only => [:gender, :name, :race, :character_class, :player_id]}
+      :characters => {:only => [:id, :gender, :name, :race, :character_class, :player_id]}
       }, :except => [:created_at, :updated_at]), status: 200
     else
       render json: { message: 'No player found with that id' }

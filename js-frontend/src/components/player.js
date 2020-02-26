@@ -16,13 +16,14 @@ class Player{
       // return `<li data-id=${this.id}>${this.body}<a class="delete-note-link">Delete</a></li>`
       
       // playerCharacters.push(`<tr><td>${c.name}</td><td>${c.race}</td><td>${c.character_class}</td><td>${c.gender}</td></tr>`)
-      
-      playerCharacters.push(`<tr data-id=${this.id}><td>${c.name}</td><td>${c.race}</td><td>${c.character_class}</td><td>${c.gender}</td>
+      console.log(this.characters[0].id)
+      playerCharacters.push(`<tr data-id=${this.characters[0].id}><td>${c.name}</td><td>${c.race}</td><td>${c.character_class}</td><td>${c.gender}</td>
      <td><a class="delete-character-link">Delete</a></td></tr>`)
 
 
     })
     // playerCharacters.unshift(`<li>Player: ${this.name}</li>`)
+    console.log(playerCharacters.join(''))
     return playerCharacters.join('')
   }
 

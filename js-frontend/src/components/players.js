@@ -93,7 +93,7 @@ class Players{
 
   handleCharacterClick(e) {
     if (e.target.classList.contains('delete-character-link')){
-        console.log('will delete', e.target.parentNode);
+        console.log('will delete', e.target.parentNode.parentNode);
         this.deleteCharacter(e)
     } else {
         this.toggleCharacter(e)
@@ -108,7 +108,7 @@ class Players{
 }
 
   deleteCharacter(e) {
-    const tr = e.target.parentNode
+    const tr = e.target.parentNode.parentNode
     const id = tr.dataset.id
     console.log(id)
     this.adapter.deleteCharacter(id)
