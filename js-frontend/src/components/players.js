@@ -12,6 +12,7 @@ class Players{
     this.playerForm = document.getElementById('create-player-form')
     this.message = document.getElementById('message')
     this.charBtn = document.getElementById('charBtn')
+    this.playerBtn = document.getElementById('playerBtn')
     this.newCharacterForm = document.getElementById('new-character-form')
     this.myCharacter = document.getElementById('my-characters')
 
@@ -62,16 +63,17 @@ class Players{
       .then(() => {
       
       if (playerObj[0].id !== undefined ){
-        document.getElementById('charBtn').disabled = false
         this.charBtn.style.display = "inline"
         this.message.innerHTML = ''
         this.render(playerObj)
-        let myCharacter = document.getElementById('my-characters')
         this.myCharacter.style.display = "table"
+        
+        this.playerBtn.style.display = "none"
        }
       else {
-        document.getElementById('charBtn').disabled = true
+        this.charBtn.style.display = "none"
         // this.playersContainer.innerHTML = ''
+        this.playerBtn.style.display = "inline"
         this.newCharacterForm.style.display = "none"
         this.myCharacter.style.display ="none"
         this.message.innerHTML = this.adapter.nameCheck(playerName, 1)
