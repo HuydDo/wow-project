@@ -30,13 +30,11 @@ class Characters{
     const character_class = this.selectClass.value
     const name = this.newCharacterBody.value
 
-    // let result = `Name can't be empty.`
     if (name === ''){
       this.message.innerHTML = this.adapter.nameCheck('Name')
     }
     else {
       const charName = this.adapter.titleCase(player)
-      // console.log(`Player name: ` + player + ` Player Name after format: ` + charName)
       this.adapter.createCharacter(gender, name, race, character_class, charName)
         .then(character => {
           this.characters.push(new Character(character))
@@ -75,24 +73,6 @@ class Characters{
     })
   }
 
-  getPlayerId(name) {
-    this.adapter.getPlayerByName(name)
-      .then(player => {
-        //  players.forEach(player => console.log(`Player: ${player}`))
-        return player.id
-        // players.forEach(player => this.players.push(new Player(player)))
-      })
-      // .then(() => {
-      // let playerObj =  this.filteredPlayer()
-      // console.log(playerObj[0].id)
-      // this.playerId =  playerObj[0].id
-      // console.log(this.playerId)
-      // debugger
-      // return player_id
-      // })
-      .catch(error => {
-        return error;
-      })
-  }
+  
 
 }

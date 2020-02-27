@@ -41,9 +41,9 @@ class Players{
       const charName = this.adapter.titleCase(newPlayer)
       this.adapter.createPlayer(charName).then(player => {
       this.players.push(new Player(player))
-        
+    
       // this.createPlayerBody.value = ''
-      this.render(this.players)
+      // this.render(this.players)
       })
     }
   }
