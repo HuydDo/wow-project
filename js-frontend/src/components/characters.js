@@ -7,7 +7,6 @@ class Characters{
     this.fetchAndLoadCharacters()
   }
 
-
   initBindingAndEvenListeners(){
     this.charactersContainer = document.getElementById('characters-container')
     this.playerName = document.getElementById('playerName')
@@ -44,7 +43,44 @@ class Characters{
   
         })
      }
-  }
+    //  this.message = document.getElementById('message')
+    //  this.charBtn = document.getElementById('charBtn')
+    //  this.playerBtn = document.getElementById('playerBtn')
+    //  this.myCharacter = document.getElementById('my-characters')
+
+    //  let playerObj = []
+    //  let playerName =  this.newPlayerBody.value
+     
+    //  if (playerName === ''){
+    //    this.message.innerHTML = this.adapter.nameCheck('Player name')
+    //  }
+    //  else {
+       
+    //    const formattedPlayerName = this.adapter.titleCase(playerName)
+       
+    //    this.adapter.getPlayerByName(formattedPlayerName)
+    //    .then(player => playerObj.push(new Player(player)))
+    //    .then(() => {
+       
+    //    if (playerObj[0].id !== undefined ){
+    //      this.charBtn.style.display = "inline"
+    //      this.message.innerHTML = ''
+    //      this.render(playerObj)
+    //      this.myCharacter.style.display = "table"
+         
+    //      this.playerBtn.style.display = "none"
+    //     }
+    //    else {
+    //      this.charBtn.style.display = "none"
+    //      // this.playersContainer.innerHTML = ''
+    //      this.playerBtn.style.display = "inline"
+    //      this.newCharacterForm.style.display = "none"
+    //      this.myCharacter.style.display ="none"
+    //      this.message.innerHTML = this.adapter.nameCheck(playerName, 1)
+    //    }
+    //   })
+     
+    }
 
   fetchAndLoadCharacters() {
     this.adapter.getCharacters()
