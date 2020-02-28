@@ -28,18 +28,15 @@ class Characters{
 
   loginUser(e){
     e.preventDefault()
-    // debugger  
     console.log('e.target: ', e.target.childNodes[1].childNodes[2].nextElementSibling.value);
     const btn = e.target.childNodes[1].childNodes[2].nextElementSibling
     const btnText = e.target.childNodes[1].childNodes[2].nextElementSibling.value
     if (btnText == 'Login') {
         const value = this.createPlayerBody.value
-        console.log(value)
-        // debugger
         this.adapter.loginUser(value)
             .then(user => {
                 localStorage.setItem('currentUser', parseInt(user.id))
-                console.log(`currentUser ${user.username} set with id: ${localStorage.getItem('currentUser')}`);
+                console.log(`currentUser ${user.name} set with id: ${localStorage.getItem('currentUser')}`);
             })
             .then(() => this.render())
         // this.createPlayerBody.value = ""
@@ -90,14 +87,18 @@ class Characters{
   render() {
     const curr_user = localStorage.getItem('currentUser')
     if (curr_user) {
+    console.log(this.characters.filter(character => character.player_id == curr_user).map(character => character.renderLi()).join(''))
+    console.log('curr_user:' + curr_user)
+
       this.charactersContainer.innerHTML = `${this.characters.filter(character => character.player_id == curr_user).map(character => character.renderLi()).join('')}`
 
       // this.notesContainer.innerHTML = `${this.notes.filter(note => note.user_id == curr_user).map(note => note.renderLi()).join('')}`
     } else {
       this.charactersContainer.innerHTML  = 'Please login!'
+      // debugger
     }
   }
-    // this.not
+  
 
   // filteredPlayer() {
   //   return this.players.filter(player => {

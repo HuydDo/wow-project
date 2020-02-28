@@ -22,7 +22,7 @@ class Players{
     this.charBtn.style.display = "none"
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
-    this.loginPlayerForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
+    // this.loginPlayerForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
     this.myCharacter.addEventListener('dblclick', this.handleCharacterClick.bind(this))
   
   
@@ -33,7 +33,6 @@ class Players{
     e.preventDefault()
     
     let newPlayer = this.createPlayerBody.value
-
     //check if new player name is empty
     if (newPlayer === ''){
      this.message.innerHTML = this.adapter.nameCheck('New player name')
@@ -44,7 +43,6 @@ class Players{
       const charName = this.adapter.titleCase(newPlayer)
       this.adapter.createPlayer(charName).then(player => {
       this.players.push(new Player(player))
-    
       // this.createPlayerBody.value = ''
       // this.render(this.players)
       })

@@ -6,7 +6,9 @@ class Api::V1::PlayersController < ApplicationController
   end 
 
   def login
-    player = Player.find_or_create_by(player_params)
+    # player = Player.find_or_create_by(player_params)
+    player = Player.find_by(player_params)
+
     render json: player, status: 200
   end
 
