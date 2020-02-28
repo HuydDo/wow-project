@@ -5,6 +5,7 @@ class Character{
     this.name = characterJSON.name
     this.race = characterJSON.race
     this.character_class = characterJSON.character_class
+    this.player_id = characterJSON.player_id
   }
 
   // renderLi(){

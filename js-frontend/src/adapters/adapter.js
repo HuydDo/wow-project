@@ -6,7 +6,6 @@ class Adapter {
   constructor() {
     this.charactersUrl = CHARACTERS_URL
     this.playersUrl = PLAYERS_URL
-    // this.baseUrl = 'http://localhost:3000/api/v1/characters'
   }
 
   getCharacters() {
@@ -17,6 +16,7 @@ class Adapter {
     return fetch(this.playersUrl).then(res => res.json())
   }
   
+  // ES6 syntax
   // async getPlayerByName(name) {
   //    const response = await fetch(`${this.playersUrl}/${name}`)
   //    const json = await response.json()
@@ -77,8 +77,6 @@ class Adapter {
   }
 
   nameCheck(str, value=0){
-    // return `<div class='alert alert-warning'>${str} can't be empty</div>`
-
     if (value == 1)
       return `<div class='alert alert-warning alert-dismissible fade show'>
               <button type='button' class='close' data-dismiss='alert'>&times;</button>

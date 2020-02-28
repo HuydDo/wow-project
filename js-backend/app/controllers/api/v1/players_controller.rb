@@ -1,8 +1,8 @@
 class Api::V1::PlayersController < ApplicationController
   def index
      players = Player.all
-     #  render json: players, include: [:characters]
-     render json: players.to_json(include: [:characters])
+      render json: players, include: [:characters]
+    #  render json: players.to_json(include: [:characters])
   end 
 
   def show

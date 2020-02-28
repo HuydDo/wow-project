@@ -20,8 +20,14 @@ class Api::V1::CharactersController < ApplicationController
   
   def create 
     player = Player.find_by(name: params[:character][:player_id])
-    character = player.characters.create(character_params)
-    render json: character, status:200
+    # character = player.characters.create(character_params)
+    # render json: character, status:200
+    character = player.characters.build(character_params)
+    if character.save
+      render json: character, status:200
+    else
+      render json: {error: 'Fail to create character', status: 500}, status:500
+    end
   end
   
   def destroy
