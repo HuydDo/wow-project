@@ -7,7 +7,7 @@ class Players{
   initBindingAndEvenListeners(){
     this.playersContainer = document.getElementById('players-container')
     this.newPlayerBody = document.getElementById('new-player-body')
-    this.characterForm = document.getElementById('new-player-form')
+    this.loginPlayerForm = document.getElementById('login-player-form')
     this.createPlayerBody = document.getElementById('create-player-body')
     this.playerForm = document.getElementById('create-player-form')
     this.message = document.getElementById('message')
@@ -22,7 +22,7 @@ class Players{
     this.charBtn.style.display = "none"
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
-    this.characterForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
+    this.loginPlayerForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
     this.myCharacter.addEventListener('dblclick', this.handleCharacterClick.bind(this))
   }
 
@@ -52,6 +52,7 @@ class Players{
     e.preventDefault()
     let playerObj = []
     let playerName =  this.newPlayerBody.value
+    let playerId 
     
     if (playerName === ''){
       this.message.innerHTML = this.adapter.nameCheck('Player name')
@@ -61,10 +62,15 @@ class Players{
       const formattedPlayerName = this.adapter.titleCase(playerName)
       
       this.adapter.getPlayerByName(formattedPlayerName)
-      .then(player => playerObj.push(new Player(player)))
+      .then(player => {
+        playerObj.push(new Player(player))
+        playerId = player.id
+        console.log(`currentUser ${player.name} set with id: ${player.id}`)
+      })
       .then(() => {
       
-      if (playerObj[0].id !== undefined ){
+      // if (playerObj[0].id !== undefined ){
+      if (playerId !== undefined ){  
         this.charBtn.style.display = "inline"
         this.message.innerHTML = ''
         this.render(playerObj)
