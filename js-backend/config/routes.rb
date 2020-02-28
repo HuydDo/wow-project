@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :characters
-      # resources :players
-      resources :players, only: [:index, :show, :create]
+      resources :players
+      # resources :players, only: [:index, :show, :create]
+      post 'players/login', to: 'players#login'
       # get '/players' => 'players#index'
     end
   end

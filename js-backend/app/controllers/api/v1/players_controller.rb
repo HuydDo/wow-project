@@ -5,13 +5,20 @@ class Api::V1::PlayersController < ApplicationController
     #  render json: players.to_json(include: [:characters])
   end 
 
+  def login
+    player = Player.find_or_create_by(player_params)
+    render json: player, status: 200
+  end
+
   def show
     player = Player.find_by(name: params[:id])
+    # player = Player.find_by(player_params)
+
     # player = Player.find_by_name(player_params[:name])
     # render json: player
     # render json: {name: player.name}
     # render json: player, include: [:characters]
-
+   
     if player
       # render json: player.to_json(include: [:characters])
       render json: player.to_json(:include => {

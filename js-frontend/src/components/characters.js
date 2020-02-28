@@ -18,8 +18,39 @@ class Characters{
     this.createPlayerBody = document.getElementById('new-player-body')
     this.message = document.getElementById('message')
     this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
+
+
+    //login
+    this.loginPlayerForm = document.getElementById('login-player-form')
+    this.loginPlayerForm.addEventListener('submit', this.loginUser.bind(this))
+
   }
 
+  loginUser(e){
+    e.preventDefault()
+    // debugger  
+    console.log('e.target: ', e.target.childNodes[1].childNodes[2].nextElementSibling.value);
+    const btn = e.target.childNodes[1].childNodes[2].nextElementSibling
+    const btnText = e.target.childNodes[1].childNodes[2].nextElementSibling.value
+    if (btnText == 'Login') {
+        const value = this.createPlayerBody.value
+        console.log(value)
+        // debugger
+        this.adapter.loginUser(value)
+            .then(user => {
+                localStorage.setItem('currentUser', parseInt(user.id))
+                console.log(`currentUser ${user.username} set with id: ${localStorage.getItem('currentUser')}`);
+            })
+            .then(() => this.render())
+        // this.createPlayerBody.value = ""
+        btn.setAttribute('value', 'Logout')
+    } else {
+        localStorage.clear()
+        location.reload()
+        btn.setAttribute('value', 'Login')
+    }
+    
+}
   createCharacter(e) {
     e.preventDefault()
     
@@ -57,9 +88,16 @@ class Characters{
   }
 
   render() {
-    // this.notesContainer.innerHTML = `${this.characters.filter(character => character.player_id == 2).map(character => character.renderLi()).join('')}`
-    this.charactersContainer.innerHTML = this.characters.map(character => character.renderLi()).join('')
+    const curr_user = localStorage.getItem('currentUser')
+    if (curr_user) {
+      this.charactersContainer.innerHTML = `${this.characters.filter(character => character.player_id == curr_user).map(character => character.renderLi()).join('')}`
+
+      // this.notesContainer.innerHTML = `${this.notes.filter(note => note.user_id == curr_user).map(note => note.renderLi()).join('')}`
+    } else {
+      this.charactersContainer.innerHTML  = 'Please login!'
+    }
   }
+    // this.not
 
   // filteredPlayer() {
   //   return this.players.filter(player => {
@@ -68,6 +106,5 @@ class Characters{
   //   })
   // }
 
-  
 
 }

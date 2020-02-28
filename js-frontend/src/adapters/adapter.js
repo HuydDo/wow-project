@@ -8,6 +8,20 @@ class Adapter {
     this.playersUrl = PLAYERS_URL
   }
 
+  loginUser(value){
+    const player = {
+        name: value
+    }
+    return fetch(`${this.playersUrl}/login`, {
+        method: 'POST', 
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify({player})
+    })
+    .then(res => res.json())
+  }
+ 
   getCharacters() {
     return fetch(this.charactersUrl).then(res => res.json())
   }
@@ -86,5 +100,6 @@ class Adapter {
               <button type='button' class='close' data-dismiss='alert'>&times;</button>
               ${str} can't be empty</div>`
   }
- 
+
+  
 }
