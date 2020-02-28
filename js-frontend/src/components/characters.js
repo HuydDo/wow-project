@@ -57,8 +57,8 @@ class Characters{
   }
 
   render() {
-    this.charactersContainer.innerHTML = this.characters.map(character =>
-      character.renderLi()).join('')
+    // this.notesContainer.innerHTML = `${this.characters.filter(character => character.player_id == 2).map(character => character.renderLi()).join('')}`
+    this.charactersContainer.innerHTML = this.characters.map(character => character.renderLi()).join('')
   }
 
   // filteredPlayer() {
