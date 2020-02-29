@@ -49,7 +49,6 @@ class Adapter {
      character_class,
      player_id
     }
-
     return fetch(this.charactersUrl,{
       method: 'POST',
       headers: {
@@ -70,7 +69,6 @@ class Adapter {
     const player = {
       name,
     }
-
     return fetch(this.playersUrl,{
       method: 'POST',
       headers: {

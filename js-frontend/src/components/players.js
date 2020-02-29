@@ -18,7 +18,7 @@ class Players{
 
     // this.newCharacterForm.style.display="none"
     this.playerForm.style.display = "none"
-    this.myCharacter.style.display ="none"
+    // this.myCharacter.style.display ="none"
     this.charBtn.style.display = "none"
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
@@ -44,6 +44,8 @@ class Players{
       const charName = this.adapter.titleCase(newPlayer)
       this.adapter.createPlayer(charName).then(player => {
       this.players.push(new Player(player))
+      this.playerForm.style.display = "none"
+      this.message.innerHTML = ''
       // this.createPlayerBody.value = ''
       // this.render(this.players)
       })
@@ -103,28 +105,28 @@ class Players{
     this.charactersContainer.innerHTML =  player.map(p => p.renderLi())
   }
 
-  handleCharacterClick(e) {
-    if (e.target.classList.contains('delete-character-link')){
-        console.log('will delete', e.target.parentNode.parentNode);
-        this.deleteCharacter(e)
-    } else {
-        this.toggleCharacter(e)
-    }
-  }
+  // handleCharacterClick(e) {
+  //   if (e.target.classList.contains('delete-character-link')){
+  //       console.log('will delete', e.target.parentNode.parentNode);
+  //       this.deleteCharacter(e)
+  //   } else {
+  //       this.toggleCharacter(e)
+  //   }
+  // }
 
-  toggleCharacter(e) {
-    const tr = e.target
-    tr.contentEditable = "true"
-    tr.focus()
-    tr.classList.add('editable')
-  }
+  // toggleCharacter(e) {
+  //   const tr = e.target
+  //   tr.contentEditable = "true"
+  //   tr.focus()
+  //   tr.classList.add('editable')
+  // }
 
-  deleteCharacter(e) {
-    const tr = e.target.parentNode.parentNode
-    const id = tr.dataset.id
-    console.log(id)
-    this.adapter.deleteCharacter(id)
-    tr.remove()
-  }
+  // deleteCharacter(e) {
+  //   const tr = e.target.parentNode.parentNode
+  //   const id = tr.dataset.id
+  //   console.log(id)
+  //   this.adapter.deleteCharacter(id)
+  //   tr.remove()
+  // }
 
 }
