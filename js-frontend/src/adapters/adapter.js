@@ -8,20 +8,22 @@ class Adapter {
     this.playersUrl = PLAYERS_URL
   }
 
-  loginUser(value){
+  loginPlayer(value) {
     const player = {
-        name: value
+      name: value
     }
     return fetch(`${this.playersUrl}/login`, {
-        method: 'POST', 
+        method: 'POST',
         headers: {
-            'content-type': 'application/json'
+          'content-type': 'application/json'
         },
-        body: JSON.stringify({player})
-    })
-    .then(res => res.json())
+        body: JSON.stringify({
+          player
+        })
+      })
+      .then(res => res.json())
   }
- 
+
   getCharacters() {
     return fetch(this.charactersUrl).then(res => res.json())
   }
@@ -29,7 +31,7 @@ class Adapter {
   getPlayers() {
     return fetch(this.playersUrl).then(res => res.json())
   }
-  
+
   // ES6 syntax
   // async getPlayerByName(name) {
   //    const response = await fetch(`${this.playersUrl}/${name}`)
@@ -37,68 +39,71 @@ class Adapter {
   //    return json
   // }
 
-   getPlayerByName(name) {
-      return  fetch(`${this.playersUrl}/${name}`).then(res => res.json())
-   }
+  getPlayerByName(name) {
+    return fetch(`${this.playersUrl}/${name}`).then(res => res.json())
+  }
 
-  createCharacter(gender, name, race, character_class, player_id){
+  createCharacter(gender, name, race, character_class, player_id) {
     const character = {
-     gender,
-     name,
-     race,
-     character_class,
-     player_id
+      gender,
+      name,
+      race,
+      character_class,
+      player_id
     }
-    return fetch(this.charactersUrl,{
+    return fetch(this.charactersUrl, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({character})
+      body: JSON.stringify({
+        character
+      })
     }).then(res => res.json())
   }
 
-  deleteCharacter(id){
+  deleteCharacter(id) {
     return fetch(this.charactersUrl + `/${id}`, {
-      method: 'DELETE'
-    })
-    .then(res => res.json())
+        method: 'DELETE'
+      })
+      .then(res => res.json())
   }
 
-  createPlayer(name){
+  createPlayer(name) {
     const player = {
       name,
     }
-    return fetch(this.playersUrl,{
+    return fetch(this.playersUrl, {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
       },
-      body: JSON.stringify({player})
+      body: JSON.stringify({
+        player
+      })
     }).then(res => res.json())
   }
 
   titleCase(str) {
     let splitStr = str.toLowerCase().split(' ');
     for (let i = 0; i < splitStr.length; i++) {
-         // Assign it back to the array
-        splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);     
+      // Assign it back to the array
+      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
     }
     // Directly return the joined string
-    return splitStr.join(' '); 
+    return splitStr.join(' ');
   }
 
-  nameCheck(str, value=0){
-    let btnStr =`<div class='alert alert-warning alert-dismissible fade show'>
+  nameCheck(str, value = 0) {
+    let btnStr = `<div class='alert alert-warning alert-dismissible fade show'>
     <button type='button' class='close' data-dismiss='alert'>&times;</button>`
-    if (value == 1){
+    if (value == 1) {
       return btnStr += ` Can't find the player ${str}.  Please try again or create a new player.</div>`
     }
-    if (value == 2){
-      return btnStr +=  `${str} </div>`
-    }
-    else {
-      return btnStr +=   `${str} can't be empty</div>`       
+    if (value == 2) {
+      return btnStr += `${str} </div>`
+    } else {
+      return btnStr += `${str} can't be empty</div>`
     }
   }
 }

@@ -9,17 +9,17 @@ class Players{
     this.newPlayerBody = document.getElementById('new-player-body')
     this.loginPlayerForm = document.getElementById('login-player-form')
     this.createPlayerBody = document.getElementById('create-player-body')
-    this.playerForm = document.getElementById('create-player-form')
+    this.createPlayerForm = document.getElementById('create-player-form')
     this.message = document.getElementById('message')
     this.charBtn = document.getElementById('charBtn')
     this.playerBtn = document.getElementById('playerBtn')
     this.newCharacterForm = document.getElementById('new-character-form')
     this.myCharacter = document.getElementById('my-characters')
 
-    this.playerForm.style.display = "none"
+   this.createPlayerForm.style.display = "none"
     // this.charBtn.style.display = "none"
 
-    this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
+   this.createPlayerForm.addEventListener('submit', this.createPlayer.bind(this))
     // this.loginPlayerForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
   
   }
@@ -38,7 +38,7 @@ class Players{
       const charName = this.adapter.titleCase(newPlayer)
       this.adapter.createPlayer(charName).then(player => {
       this.players.push(new Player(player))
-      this.playerForm.style.display = "none"
+     this.createPlayerForm.style.display = "none"
       this.message.innerHTML = ''
       this.message.innerHTML = this.adapter.nameCheck('Player was created successfully.', 2)
 

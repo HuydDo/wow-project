@@ -1,4 +1,4 @@
-class Characters{
+class Characters {
   constructor() {
     this.characters = []
     this.adapter = new Adapter()
@@ -6,7 +6,7 @@ class Characters{
     this.fetchAndLoadCharacters()
   }
 
-  initBindingAndEvenListeners(){
+  initBindingAndEvenListeners() {
     this.charactersContainer = document.getElementById('characters-container')
     this.selectGender = document.querySelector('#gender')
     this.selectRace = document.querySelector('#race')
@@ -19,51 +19,50 @@ class Characters{
 
     //login form
     this.loginPlayerForm = document.getElementById('login-player-form')
-    this.loginPlayerForm.addEventListener('submit', this.loginUser.bind(this))
+    this.loginPlayerForm.addEventListener('submit', this.loginPlayer.bind(this))
 
     //hide my-character table
     this.myCharacter = document.getElementById('my-characters')
-    this.myCharacter.style.display ="none"
+    this.myCharacter.style.display = "none"
     this.myCharacter.addEventListener('dblclick', this.handleCharacterClick.bind(this))
     //hide new-character-form
-    this.newCharacterForm.style.display="none"
+    this.newCharacterForm.style.display = "none"
 
     this.charBtn = document.getElementById('charBtn')
     this.playerBtn = document.getElementById('playerBtn')
-  
+
     //hide charBtn
     this.charBtn.style.display = "none"
+
+    this.createPlayerForm = document.getElementById('create-player-form')
   }
 
-  loginUser(e){
+  loginPlayer(e) {
     e.preventDefault()
     // console.log('e.target: ', e.target.childNodes[1].childNodes[2].nextElementSibling.value);
     const btn = e.target.childNodes[1].childNodes[2].nextElementSibling
     const btnText = e.target.childNodes[1].childNodes[2].nextElementSibling.value
     if (btnText == 'Login') {
-        const value = this.newPlayerBody.value
-        if (value ==''){
-          this.message.innerHTML = this.adapter.nameCheck('Player name')
-        }
-        else {
-          const formattedName = this.adapter.titleCase(value)
-          this.adapter.loginUser(formattedName)
+      const value = this.newPlayerBody.value
+      if (value == '') {
+        this.message.innerHTML = this.adapter.nameCheck('Player name')
+      } else {
+        const formattedName = this.adapter.titleCase(value)
+        this.adapter.loginPlayer(formattedName)
           .then(player => {
-            if (player !== null){
+            if (player !== null) {
               localStorage.setItem('currentPlayer', parseInt(player.id))
               // TODO: only fetch if get player login
               // console.log(`currentPlayer ${player.name} set with id: ${localStorage.getItem('currentPlayer')}`);
               btn.setAttribute('value', 'Logout')
-            }
-            else {
+            } else {
               this.message.innerHTML = this.adapter.nameCheck(value, 1)
             }
-           })
+          })
           .then(() => this.render())
-        }
-    } 
-    else {
-      localStorage.clear() 
+      }
+    } else {
+      localStorage.clear()
       location.reload() //reload the page and fetch the data
       btn.setAttribute('value', 'Login')
     }
@@ -71,35 +70,34 @@ class Characters{
 
   createCharacter(e) {
     e.preventDefault()
-    
-    const player =this.newPlayerBody.value
+
+    const player = this.newPlayerBody.value
     const gender = this.selectGender.value
     const race = this.selectRace.value
     const character_class = this.selectClass.value
     const name = this.newCharacterBody.value
 
-    if (name === ''){
+    if (name === '') {
       this.message.innerHTML = this.adapter.nameCheck('Name')
-    }
-    else {
+    } else {
       const charName = this.adapter.titleCase(player)
       this.adapter.createCharacter(gender, name, race, character_class, charName)
-      .then(character => {
-        this.characters.push(new Character(character))
-        this.newCharacterBody.value = ''
-        this.render()
-      })
-     }
+        .then(character => {
+          this.characters.push(new Character(character))
+          this.newCharacterBody.value = ''
+          this.render()
+        })
+    }
   }
 
   fetchAndLoadCharacters() {
     this.adapter.getCharacters()
-    .then(characters => {
-      characters.forEach(character => this.characters.push(new Character(character)))
-    })
-    .then(() => {
-      this.render()
-    })
+      .then(characters => {
+        characters.forEach(character => this.characters.push(new Character(character)))
+      })
+      .then(() => {
+        this.render()
+      })
   }
 
   render() {
@@ -109,17 +107,17 @@ class Characters{
       this.message.innerHTML = ''
       this.myCharacter.style.display = "table"
       this.playerBtn.style.display = "none"
+      this.createPlayerForm.style.display = "none"
       this.charactersContainer.innerHTML = `${this.characters.filter(character => character.player_id == curr_player).map(character => character.renderLi()).join('')}`
-    } 
-    else {
+    } else {
       // this.message.innerHTML = this.adapter.nameCheck('Please login', 2)
     }
   }
-  
+
   handleCharacterClick(e) {
-    if (e.target.classList.contains('delete-character-link')){
-        // console.log('will delete', e.target.parentNode.parentNode);
-        this.deleteCharacter(e)
+    if (e.target.classList.contains('delete-character-link')) {
+      // console.log('will delete', e.target.parentNode.parentNode);
+      this.deleteCharacter(e)
     }
   }
 
