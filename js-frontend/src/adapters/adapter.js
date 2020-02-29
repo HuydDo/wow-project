@@ -42,7 +42,7 @@ class Adapter {
   getPlayerByName(name) {
     return fetch(`${this.playersUrl}/${name}`).then(res => res.json())
   }
-
+  
   createCharacter(gender, name, race, character_class, player_id) {
     const character = {
       gender,
@@ -59,7 +59,10 @@ class Adapter {
       body: JSON.stringify({
         character
       })
-    }).then(res => res.json())
+    }).then(res => {
+      if (!res.ok) { throw res }
+      return res.json()
+    })
   }
 
   deleteCharacter(id) {

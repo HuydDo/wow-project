@@ -3,7 +3,7 @@ class Characters {
     this.characters = []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
-    this.fetchAndLoadCharacters()
+    // this.fetchAndLoadCharacters()
   }
 
   initBindingAndEvenListeners() {
@@ -52,14 +52,17 @@ class Characters {
           .then(player => {
             if (player !== null) {
               localStorage.setItem('currentPlayer', parseInt(player.id))
-              // TODO: only fetch if get player login
+             
               // console.log(`currentPlayer ${player.name} set with id: ${localStorage.getItem('currentPlayer')}`);
               btn.setAttribute('value', 'Logout')
             } else {
               this.message.innerHTML = this.adapter.nameCheck(value, 1)
             }
           })
-          .then(() => this.render())
+          // .then(() => this.render())
+          // only fetch if get player login
+          .then(() => this.fetchAndLoadCharacters())
+
       }
     } else {
       localStorage.clear()
@@ -82,11 +85,14 @@ class Characters {
     } else {
       const charName = this.adapter.titleCase(player)
       this.adapter.createCharacter(gender, name, race, character_class, charName)
-        .then(character => {
-          this.characters.push(new Character(character))
-          this.newCharacterBody.value = ''
-          this.render()
-        })
+      .then(character => {
+        this.characters.push(new Character(character))
+        this.newCharacterBody.value = ''
+        this.render()
+      })
+      .catch( err => {
+        console.error(err)
+      })
     }
   }
 
