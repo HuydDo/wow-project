@@ -14,10 +14,10 @@ class Characters{
     this.selectRace = document.querySelector('#race')
     this.selectClass = document.querySelector('#charClass')
     this.newCharacterBody = document.getElementById('myName')
-    this.characterForm = document.getElementById('new-character-form')
+    this.newCharacterForm = document.getElementById('new-character-form')
     this.createPlayerBody = document.getElementById('new-player-body')
     this.message = document.getElementById('message')
-    this.characterForm.addEventListener('submit', this.createCharacter.bind(this))
+    this.newCharacterForm.addEventListener('submit', this.createCharacter.bind(this))
 
 
     //login
@@ -29,14 +29,13 @@ class Characters{
     this.myCharacter.style.display ="none"
     
     //hide new-character-form
-    // this.newCharacterForm.style.display="none"
+    this.newCharacterForm.style.display="none"
 
     this.charBtn = document.getElementById('charBtn')
     this.playerBtn = document.getElementById('playerBtn')
-    // this.playerForm = document.getElementById('create-player-form')
-    // //hide charBtn and playerForm
+  
+    //hide charBtn and playerForm
     this.charBtn.style.display = "none"
-    // this.playerForm.style.display = "none"
   }
 
   loginUser(e){
@@ -51,10 +50,16 @@ class Characters{
         }
         else {
           this.adapter.loginUser(value)
-              .then(user => {
-                  localStorage.setItem('currentUser', parseInt(user.id))
-                  console.log(`currentUser ${user.name} set with id: ${localStorage.getItem('currentUser')}`);
-              })
+              .then(player => {
+                  console.log('Id: ' + player)
+                  if (player !== null){
+                    localStorage.setItem('currentUser', parseInt(player.id))
+                    console.log(`currentUser ${player.name} set with id: ${localStorage.getItem('currentUser')}`);
+                  }
+                  else {
+                    this.message.innerHTML = this.adapter.nameCheck(value, 1)
+                  }
+               })
               .then(() => this.render())
           // this.createPlayerBody.value = ""
           btn.setAttribute('value', 'Logout')
@@ -103,18 +108,17 @@ class Characters{
   }
 
   render() {
-    const curr_user = localStorage.getItem('currentUser')
-    if (curr_user) {
-    console.log(this.characters.filter(character => character.player_id == curr_user).map(character => character.renderLi()).join(''))
-    console.log('curr_user:' + curr_user)
+    const curr_player = localStorage.getItem('currentUser')
+    if (curr_player) {
+    console.log(this.characters.filter(character => character.player_id == curr_player).map(character => character.renderLi()).join(''))
+    console.log('curr_player:' + curr_player)
       this.charBtn.style.display = "inline"
       this.message.innerHTML = ''
       this.myCharacter.style.display = "table"
       this.playerBtn.style.display = "none"
 
-      this.charactersContainer.innerHTML = `${this.characters.filter(character => character.player_id == curr_user).map(character => character.renderLi()).join('')}`
+      this.charactersContainer.innerHTML = `${this.characters.filter(character => character.player_id == curr_player).map(character => character.renderLi()).join('')}`
 
-      // this.notesContainer.innerHTML = `${this.notes.filter(note => note.user_id == curr_user).map(note => note.renderLi()).join('')}`
     } else {
       this.charactersContainer.innerHTML  = 'Please login!'
 
@@ -127,12 +131,6 @@ class Characters{
   }
   
 
-  // filteredPlayer() {
-  //   return this.players.filter(player => {
-  //     return player.name.toLowerCase().includes(this.playerName
-  //       .value.toLowerCase())
-  //   })
-  // }
-
+  
 
 }

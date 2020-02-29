@@ -16,7 +16,7 @@ class Players{
     this.newCharacterForm = document.getElementById('new-character-form')
     this.myCharacter = document.getElementById('my-characters')
 
-    this.newCharacterForm.style.display="none"
+    // this.newCharacterForm.style.display="none"
     this.playerForm.style.display = "none"
     this.myCharacter.style.display ="none"
     this.charBtn.style.display = "none"
