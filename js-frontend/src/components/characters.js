@@ -44,17 +44,18 @@ class Characters{
     const btn = e.target.childNodes[1].childNodes[2].nextElementSibling
     const btnText = e.target.childNodes[1].childNodes[2].nextElementSibling.value
     if (btnText == 'Login') {
-        const value =this.newPlayerBody.value
+        const value = this.newPlayerBody.value
         if (value ==''){
           this.message.innerHTML = this.adapter.nameCheck('Player name')
         }
         else {
-          this.adapter.loginUser(value)
+          const formattedName = this.adapter.titleCase(value)
+          this.adapter.loginUser(formattedName)
           .then(player => {
             if (player !== null){
-              localStorage.setItem('currentUser', parseInt(player.id))
-              // only fetch if get user login
-              // console.log(`currentUser ${player.name} set with id: ${localStorage.getItem('currentUser')}`);
+              localStorage.setItem('currentPlayer', parseInt(player.id))
+              // TODO: only fetch if get player login
+              // console.log(`currentPlayer ${player.name} set with id: ${localStorage.getItem('currentPlayer')}`);
               btn.setAttribute('value', 'Logout')
             }
             else {
@@ -62,7 +63,6 @@ class Characters{
             }
            })
           .then(() => this.render())
-          // this.newPlayerBody.value = ""
         }
     } 
     else {
@@ -90,6 +90,7 @@ class Characters{
         .then(character => {
           this.characters.push(new Character(character))
           this.newCharacterBody.value = ''
+          this.newPlayerBody.value = ""
           this.render()
         })
      }
@@ -107,7 +108,7 @@ class Characters{
   }
 
   render() {
-    const curr_player = localStorage.getItem('currentUser')
+    const curr_player = localStorage.getItem('currentPlayer')
     if (curr_player) {
       this.charBtn.style.display = "inline"
       this.message.innerHTML = ''
