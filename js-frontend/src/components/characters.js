@@ -120,16 +120,7 @@ class Characters{
     if (e.target.classList.contains('delete-character-link')){
         // console.log('will delete', e.target.parentNode.parentNode);
         this.deleteCharacter(e)
-    } else {
-        this.toggleCharacter(e)
     }
-  }
-
-  toggleCharacter(e) {
-    const tr = e.target
-    tr.contentEditable = "true"
-    tr.focus()
-    tr.classList.add('editable')
   }
 
   deleteCharacter(e) {
@@ -138,7 +129,6 @@ class Characters{
     this.adapter.deleteCharacter(id)
     tr.remove()
     this.characters = this.characters.filter(character => character.id != id)
-    // console.log(this.characters)
   }
 
 }
