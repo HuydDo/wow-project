@@ -6,16 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# require 'faker'
-# require 'securerandom'
-# require 'rest-client'
- 
-
 Player.delete_all
 Character.delete_all
 
 Player.create([{name: 'James'},{name: 'Jack'},{name: 'Marry'}])
-
 
 Character.create([
   {gender: 'Female', name: 'Aladea', race: 'Night Elf', character_class: 'Demon Hunter', player_id: Player.all[0].id},

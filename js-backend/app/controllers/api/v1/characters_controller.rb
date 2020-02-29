@@ -1,5 +1,3 @@
-require 'faker'
-
 class Api::V1::CharactersController < ApplicationController
   def index
     characters = Character.all

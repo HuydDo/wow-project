@@ -104,6 +104,5 @@ class Adapter {
               <button type='button' class='close' data-dismiss='alert'>&times;</button>
               ${str} can't be empty</div>`
   }
-
   
 }

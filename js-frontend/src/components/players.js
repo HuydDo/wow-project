@@ -16,9 +16,7 @@ class Players{
     this.newCharacterForm = document.getElementById('new-character-form')
     this.myCharacter = document.getElementById('my-characters')
 
-    // this.newCharacterForm.style.display="none"
     this.playerForm.style.display = "none"
-    // this.myCharacter.style.display ="none"
     this.charBtn.style.display = "none"
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
@@ -90,11 +88,11 @@ class Players{
     } 
   }
 
-  exactMatch() {
-    return this.players.find(  
-      player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
-    )
-  }
+  // exactMatch() {
+  //   return this.players.find(  
+  //     player => player.name.toLowerCase() === this.newPlayerBody.value.toLowerCase()
+  //   )
+  // }
 
   render(player){    
     this.charactersContainer = document.getElementById('characters-container')
