@@ -60,7 +60,7 @@ class Adapter {
         character
       })
     }).then(res => {
-      if (!res.ok) { throw res }
+      if (!res.ok) { throw Error(res.statusText);}
       return res.json()
     })
   }
