@@ -27,7 +27,7 @@ class Characters{
     //hide my-character table
     this.myCharacter = document.getElementById('my-characters')
     this.myCharacter.style.display ="none"
-    
+    this.myCharacter.addEventListener('dblclick', this.handleCharacterClick.bind(this))
     //hide new-character-form
     this.newCharacterForm.style.display="none"
 
@@ -55,14 +55,15 @@ class Characters{
                   if (player !== null){
                     localStorage.setItem('currentUser', parseInt(player.id))
                     console.log(`currentUser ${player.name} set with id: ${localStorage.getItem('currentUser')}`);
+                    btn.setAttribute('value', 'Logout')
+                     
                   }
                   else {
                     this.message.innerHTML = this.adapter.nameCheck(value, 1)
                   }
                })
               .then(() => this.render())
-          // this.createPlayerBody.value = ""
-          btn.setAttribute('value', 'Logout')
+              this.createPlayerBody.value = ""
         }
     } 
     else {
@@ -130,7 +131,29 @@ class Characters{
     }
   }
   
+  handleCharacterClick(e) {
+    if (e.target.classList.contains('delete-character-link')){
+        console.log('will delete', e.target.parentNode.parentNode);
+        this.deleteCharacter(e)
+    } else {
+        this.toggleCharacter(e)
+    }
+  }
 
+  toggleCharacter(e) {
+    const tr = e.target
+    tr.contentEditable = "true"
+    tr.focus()
+    tr.classList.add('editable')
+  }
+
+  deleteCharacter(e) {
+    const tr = e.target.parentNode.parentNode
+    const id = tr.dataset.id
+    console.log(id)
+    this.adapter.deleteCharacter(id)
+    tr.remove()
+  }
   
 
 }
