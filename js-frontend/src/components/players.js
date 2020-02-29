@@ -17,7 +17,7 @@ class Players{
     this.myCharacter = document.getElementById('my-characters')
 
     this.playerForm.style.display = "none"
-    this.charBtn.style.display = "none"
+    // this.charBtn.style.display = "none"
 
     this.playerForm.addEventListener('submit', this.createPlayer.bind(this))
     // this.loginPlayerForm.addEventListener('submit', this.showPlayerCharacters.bind(this))
@@ -40,6 +40,8 @@ class Players{
       this.players.push(new Player(player))
       this.playerForm.style.display = "none"
       this.message.innerHTML = ''
+      this.message.innerHTML = this.adapter.nameCheck('Player was created successfully.', 2)
+
       // this.createPlayerBody.value = ''
       // this.render(this.players)
       })

@@ -31,7 +31,7 @@ class Characters{
     this.charBtn = document.getElementById('charBtn')
     this.playerBtn = document.getElementById('playerBtn')
   
-    //hide charBtn and playerForm
+    //hide charBtn
     this.charBtn.style.display = "none"
   }
 
