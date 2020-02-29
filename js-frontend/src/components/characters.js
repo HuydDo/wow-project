@@ -17,8 +17,7 @@ class Characters{
     this.message = document.getElementById('message')
     this.newCharacterForm.addEventListener('submit', this.createCharacter.bind(this))
 
-
-    //login
+    //login form
     this.loginPlayerForm = document.getElementById('login-player-form')
     this.loginPlayerForm.addEventListener('submit', this.loginUser.bind(this))
 
@@ -85,13 +84,13 @@ class Characters{
     else {
       const charName = this.adapter.titleCase(player)
       this.adapter.createCharacter(gender, name, race, character_class, charName)
-        .then(character => {
-          this.characters.push(new Character(character))
-          this.newCharacterBody.value = ''
-          this.render()
-        })
+      .then(character => {
+        this.characters.push(new Character(character))
+        this.newCharacterBody.value = ''
+        this.render()
+      })
      }
-    }
+  }
 
   fetchAndLoadCharacters() {
     this.adapter.getCharacters()
