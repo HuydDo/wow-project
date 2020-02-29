@@ -40,7 +40,7 @@ class Characters{
 
   loginUser(e){
     e.preventDefault()
-    console.log('e.target: ', e.target.childNodes[1].childNodes[2].nextElementSibling.value);
+    // console.log('e.target: ', e.target.childNodes[1].childNodes[2].nextElementSibling.value);
     const btn = e.target.childNodes[1].childNodes[2].nextElementSibling
     const btnText = e.target.childNodes[1].childNodes[2].nextElementSibling.value
     if (btnText == 'Login') {
@@ -50,26 +50,25 @@ class Characters{
         }
         else {
           this.adapter.loginUser(value)
-              .then(player => {
-                  console.log('Id: ' + player)
-                  if (player !== null){
-                    localStorage.setItem('currentUser', parseInt(player.id))
-                    console.log(`currentUser ${player.name} set with id: ${localStorage.getItem('currentUser')}`);
-                    btn.setAttribute('value', 'Logout')
-                     
-                  }
-                  else {
-                    this.message.innerHTML = this.adapter.nameCheck(value, 1)
-                  }
-               })
-              .then(() => this.render())
-              this.createPlayerBody.value = ""
+          .then(player => {
+            if (player !== null){
+              localStorage.setItem('currentUser', parseInt(player.id))
+              // only fetch if get user login
+              // console.log(`currentUser ${player.name} set with id: ${localStorage.getItem('currentUser')}`);
+              btn.setAttribute('value', 'Logout')
+            }
+            else {
+              this.message.innerHTML = this.adapter.nameCheck(value, 1)
+            }
+           })
+          .then(() => this.render())
+          // this.createPlayerBody.value = ""
         }
     } 
     else {
-        localStorage.clear()
-        location.reload()
-        btn.setAttribute('value', 'Login')
+      localStorage.clear() 
+      location.reload() //reload page
+      btn.setAttribute('value', 'Login')
     }
     
   }
@@ -111,8 +110,8 @@ class Characters{
   render() {
     const curr_player = localStorage.getItem('currentUser')
     if (curr_player) {
-    console.log(this.characters.filter(character => character.player_id == curr_player).map(character => character.renderLi()).join(''))
-    console.log('curr_player:' + curr_player)
+    // console.log(this.characters.filter(character => character.player_id == curr_player).map(character => character.renderLi()).join(''))
+    // console.log('curr_player:' + curr_player)
       this.charBtn.style.display = "inline"
       this.message.innerHTML = ''
       this.myCharacter.style.display = "table"
@@ -153,6 +152,8 @@ class Characters{
     console.log(id)
     this.adapter.deleteCharacter(id)
     tr.remove()
+    this.characters = this.characters.filter(character => character.id != id)
+    console.log(this.characters)
   }
   
 
