@@ -1,7 +1,6 @@
 class Characters{
   constructor() {
     this.characters = []
-    // this.players = []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
     this.fetchAndLoadCharacters()
@@ -9,7 +8,6 @@ class Characters{
 
   initBindingAndEvenListeners(){
     this.charactersContainer = document.getElementById('characters-container')
-    // this.playerName = document.getElementById('playerName')
     this.selectGender = document.querySelector('#gender')
     this.selectRace = document.querySelector('#race')
     this.selectClass = document.querySelector('#charClass')
@@ -90,21 +88,19 @@ class Characters{
         .then(character => {
           this.characters.push(new Character(character))
           this.newCharacterBody.value = ''
-          this.newPlayerBody.value = ""
           this.render()
         })
      }
-     
     }
 
   fetchAndLoadCharacters() {
     this.adapter.getCharacters()
-      .then(characters => {
-        characters.forEach(character => this.characters.push(new Character(character)))
-      })
-      .then(() => {
-        this.render()
-      })
+    .then(characters => {
+      characters.forEach(character => this.characters.push(new Character(character)))
+    })
+    .then(() => {
+      this.render()
+    })
   }
 
   render() {
@@ -117,18 +113,13 @@ class Characters{
       this.charactersContainer.innerHTML = `${this.characters.filter(character => character.player_id == curr_player).map(character => character.renderLi()).join('')}`
     } 
     else {
-
-      // this.charBtn.style.display = "none"
-      // this.playerBtn.style.display = "inline"
-      // this.newCharacterForm.style.display = "none"
-      // this.myCharacter.style.display ="none"
       // this.message.innerHTML = this.adapter.nameCheck('Please login', 2)
     }
   }
   
   handleCharacterClick(e) {
     if (e.target.classList.contains('delete-character-link')){
-        console.log('will delete', e.target.parentNode.parentNode);
+        // console.log('will delete', e.target.parentNode.parentNode);
         this.deleteCharacter(e)
     } else {
         this.toggleCharacter(e)
@@ -145,11 +136,10 @@ class Characters{
   deleteCharacter(e) {
     const tr = e.target.parentNode.parentNode
     const id = tr.dataset.id
-    console.log(id)
     this.adapter.deleteCharacter(id)
     tr.remove()
     this.characters = this.characters.filter(character => character.id != id)
-    console.log(this.characters)
+    // console.log(this.characters)
   }
 
 }

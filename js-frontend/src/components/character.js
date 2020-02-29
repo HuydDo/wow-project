@@ -14,7 +14,7 @@ class Character{
 
   renderLi(){
      return (`<tr data-id=${this.id}><td>${this.name}</td><td>${this.race}</td><td>${this.character_class}</td><td>${this.gender}</td>
-     <td><a class="delete-character-link">Delete Char</a></td></tr>`)
+     <td><a class="delete-character-link">Delete</a></td></tr>`)
   }
 
 }
