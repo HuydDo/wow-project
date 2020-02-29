@@ -24,6 +24,19 @@ class Characters{
     this.loginPlayerForm = document.getElementById('login-player-form')
     this.loginPlayerForm.addEventListener('submit', this.loginUser.bind(this))
 
+    //hide my-character table
+    this.myCharacter = document.getElementById('my-characters')
+    this.myCharacter.style.display ="none"
+    
+    //hide new-character-form
+    // this.newCharacterForm.style.display="none"
+
+    this.charBtn = document.getElementById('charBtn')
+    this.playerBtn = document.getElementById('playerBtn')
+    // this.playerForm = document.getElementById('create-player-form')
+    // //hide charBtn and playerForm
+    this.charBtn.style.display = "none"
+    // this.playerForm.style.display = "none"
   }
 
   loginUser(e){
@@ -33,21 +46,28 @@ class Characters{
     const btnText = e.target.childNodes[1].childNodes[2].nextElementSibling.value
     if (btnText == 'Login') {
         const value = this.createPlayerBody.value
-        this.adapter.loginUser(value)
-            .then(user => {
-                localStorage.setItem('currentUser', parseInt(user.id))
-                console.log(`currentUser ${user.name} set with id: ${localStorage.getItem('currentUser')}`);
-            })
-            .then(() => this.render())
-        // this.createPlayerBody.value = ""
-        btn.setAttribute('value', 'Logout')
-    } else {
+        if (value ==''){
+          this.message.innerHTML = this.adapter.nameCheck('Player name')
+        }
+        else {
+          this.adapter.loginUser(value)
+              .then(user => {
+                  localStorage.setItem('currentUser', parseInt(user.id))
+                  console.log(`currentUser ${user.name} set with id: ${localStorage.getItem('currentUser')}`);
+              })
+              .then(() => this.render())
+          // this.createPlayerBody.value = ""
+          btn.setAttribute('value', 'Logout')
+        }
+    } 
+    else {
         localStorage.clear()
         location.reload()
         btn.setAttribute('value', 'Login')
     }
     
-}
+  }
+
   createCharacter(e) {
     e.preventDefault()
     
@@ -67,7 +87,7 @@ class Characters{
           this.characters.push(new Character(character))
           // this.newCharacterBody.value = ''
           // this.render()
-          this.render(this.characters)
+          // this.render(this.characters)
   
         })
      }
@@ -89,13 +109,22 @@ class Characters{
     if (curr_user) {
     console.log(this.characters.filter(character => character.player_id == curr_user).map(character => character.renderLi()).join(''))
     console.log('curr_user:' + curr_user)
+      this.charBtn.style.display = "inline"
+      this.message.innerHTML = ''
+      this.myCharacter.style.display = "table"
+      this.playerBtn.style.display = "none"
 
       this.charactersContainer.innerHTML = `${this.characters.filter(character => character.player_id == curr_user).map(character => character.renderLi()).join('')}`
 
       // this.notesContainer.innerHTML = `${this.notes.filter(note => note.user_id == curr_user).map(note => note.renderLi()).join('')}`
     } else {
       this.charactersContainer.innerHTML  = 'Please login!'
-      // debugger
+
+      // this.charBtn.style.display = "none"
+      // this.playerBtn.style.display = "inline"
+      // this.newCharacterForm.style.display = "none"
+      // this.myCharacter.style.display ="none"
+      // this.message.innerHTML = this.adapter.nameCheck(playerName, 1)
     }
   }
   
