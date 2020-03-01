@@ -15,11 +15,6 @@ class Api::V1::PlayersController < ApplicationController
   def show
     player = Player.find_by(name: params[:id])
     # player = Player.find_by(player_params)
-
-    # player = Player.find_by_name(player_params[:name])
-    # render json: player
-    # render json: {name: player.name}
-    # render json: player, include: [:characters]
    
     if player
       # render json: player.to_json(include: [:characters])
@@ -27,13 +22,17 @@ class Api::V1::PlayersController < ApplicationController
       :characters => {:only => [:id, :gender, :name, :race, :character_class, :player_id]}
       }, :except => [:created_at, :updated_at]), status: 200
     else
-      render json: { message: 'No player found with that id' }
+      render json: { message: 'No player found with that id'}
     end
   end
   
   def create
-    player = Player.create(player_params)
-    render json: player, status: 200
+    player = Player.build(player_params)
+    if player.save
+      render json: player, status: 200
+    else
+      render json: {error: 'Fail to create character', status: 500}, status:500
+    end  
   end
 
   private

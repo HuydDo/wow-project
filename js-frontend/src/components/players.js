@@ -36,14 +36,18 @@ class Players{
     }
     else {
       const charName = this.adapter.titleCase(newPlayer)
-      this.adapter.createPlayer(charName).then(player => {
-      this.players.push(new Player(player))
-      this.createPlayerForm.style.display = "none"
-      this.message.innerHTML = ''
-      // this.message.innerHTML = this.adapter.nameCheck('Player was created successfully.', 2)
+      this.adapter.createPlayer(charName)
+      .then(player => {
+        this.players.push(new Player(player))
+        this.createPlayerForm.style.display = "none"
+        this.message.innerHTML = ''
 
-      // this.createPlayerBody.value = ''
-      // this.render(this.players)
+        // this.createPlayerBody.value = ''
+        // this.render(this.players)
+        })
+      .catch( err => {
+        console.log(err)
+        this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText, 2)
       })
     }
   }

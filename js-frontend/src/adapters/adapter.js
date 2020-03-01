@@ -59,8 +59,8 @@ class Adapter {
       body: JSON.stringify({
         character
       })
-    }).then(res => {
-      // if (!res.ok) { throw Error(res.statusText);}
+    })
+    .then(res => {
       if (!res.ok) { return Promise.reject({
         status: res.status,
         statusText: res.statusText,
@@ -73,7 +73,14 @@ class Adapter {
     return fetch(this.charactersUrl + `/${id}`, {
         method: 'DELETE'
       })
-      .then(res => res.json())
+      // .then(res => res.json())
+      .then(res => {
+        if (!res.ok) { return Promise.reject({
+          status: res.status,
+          statusText: res.statusText,
+          })}
+        return res.json()
+      })
   }
 
   createPlayer(name) {
@@ -88,7 +95,14 @@ class Adapter {
       body: JSON.stringify({
         player
       })
-    }).then(res => res.json())
+    })
+    .then(res => {
+      if (!res.ok) { return Promise.reject({
+        status: res.status,
+        statusText: res.statusText,
+        })}
+      return res.json()
+    })
   }
 
   titleCase(str) {

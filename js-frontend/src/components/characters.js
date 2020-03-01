@@ -132,6 +132,10 @@ class Characters {
     const tr = e.target.parentNode.parentNode
     const id = tr.dataset.id
     this.adapter.deleteCharacter(id)
+    .catch( err => {
+      console.log(err)
+      this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText, 2)
+    })
     tr.remove()
     this.characters = this.characters.filter(character => character.id != id)
   }

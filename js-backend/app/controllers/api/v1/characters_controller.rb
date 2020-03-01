@@ -30,9 +30,14 @@ class Api::V1::CharactersController < ApplicationController
   
   def destroy
     character = Character.find(params[:id])
-    character.delete
-    render json: character, status: 200
-  end
+    # character.delete
+    if character
+      character.delete
+      render json: character, status: 200
+    else
+      render json: {error: 'Fail to delete character', status: 404}, status:404
+    end
+   end
 
   private
   def character_params
