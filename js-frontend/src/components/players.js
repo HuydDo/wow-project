@@ -40,7 +40,7 @@ class Players{
       this.players.push(new Player(player))
       this.createPlayerForm.style.display = "none"
       this.message.innerHTML = ''
-      this.message.innerHTML = this.adapter.nameCheck('Player was created successfully.', 2)
+      // this.message.innerHTML = this.adapter.nameCheck('Player was created successfully.', 2)
 
       // this.createPlayerBody.value = ''
       // this.render(this.players)
