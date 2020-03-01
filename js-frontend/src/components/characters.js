@@ -91,7 +91,8 @@ class Characters {
         this.render()
       })
       .catch( err => {
-        console.error(err)
+        console.log(err)
+        this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText, 2)
       })
     }
   }

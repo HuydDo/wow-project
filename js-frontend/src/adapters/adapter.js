@@ -60,7 +60,11 @@ class Adapter {
         character
       })
     }).then(res => {
-      if (!res.ok) { throw Error(res.statusText);}
+      // if (!res.ok) { throw Error(res.statusText);}
+      if (!res.ok) { return Promise.reject({
+        status: res.status,
+        statusText: res.statusText,
+        })}
       return res.json()
     })
   }
