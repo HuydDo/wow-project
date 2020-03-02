@@ -34,7 +34,7 @@ class Players{
         this.message.innerHTML = this.adapter.nameCheck('Player was created successfully.', 2)
         })
       .catch( err => {
-        console.log(err)
+        // console.log(err)
         this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Player name is already exist.', 2)
       })
     }

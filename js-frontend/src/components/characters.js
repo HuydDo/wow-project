@@ -55,7 +55,7 @@ class Characters {
             } 
           })
           .catch( err => {
-            console.log(err)
+            // console.log(err)
             this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Can not found player ' + value, 2)
           })
 
@@ -88,7 +88,7 @@ class Characters {
         this.render()
       })
       .catch( err => {
-        console.log(err)
+        // console.log(err)
         this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Character name is already exist.', 2)
       })
     }
@@ -127,7 +127,7 @@ class Characters {
     const id = tr.dataset.id
     this.adapter.deleteCharacter(id)
     .catch( err => {
-      console.log(err)
+      // console.log(err)
       this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText, 2)
     })
     tr.remove()
