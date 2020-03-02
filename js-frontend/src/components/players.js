@@ -41,13 +41,13 @@ class Players{
         // this.players.push(new Player(player))
         this.createPlayerForm.style.display = "none"
         this.message.innerHTML = ''
-
+        this.message.innerHTML = this.adapter.nameCheck('Player was created successfully.', 2)
         // this.createPlayerBody.value = ''
         // this.render(this.players)
         })
       .catch( err => {
         console.log(err)
-        this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Player name is already exist', 2)
+        this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Player name is already exist.', 2)
       })
     }
   }
