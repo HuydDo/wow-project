@@ -88,7 +88,8 @@ class Characters {
 
     if (name === '') {
       this.message.innerHTML = this.adapter.nameCheck('Name')
-    } else {
+    } 
+    else {
       const charName = this.adapter.titleCase(player)
       this.adapter.createCharacter(gender, name, race, character_class, charName)
       .then(character => {
@@ -98,7 +99,7 @@ class Characters {
       })
       .catch( err => {
         console.log(err)
-        this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText, 2)
+        this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Character name is already exist', 2)
       })
     }
   }

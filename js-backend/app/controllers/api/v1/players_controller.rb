@@ -30,12 +30,14 @@ class Api::V1::PlayersController < ApplicationController
   end
   
   def create
-    player = Player.build(player_params)
+    # byebug
+    # player = Player.create(player_params)
+    player = Player.new(player_params)
     if player.save
-      render json: player, status: 200
+     render json: player, status: 200
     else
-      render json: {error: 'Fail to create character', status: 500}, status:500
-    end  
+      render json: {error: 'Fail to create player', status: 500}, status:500
+    end
   end
 
   private

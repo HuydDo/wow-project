@@ -38,7 +38,7 @@ class Players{
       const charName = this.adapter.titleCase(newPlayer)
       this.adapter.createPlayer(charName)
       .then(player => {
-        this.players.push(new Player(player))
+        // this.players.push(new Player(player))
         this.createPlayerForm.style.display = "none"
         this.message.innerHTML = ''
 
@@ -47,52 +47,52 @@ class Players{
         })
       .catch( err => {
         console.log(err)
-        this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText, 2)
+        this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Player name is already exist', 2)
       })
     }
   }
 
-  showPlayerCharacters(e){
-    e.preventDefault()
-    let playerObj = []
-    let playerName =  this.newPlayerBody.value
-    let playerId 
+  // showPlayerCharacters(e){
+  //   e.preventDefault()
+  //   let playerObj = []
+  //   let playerName =  this.newPlayerBody.value
+  //   let playerId 
     
-    if (playerName === ''){
-      this.message.innerHTML = this.adapter.nameCheck('Player name')
-    }
-    else {
+  //   if (playerName === ''){
+  //     this.message.innerHTML = this.adapter.nameCheck('Player name')
+  //   }
+  //   else {
       
-      const formattedPlayerName = this.adapter.titleCase(playerName)
+  //     const formattedPlayerName = this.adapter.titleCase(playerName)
       
-      this.adapter.getPlayerByName(formattedPlayerName)
-      .then(player => {
-        playerObj.push(new Player(player))
-        playerId = player.id
-        console.log(`currentUser ${player.name} set with id: ${player.id}`)
-      })
-      .then(() => {
+  //     this.adapter.getPlayerByName(formattedPlayerName)
+  //     .then(player => {
+  //       playerObj.push(new Player(player))
+  //       playerId = player.id
+  //       console.log(`currentUser ${player.name} set with id: ${player.id}`)
+  //     })
+  //     .then(() => {
       
-      // if (playerObj[0].id !== undefined ){
-      if (playerId !== undefined ){  
-        this.charBtn.style.display = "inline"
-        this.message.innerHTML = ''
-        this.render(playerObj)
-        this.myCharacter.style.display = "table"
+  //     // if (playerObj[0].id !== undefined ){
+  //     if (playerId !== undefined ){  
+  //       this.charBtn.style.display = "inline"
+  //       this.message.innerHTML = ''
+  //       this.render(playerObj)
+  //       this.myCharacter.style.display = "table"
         
-        this.playerBtn.style.display = "none"
-       }
-      else {
-        this.charBtn.style.display = "none"
-        // this.playersContainer.innerHTML = ''
-        this.playerBtn.style.display = "inline"
-        this.newCharacterForm.style.display = "none"
-        this.myCharacter.style.display ="none"
-        this.message.innerHTML = this.adapter.nameCheck(playerName, 1)
-      }
-     })
-    } 
-  }
+  //       this.playerBtn.style.display = "none"
+  //      }
+  //     else {
+  //       this.charBtn.style.display = "none"
+  //       // this.playersContainer.innerHTML = ''
+  //       this.playerBtn.style.display = "inline"
+  //       this.newCharacterForm.style.display = "none"
+  //       this.myCharacter.style.display ="none"
+  //       this.message.innerHTML = this.adapter.nameCheck(playerName, 1)
+  //     }
+  //    })
+  //   } 
+  // }
 
   // exactMatch() {
   //   return this.players.find(  

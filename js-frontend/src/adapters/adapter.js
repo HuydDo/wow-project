@@ -92,7 +92,7 @@ class Adapter {
 
   createPlayer(name) {
     const player = {
-      name,
+      name
     }
     return fetch(this.playersUrl, {
       method: 'POST',
