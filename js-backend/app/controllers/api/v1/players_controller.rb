@@ -2,11 +2,9 @@ class Api::V1::PlayersController < ApplicationController
   def index
      players = Player.all
       render json: players, include: [:characters]
-    #  render json: players.to_json(include: [:characters])
   end 
 
   def login
-    # player = Player.find_or_create_by(player_params)
     player = Player.find_by(player_params)
     if player  
       render json: player, status: 200
@@ -16,11 +14,9 @@ class Api::V1::PlayersController < ApplicationController
   end
 
   def show
-    player = Player.find_by(name: params[:id])
-    # player = Player.find_by(player_params)
+    player = Player.find_by(player_params)
    
     if player
-      # render json: player.to_json(include: [:characters])
       render json: player.to_json(:include => {
       :characters => {:only => [:id, :gender, :name, :race, :character_class, :player_id]}
       }, :except => [:created_at, :updated_at]), status: 200
@@ -30,7 +26,6 @@ class Api::V1::PlayersController < ApplicationController
   end
   
   def create
-    # player = Player.create(player_params)
     player = Player.new(player_params)
     if player.save
      render json: player, status: 200

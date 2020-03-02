@@ -18,8 +18,6 @@ class Api::V1::CharactersController < ApplicationController
   
   def create 
     player = Player.find_by(name: params[:character][:player_id])
-    # character = player.characters.create(character_params)
-    # render json: character, status:200
     character = player.characters.build(character_params)
     if character.save
       render json: character, status:200
@@ -30,7 +28,6 @@ class Api::V1::CharactersController < ApplicationController
   
   def destroy
     character = Character.find(params[:id])
-    # character.delete
     if character
       character.delete
       render json: character, status: 200
