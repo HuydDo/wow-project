@@ -52,7 +52,6 @@ class Characters {
           .then(player => {
             if (player !== null) {
               localStorage.setItem('currentPlayer', parseInt(player.id))
-             
               // console.log(`currentPlayer ${player.name} set with id: ${localStorage.getItem('currentPlayer')}`);
               btn.setAttribute('value', 'Logout')
               this.fetchAndLoadCharacters()
@@ -62,8 +61,6 @@ class Characters {
             // }
           })
           // .then(() => this.render())
-          // only fetch if get player login
-          // .then(() => this.fetchAndLoadCharacters())
           .catch( err => {
             console.log(err)
             this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Can not found player ' + value, 2)

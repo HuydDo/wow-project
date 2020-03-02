@@ -100,10 +100,10 @@ class Players{
   //   )
   // }
 
-  render(player){    
-    this.charactersContainer = document.getElementById('characters-container')
-    this.charactersContainer.innerHTML =  player.map(p => p.renderLi())
-  }
+  // render(player){    
+  //   this.charactersContainer = document.getElementById('characters-container')
+  //   this.charactersContainer.innerHTML =  player.map(p => p.renderLi())
+  // }
 
   
 }

@@ -30,7 +30,6 @@ class Api::V1::PlayersController < ApplicationController
   end
   
   def create
-    # byebug
     # player = Player.create(player_params)
     player = Player.new(player_params)
     if player.save
