@@ -21,7 +21,6 @@ class Adapter {
           player
         })
       })
-      // .then(res => res.json())
       .then(res => {
         if (!res.ok) { return Promise.reject({
           status: res.status,
@@ -39,13 +38,6 @@ class Adapter {
   getPlayers() {
     return fetch(this.playersUrl).then(res => res.json())
   }
-
-  // ES6 syntax
-  // async getPlayerByName(name) {
-  //    const response = await fetch(`${this.playersUrl}/${name}`)
-  //    const json = await response.json()
-  //    return json
-  // }
 
   getPlayerByName(name) {
     return fetch(`${this.playersUrl}/${name}`).then(res => res.json())

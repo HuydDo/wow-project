@@ -3,7 +3,6 @@ class Characters {
     this.characters = []
     this.adapter = new Adapter()
     this.initBindingAndEvenListeners()
-    // this.fetchAndLoadCharacters()
   }
 
   initBindingAndEvenListeners() {
@@ -39,7 +38,6 @@ class Characters {
 
   loginPlayer(e) {
     e.preventDefault()
-    // console.log('e.target: ', e.target.childNodes[1].childNodes[2].nextElementSibling.value);
     const btn = e.target.childNodes[1].childNodes[2].nextElementSibling
     const btnText = e.target.childNodes[1].childNodes[2].nextElementSibling.value
     if (btnText == 'Login') {
@@ -52,15 +50,10 @@ class Characters {
           .then(player => {
             if (player !== null) {
               localStorage.setItem('currentPlayer', parseInt(player.id))
-              // console.log(`currentPlayer ${player.name} set with id: ${localStorage.getItem('currentPlayer')}`);
               btn.setAttribute('value', 'Logout')
               this.fetchAndLoadCharacters()
             } 
-            // else {
-            //   this.message.innerHTML = this.adapter.nameCheck(value, 1)
-            // }
           })
-          // .then(() => this.render())
           .catch( err => {
             console.log(err)
             this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Can not found player ' + value, 2)
@@ -120,14 +113,11 @@ class Characters {
       this.playerBtn.style.display = "none"
       this.createPlayerForm.style.display = "none"
       this.charactersContainer.innerHTML = `${this.characters.filter(character => character.player_id == curr_player).map(character => character.renderLi()).join('')}`
-    } else {
-      // this.message.innerHTML = this.adapter.nameCheck('Please login', 2)
-    }
+    } 
   }
 
   handleCharacterClick(e) {
     if (e.target.classList.contains('delete-character-link')) {
-      // console.log('will delete', e.target.parentNode.parentNode);
       this.deleteCharacter(e)
     }
   }
