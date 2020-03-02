@@ -61,7 +61,11 @@ class Characters {
           })
           // .then(() => this.render())
           // only fetch if get player login
-          .then(() => this.fetchAndLoadCharacters())
+          // .then(() => this.fetchAndLoadCharacters())
+          // .catch( err => {
+          //   console.log(err)
+          //   this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText, 2)
+          // })
 
       }
     } else {

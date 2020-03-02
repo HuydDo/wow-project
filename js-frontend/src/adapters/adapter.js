@@ -22,6 +22,14 @@ class Adapter {
         })
       })
       .then(res => res.json())
+      // .then(res => {
+      //   if (!res.ok) { return Promise.reject({
+      //     status: res.status,
+      //     statusText: res.statusText,
+      //     })}
+      //   return res.json()
+      // })
+      
   }
 
   getCharacters() {
@@ -73,7 +81,6 @@ class Adapter {
     return fetch(this.charactersUrl + `/${id}`, {
         method: 'DELETE'
       })
-      // .then(res => res.json())
       .then(res => {
         if (!res.ok) { return Promise.reject({
           status: res.status,
