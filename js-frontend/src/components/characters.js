@@ -63,7 +63,7 @@ class Characters {
           // .then(() => this.render())
           .catch( err => {
             console.log(err)
-            this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Can not found player. ' + value, 2)
+            this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Can not found player ' + value, 2)
           })
 
       }
