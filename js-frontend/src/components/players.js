@@ -5,14 +5,9 @@ class Players{
     this.initBindingAndEvenListeners()
   }
   initBindingAndEvenListeners(){
-    // this.playersContainer = document.getElementById('players-container')
-    // this.newPlayerBody = document.getElementById('new-player-body')
-    // this.loginPlayerForm = document.getElementById('login-player-form')
     this.createPlayerBody = document.getElementById('create-player-body')
     this.createPlayerForm = document.getElementById('create-player-form')
     this.message = document.getElementById('message')
-    // this.charBtn = document.getElementById('charBtn')
-    // this.playerBtn = document.getElementById('playerBtn')
     this.newCharacterForm = document.getElementById('new-character-form')
     this.myCharacter = document.getElementById('my-characters')
     this.createPlayerForm.style.display = "none"
