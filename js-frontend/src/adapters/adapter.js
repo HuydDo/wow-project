@@ -21,14 +21,14 @@ class Adapter {
           player
         })
       })
-      .then(res => res.json())
-      // .then(res => {
-      //   if (!res.ok) { return Promise.reject({
-      //     status: res.status,
-      //     statusText: res.statusText,
-      //     })}
-      //   return res.json()
-      // })
+      // .then(res => res.json())
+      .then(res => {
+        if (!res.ok) { return Promise.reject({
+          status: res.status,
+          statusText: res.statusText,
+          })}
+        return res.json()
+      })
       
   }
 

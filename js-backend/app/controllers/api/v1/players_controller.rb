@@ -8,11 +8,11 @@ class Api::V1::PlayersController < ApplicationController
   def login
     # player = Player.find_or_create_by(player_params)
     player = Player.find_by(player_params)
-    # if player
-     render json: player, status: 200
-    # else
-    #   render json: { error: 'Can not vlog in with that user', status: 404}, status:404
-    # end 
+    if player  
+      render json: player, status: 200
+    else
+      render json: {error: 'Can not login with username', status: 404}, status:404
+    end  
   end
 
   def show

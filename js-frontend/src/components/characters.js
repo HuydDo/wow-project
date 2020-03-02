@@ -55,17 +55,19 @@ class Characters {
              
               // console.log(`currentPlayer ${player.name} set with id: ${localStorage.getItem('currentPlayer')}`);
               btn.setAttribute('value', 'Logout')
-            } else {
-              this.message.innerHTML = this.adapter.nameCheck(value, 1)
-            }
+              this.fetchAndLoadCharacters()
+            } 
+            // else {
+            //   this.message.innerHTML = this.adapter.nameCheck(value, 1)
+            // }
           })
           // .then(() => this.render())
           // only fetch if get player login
           // .then(() => this.fetchAndLoadCharacters())
-          // .catch( err => {
-          //   console.log(err)
-          //   this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText, 2)
-          // })
+          .catch( err => {
+            console.log(err)
+            this.message.innerHTML = this.adapter.nameCheck('status: ' + err.status + ' statusText: ' + err.statusText + ' Can not found player ' + value, 2)
+          })
 
       }
     } else {
