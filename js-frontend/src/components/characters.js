@@ -44,6 +44,7 @@ class Characters {
     e.preventDefault()
     this.adapter.sortChar()
     .then(characters => {
+      
       // characters.forEach(character => this.characters.push(new Character(character)))
       this.characters.sort(function(a,b){
         let nameA = a.name.toUpperCase(); // ignore upper and lowercase
