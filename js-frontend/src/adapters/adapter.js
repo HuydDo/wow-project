@@ -8,6 +8,11 @@ class Adapter {
     this.playersUrl = PLAYERS_URL
   }
 
+  sortChar(){
+    return fetch(`${this.charactersUrl}`)
+    .then(res => res.json())
+  }
+
   loginPlayer(value) {
     const player = {
       name: value

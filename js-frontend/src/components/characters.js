@@ -34,6 +34,37 @@ class Characters {
     this.charBtn.style.display = "none"
 
     this.createPlayerForm = document.getElementById('create-player-form')
+
+    this.sortChar = document.getElementById('sortChar')
+    this.sortChar.addEventListener('click', this.sortCharacter.bind(this))
+  }
+
+  sortCharacter(e){
+    // debugger
+    e.preventDefault()
+    this.adapter.sortChar()
+    .then(characters => {
+      // characters.forEach(character => this.characters.push(new Character(character)))
+      this.characters.sort(function(a,b){
+        let nameA = a.name.toUpperCase(); // ignore upper and lowercase
+        let nameB = b.name.toUpperCase(); // ignore upper and lowercase
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        // names must be equal
+        return 0;
+      })
+    })
+    .then(() => {
+     
+      console.log(this.characters)
+      this.render()
+    })
+
   }
 
   loginPlayer(e) {
